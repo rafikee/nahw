@@ -3,7 +3,7 @@ import { Noto_Naskh_Arabic } from "next/font/google";
 import "./globals.css";
 
 const notoNaskhArabic = Noto_Naskh_Arabic({
-  variable: "--font-cairo",
+  variable: "--font-arabic",
   subsets: ["arabic"],
   weight: ["400", "500", "600", "700"],
 });

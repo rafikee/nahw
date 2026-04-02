@@ -8,8 +8,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-cairo);
-  --font-arabic: var(--font-cairo);
+  --font-sans: var(--font-arabic);
+  --font-arabic: var(--font-arabic);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,7 +22,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-cairo), "Noto Naskh Arabic", serif;
+  font-family: var(--font-arabic), "Noto Naskh Arabic", serif;
 }
 
 /* Give tashkeel room to breathe above and below every line */
