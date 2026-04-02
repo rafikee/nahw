@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Cairo } from "next/font/google";
+import { Noto_Naskh_Arabic } from "next/font/google";
 import "./globals.css";
 
-const cairo = Cairo({
+const notoNaskhArabic = Noto_Naskh_Arabic({
   variable: "--font-cairo",
-  subsets: ["arabic", "latin"],
+  subsets: ["arabic"],
   weight: ["400", "500", "600", "700"],
 });
 
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" className={`${cairo.variable} h-full antialiased`}>
+    <html lang="ar" className={`${notoNaskhArabic.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

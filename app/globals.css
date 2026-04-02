@@ -22,5 +22,26 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-cairo), Arial, sans-serif;
+  font-family: var(--font-cairo), "Noto Naskh Arabic", serif;
+}
+
+/* Give tashkeel room to breathe above and below every line */
+[dir="rtl"] {
+  line-height: 2.4;
+}
+
+/* View transition animations (RTL: forward = enter from left) */
+@keyframes slideInFromLeft {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInFromRight {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.slide-forward {
+  animation: slideInFromLeft 0.22s ease-out both;
+}
+.slide-backward {
+  animation: slideInFromRight 0.22s ease-out both;
 }
