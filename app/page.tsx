@@ -6,7 +6,6 @@ import { StepCourseIntro } from "@/components/steps/StepCourseIntro";
 import { StepLessonIntro } from "@/components/steps/StepLessonIntro";
 import { StepConcept } from "@/components/steps/StepConcept";
 import { StepTextQuestions } from "@/components/steps/StepTextQuestions";
-import { StepWordClassification } from "@/components/steps/StepWordClassification";
 import { StepInteractiveParagraph } from "@/components/steps/StepInteractiveParagraph";
 
 /* ── Types ── */
@@ -17,7 +16,6 @@ type View =
   | { type: "lesson_intro"; lessonIndex: number }
   | { type: "lesson_concept"; lessonIndex: number; conceptIndex: number }
   | { type: "lesson_text_questions"; lessonIndex: number }
-  | { type: "lesson_word_classification"; lessonIndex: number }
   | { type: "lesson_interactive_paragraph"; lessonIndex: number };
 
 /* ── View builder ── */
@@ -32,7 +30,6 @@ function buildViews(): View[] {
         (_, ci): View => ({ type: "lesson_concept", lessonIndex: li, conceptIndex: ci })
       ),
       { type: "lesson_text_questions" as const, lessonIndex: li },
-      { type: "lesson_word_classification" as const, lessonIndex: li },
       { type: "lesson_interactive_paragraph" as const, lessonIndex: li },
     ]),
   ];
@@ -52,7 +49,6 @@ function getBreadcrumb(view: View): { lesson: string | null; step: string } {
   if (view.type === "lesson_intro") step = "نظرة عامة";
   else if (view.type === "lesson_concept") step = LESSONS[li].concepts[view.conceptIndex].type;
   else if (view.type === "lesson_text_questions") step = "أسئلة";
-  else if (view.type === "lesson_word_classification") step = "تصنيف";
   else if (view.type === "lesson_interactive_paragraph") step = "تمرين";
   return { lesson, step };
 }
@@ -83,23 +79,21 @@ export default function Home() {
   const canGoBack = viewIndex > 0;
   const progress = getLessonProgress(views, viewIndex);
 
+
   function goNext() {
     setDirection("forward");
     setViewIndex((i) => Math.min(i + 1, views.length - 1));
     setRevealedIndices(new Set());
-    window.scrollTo({ top: 0, behavior: "instant" });
   }
   function goPrev() {
     setDirection("backward");
     setViewIndex((i) => Math.max(i - 1, 0));
     setRevealedIndices(new Set());
-    window.scrollTo({ top: 0, behavior: "instant" });
   }
   function goHome() {
     setDirection("backward");
     setViewIndex(0);
     setRevealedIndices(new Set());
-    window.scrollTo({ top: 0, behavior: "instant" });
   }
 
   function revealWord(index: number) {
@@ -107,7 +101,7 @@ export default function Home() {
   }
 
   return (
-    <div dir="rtl" className="min-h-screen bg-stone-50 font-arabic flex flex-col">
+    <div dir="rtl" className="h-screen bg-stone-50 font-arabic flex flex-col overflow-hidden">
       {/* ── Splash ── */}
       {currentView.type === "splash" && (
         <div className="fixed inset-0 flex flex-col justify-center gap-10 px-8 bg-stone-50">
@@ -133,7 +127,7 @@ export default function Home() {
       {/* ── Steps 1+ : header + content + nav ── */}
       {currentView.type !== "splash" && (
         <>
-          <header className="sticky top-0 z-10 border-b border-stone-200/80 bg-white/90 backdrop-blur-sm">
+          <header className="shrink-0 border-b border-stone-200/80 bg-white/90 backdrop-blur-sm">
             <div className="mx-auto flex max-w-3xl items-center gap-2.5 px-6 py-4 min-w-0">
               {(() => {
                 const { lesson, step } = getBreadcrumb(currentView);
@@ -162,7 +156,7 @@ export default function Home() {
 
           <main
             key={viewIndex}
-            className={`flex-1 mx-auto w-full max-w-3xl px-6 py-12 ${
+            className={`flex-1 overflow-y-auto mx-auto w-full max-w-3xl px-6 py-12 ${
               direction === "forward" ? "slide-forward" : "slide-backward"
             }`}
           >
@@ -186,11 +180,6 @@ export default function Home() {
                 questions={LESSONS[currentView.lessonIndex].exercises.text_questions}
               />
             )}
-            {currentView.type === "lesson_word_classification" && (
-              <StepWordClassification
-                data={LESSONS[currentView.lessonIndex].exercises.word_classification_list}
-              />
-            )}
             {currentView.type === "lesson_interactive_paragraph" && (
               <StepInteractiveParagraph
                 data={LESSONS[currentView.lessonIndex].exercises.interactive_paragraph}
@@ -200,7 +189,7 @@ export default function Home() {
             )}
           </main>
 
-          <footer className="border-t border-stone-100 bg-white px-6 pt-3 pb-6">
+          <footer className="shrink-0 border-t border-stone-100 bg-white px-6 pt-3 pb-6">
             <div className="mx-auto max-w-3xl space-y-3">
               {progress && (
                 <div className="flex items-center justify-center gap-2 py-1">

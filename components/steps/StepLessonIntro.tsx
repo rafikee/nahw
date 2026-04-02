@@ -1,32 +1,36 @@
 import type { Lesson, Concept } from "@/types/lesson";
-import { SectionLabel } from "@/components/ui/SectionLabel";
 import { conceptThemes } from "@/components/ui/conceptThemes";
+import { RichText } from "@/components/ui/RichText";
 
 export function StepLessonIntro({ lesson, concepts }: { lesson: Lesson; concepts: Concept[] }) {
   return (
-    <div className="space-y-6">
-      <SectionLabel>المقدمة</SectionLabel>
-      <p className="text-sm leading-8 text-stone-400 px-1">{lesson.introduction}</p>
+    <div className="space-y-8">
+
+      {/* ── Page title ── */}
+      <h1 className="text-2xl font-bold text-stone-900 leading-[1.8]">{lesson.title}</h1>
+
+      {/* ── Lesson introduction ── */}
+      <div className="border-r-4 border-amber-400 pr-5 py-1">
+        <p className="text-xl text-stone-800 leading-[2.4]">
+          <RichText text={lesson.introduction} />
+        </p>
+      </div>
+
+      {/* ── Concept preview cards ── */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         {concepts.map((concept, i) => {
           const theme = conceptThemes[i % conceptThemes.length];
           return (
             <div
               key={concept.type}
-              className={`relative rounded-2xl border ${theme.border} ${theme.bg} p-6 space-y-5 overflow-hidden`}
+              className={`rounded-2xl border ${theme.border} ${theme.bg} p-6 space-y-5`}
             >
-              <span
-                className={`absolute -bottom-5 -left-2 text-[6.5rem] font-black select-none leading-none pointer-events-none ${theme.watermark}`}
-                aria-hidden
-              >
-                {concept.type}
-              </span>
               <div className={`w-9 h-9 ${theme.iconColor}`}>{theme.icon}</div>
               <span className={`inline-flex items-center rounded-xl border px-3 py-1.5 text-2xl font-bold ${theme.badgeBg}`}>
                 {concept.type}
               </span>
-              <p className="text-sm leading-7 text-stone-600 relative z-10">
-                {concept.definition}
+              <p className="text-lg leading-[2.4] text-stone-600 relative z-10">
+                <RichText text={concept.definition} />
               </p>
             </div>
           );

@@ -31,8 +31,13 @@ export interface InteractiveParagraph {
   parsing_breakdown: ParsedWord[];
 }
 
+export interface TextQuestion {
+  question: string;
+  answer: string;
+}
+
 export interface Exercises {
-  text_questions: string[];
+  text_questions: TextQuestion[];
   word_classification_list: {
     instruction: string;
     words: string[];

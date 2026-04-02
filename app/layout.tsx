@@ -19,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" className={`${notoNaskhArabic.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="ar" className={`${notoNaskhArabic.variable} antialiased`}>
+      <body>{children}</body>
     </html>
   );
 }

@@ -6,8 +6,8 @@ export const conceptThemes = [
     iconColor: "text-sky-400",
     watermark: "text-sky-200",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+        <path d="M13 2L3 14h8v8l10-12h-8V2z" />
       </svg>
     ),
   },
