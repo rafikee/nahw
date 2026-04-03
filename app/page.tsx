@@ -101,10 +101,10 @@ export default function Home() {
   }
 
   return (
-    <div dir="rtl" className="h-screen bg-stone-50 font-arabic flex flex-col overflow-hidden">
+    <div dir="rtl" className="h-dvh bg-stone-50 font-arabic flex flex-col overflow-hidden">
       {/* ── Splash ── */}
       {currentView.type === "splash" && (
-        <div className="fixed inset-0 flex flex-col justify-center gap-10 px-8 bg-stone-50">
+        <div className="flex-1 flex flex-col justify-center gap-10 px-8 bg-stone-50">
           <div style={{ lineHeight: 1.6 }}>
             <p className="text-2xl font-semibold text-stone-500">مرحباً بك في</p>
             <h1 className="text-3xl font-bold text-stone-800">أساسيات النحو</h1>
@@ -127,7 +127,7 @@ export default function Home() {
       {/* ── Steps 1+ : header + content + nav ── */}
       {currentView.type !== "splash" && (
         <>
-          <header className="shrink-0 border-b border-stone-200/80 bg-white/90 backdrop-blur-sm">
+          <header className="shrink-0 bg-white/90 backdrop-blur-sm">
             <div className="mx-auto flex max-w-3xl items-center gap-2.5 px-6 py-4 min-w-0">
               {(() => {
                 const { lesson, step } = getBreadcrumb(currentView);
@@ -151,6 +151,15 @@ export default function Home() {
                   </>
                 );
               })()}
+            </div>
+            {/* ── Progress bar ── */}
+            <div className="h-[3px] bg-stone-100">
+              {progress && (
+                <div
+                  className="h-full bg-amber-400 transition-all duration-300 ease-out"
+                  style={{ width: `${(progress.step / progress.total) * 100}%` }}
+                />
+              )}
             </div>
           </header>
 
@@ -189,33 +198,13 @@ export default function Home() {
             )}
           </main>
 
-          <footer className="shrink-0 border-t border-stone-100 bg-white px-6 pt-3 pb-6">
-            <div className="mx-auto max-w-3xl space-y-3">
-              {progress && (
-                <div className="flex items-center justify-center gap-2 py-1">
-                  {Array.from({ length: progress.total }, (_, i) => {
-                    const stepNum = i + 1;
-                    return (
-                      <div
-                        key={i}
-                        className={`rounded-full transition-all duration-300 ${
-                          stepNum === progress.step
-                            ? "w-5 h-2 bg-amber-500"
-                            : stepNum < progress.step
-                            ? "w-2 h-2 bg-amber-300"
-                            : "w-2 h-2 bg-stone-200"
-                        }`}
-                      />
-                    );
-                  })}
-                </div>
-              )}
-
+          <footer className="shrink-0 border-t border-stone-100/80 bg-white/80 backdrop-blur-sm px-6 pt-2 pb-[max(env(safe-area-inset-bottom),0.75rem)]">
+            <div className="mx-auto max-w-3xl">
               <div className="flex items-stretch gap-3">
                 <button
                   onClick={goPrev}
                   disabled={!canGoBack}
-                  className="shrink-0 rounded-2xl border border-stone-200 px-5 py-4 text-sm font-semibold text-stone-500 hover:bg-stone-50 hover:border-stone-300 disabled:opacity-20 disabled:pointer-events-none transition-all"
+                  className="shrink-0 rounded-xl border border-stone-200 px-4 py-2.5 text-sm font-semibold text-stone-400 hover:bg-stone-50 hover:border-stone-300 disabled:opacity-20 disabled:pointer-events-none transition-all"
                 >
                   السابق
                 </button>
@@ -223,14 +212,14 @@ export default function Home() {
                 {!isLast ? (
                   <button
                     onClick={goNext}
-                    className="flex-1 rounded-2xl bg-amber-600 py-4 text-base font-bold text-white hover:bg-amber-700 active:scale-[0.98] transition-all duration-150 shadow-sm"
+                    className="flex-1 rounded-xl bg-amber-600 py-2.5 text-sm font-bold text-white hover:bg-amber-700 active:scale-[0.98] transition-all duration-150 shadow-sm"
                   >
                     التالي
                   </button>
                 ) : (
                   <button
                     onClick={goHome}
-                    className="flex-1 rounded-2xl bg-stone-800 py-4 text-base font-bold text-white hover:bg-stone-900 active:scale-[0.98] transition-all duration-150 shadow-sm"
+                    className="flex-1 rounded-xl bg-stone-800 py-2.5 text-sm font-bold text-white hover:bg-stone-900 active:scale-[0.98] transition-all duration-150 shadow-sm"
                   >
                     إعادة الدرس
                   </button>

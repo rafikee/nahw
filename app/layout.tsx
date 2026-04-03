@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Noto_Naskh_Arabic } from "next/font/google";
 import "./globals.css";
 
@@ -11,6 +11,12 @@ const notoNaskhArabic = Noto_Naskh_Arabic({
 export const metadata: Metadata = {
   title: "أَنْوَاعُ الكَلِمَاتِ — نَحْو",
   description: "أداة تعليم قواعد اللغة العربية التفاعلية",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
