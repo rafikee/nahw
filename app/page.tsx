@@ -112,7 +112,7 @@ export default function Home() {
   return (
     <div dir="rtl" className="h-dvh font-arabic flex flex-col lg:items-center lg:justify-center bg-stone-50 lg:bg-stone-200/60 overflow-hidden">
       {/* ── Card shell (full-screen on mobile, floating card on desktop) ── */}
-      <div className="flex-1 flex flex-col w-full lg:flex-none lg:w-[520px] lg:h-[88vh] lg:rounded-3xl lg:shadow-2xl lg:overflow-hidden bg-stone-50">
+      <div className="flex-1 min-h-0 flex flex-col w-full lg:flex-none lg:w-[520px] lg:h-[88vh] lg:rounded-3xl lg:shadow-2xl lg:overflow-hidden bg-stone-50">
 
         {/* ── Splash ── */}
         {currentView.type === "splash" && (
@@ -177,7 +177,7 @@ export default function Home() {
 
             <main
               key={viewIndex}
-              className={`flex-1 overflow-y-auto px-6 py-10 ${
+              className={`flex-1 min-h-0 overflow-y-auto px-6 py-10 ${
                 direction === "forward" ? "slide-forward" : "slide-backward"
               }`}
             >
