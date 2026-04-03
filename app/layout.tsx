@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" className={`${notoNaskhArabic.variable} antialiased`}>
+      <html lang="ar" className={`${notoNaskhArabic.variable} antialiased`} suppressHydrationWarning>
       <body>{children}</body>
     </html>
   );
