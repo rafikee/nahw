@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { COURSE_INTRO, LESSONS } from "@/data/index";
 import { StepCourseIntro } from "@/components/steps/StepCourseIntro";
 import { StepLessonIntro } from "@/components/steps/StepLessonIntro";
@@ -100,106 +100,117 @@ export default function Home() {
     setRevealedIndices((prev) => new Set(prev).add(index));
   }
 
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "ArrowRight") goNext();
+      if (e.key === "ArrowLeft") goPrev();
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
-    <div dir="rtl" className="h-dvh bg-stone-50 font-arabic flex flex-col overflow-hidden">
-      {/* ── Splash ── */}
-      {currentView.type === "splash" && (
-        <div className="flex-1 flex flex-col justify-center gap-10 px-8 bg-stone-50">
-          <div style={{ lineHeight: 1.6 }}>
-            <p className="text-2xl font-semibold text-stone-500">مرحباً بك في</p>
-            <h1 className="text-3xl font-bold text-stone-800">أساسيات النحو</h1>
-          </div>
+    <div dir="rtl" className="h-dvh font-arabic flex flex-col lg:items-center lg:justify-center bg-stone-50 lg:bg-stone-200/60 overflow-hidden">
+      {/* ── Card shell (full-screen on mobile, floating card on desktop) ── */}
+      <div className="flex-1 flex flex-col w-full lg:flex-none lg:w-[520px] lg:h-[88vh] lg:rounded-3xl lg:shadow-2xl lg:overflow-hidden bg-stone-50">
 
-          <div className="border-r-4 border-amber-400 pr-5" style={{ lineHeight: 1.5 }}>
-            <p className="text-lg font-semibold text-amber-600 mb-3">درس اليوم</p>
-            <p className="text-3xl font-bold text-stone-900">{LESSONS[0].title}</p>
-          </div>
-
-          <button
-            onClick={goNext}
-            className="w-full rounded-2xl bg-amber-600 py-4 text-base font-bold text-white hover:bg-amber-700 active:scale-[0.98] transition-all duration-200 shadow-sm"
-          >
-            ابدأ الدرس
-          </button>
-        </div>
-      )}
-
-      {/* ── Steps 1+ : header + content + nav ── */}
-      {currentView.type !== "splash" && (
-        <>
-          <header className="shrink-0 bg-white/90 backdrop-blur-sm">
-            <div className="mx-auto flex max-w-3xl items-center gap-2.5 px-6 py-4 min-w-0">
-              {(() => {
-                const { lesson, step } = getBreadcrumb(currentView);
-                return (
-                  <>
-                    <button
-                      onClick={goHome}
-                      className="shrink-0 rounded-md bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 border border-amber-100 hover:bg-amber-100 transition-colors"
-                      title="العودة إلى الصفحة الرئيسية"
-                    >
-                      أساسيات النحو
-                    </button>
-                    {lesson && (
-                      <>
-                        <span className="text-stone-200 select-none shrink-0">|</span>
-                        <span className="shrink-0 text-sm text-stone-400">{lesson}</span>
-                      </>
-                    )}
-                    <span className="text-stone-200 select-none shrink-0">|</span>
-                    <h1 className="text-sm font-semibold text-stone-800 truncate min-w-0">{step}</h1>
-                  </>
-                );
-              })()}
+        {/* ── Splash ── */}
+        {currentView.type === "splash" && (
+          <div className="flex-1 flex flex-col justify-center gap-10 px-8">
+            <div style={{ lineHeight: 1.6 }}>
+              <p className="text-2xl font-semibold text-stone-500">مرحباً بك في</p>
+              <h1 className="text-3xl font-bold text-stone-800">أساسيات النحو</h1>
             </div>
-            {/* ── Progress bar ── */}
-            <div className="h-[3px] bg-stone-100">
-              {progress && (
-                <div
-                  className="h-full bg-amber-400 transition-all duration-300 ease-out"
-                  style={{ width: `${(progress.step / progress.total) * 100}%` }}
+
+            <div className="border-r-4 border-amber-400 pr-5" style={{ lineHeight: 1.5 }}>
+              <p className="text-lg font-semibold text-amber-600 mb-3">درس اليوم</p>
+              <p className="text-3xl font-bold text-stone-900">{LESSONS[0].title}</p>
+            </div>
+
+            <button
+              onClick={goNext}
+              className="w-full rounded-2xl bg-amber-600 py-4 text-base font-bold text-white hover:bg-amber-700 active:scale-[0.98] transition-all duration-200 shadow-sm"
+            >
+              ابدأ الدرس
+            </button>
+          </div>
+        )}
+
+        {/* ── Steps 1+ : header + content + nav ── */}
+        {currentView.type !== "splash" && (
+          <>
+            <header className="shrink-0 bg-white/90 backdrop-blur-sm">
+              <div className="flex items-center gap-2.5 px-6 py-4 min-w-0">
+                {(() => {
+                  const { lesson, step } = getBreadcrumb(currentView);
+                  return (
+                    <>
+                      <button
+                        onClick={goHome}
+                        className="shrink-0 rounded-md bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 border border-amber-100 hover:bg-amber-100 transition-colors"
+                        title="العودة إلى الصفحة الرئيسية"
+                      >
+                        أساسيات النحو
+                      </button>
+                      {lesson && (
+                        <>
+                          <span className="text-stone-200 select-none shrink-0">|</span>
+                          <span className="shrink-0 text-sm text-stone-400">{lesson}</span>
+                        </>
+                      )}
+                      <span className="text-stone-200 select-none shrink-0">|</span>
+                      <h1 className="text-sm font-semibold text-stone-800 truncate min-w-0">{step}</h1>
+                    </>
+                  );
+                })()}
+              </div>
+              {/* ── Progress bar ── */}
+              <div className="h-[3px] bg-stone-100">
+                {progress && (
+                  <div
+                    className="h-full bg-amber-400 transition-all duration-300 ease-out"
+                    style={{ width: `${(progress.step / progress.total) * 100}%` }}
+                  />
+                )}
+              </div>
+            </header>
+
+            <main
+              key={viewIndex}
+              className={`flex-1 overflow-y-auto px-6 py-10 ${
+                direction === "forward" ? "slide-forward" : "slide-backward"
+              }`}
+            >
+              {currentView.type === "course_intro" && (
+                <StepCourseIntro data={COURSE_INTRO} />
+              )}
+              {currentView.type === "lesson_intro" && (
+                <StepLessonIntro
+                  lesson={LESSONS[currentView.lessonIndex]}
+                  concepts={LESSONS[currentView.lessonIndex].concepts}
                 />
               )}
-            </div>
-          </header>
+              {currentView.type === "lesson_concept" && (
+                <StepConcept
+                  concept={LESSONS[currentView.lessonIndex].concepts[currentView.conceptIndex]}
+                  conceptIndex={currentView.conceptIndex}
+                />
+              )}
+              {currentView.type === "lesson_text_questions" && (
+                <StepTextQuestions
+                  questions={LESSONS[currentView.lessonIndex].exercises.text_questions}
+                />
+              )}
+              {currentView.type === "lesson_interactive_paragraph" && (
+                <StepInteractiveParagraph
+                  data={LESSONS[currentView.lessonIndex].exercises.interactive_paragraph}
+                  revealedIndices={revealedIndices}
+                  onReveal={revealWord}
+                />
+              )}
+            </main>
 
-          <main
-            key={viewIndex}
-            className={`flex-1 overflow-y-auto mx-auto w-full max-w-3xl px-6 py-12 ${
-              direction === "forward" ? "slide-forward" : "slide-backward"
-            }`}
-          >
-            {currentView.type === "course_intro" && (
-              <StepCourseIntro data={COURSE_INTRO} />
-            )}
-            {currentView.type === "lesson_intro" && (
-              <StepLessonIntro
-                lesson={LESSONS[currentView.lessonIndex]}
-                concepts={LESSONS[currentView.lessonIndex].concepts}
-              />
-            )}
-            {currentView.type === "lesson_concept" && (
-              <StepConcept
-                concept={LESSONS[currentView.lessonIndex].concepts[currentView.conceptIndex]}
-                conceptIndex={currentView.conceptIndex}
-              />
-            )}
-            {currentView.type === "lesson_text_questions" && (
-              <StepTextQuestions
-                questions={LESSONS[currentView.lessonIndex].exercises.text_questions}
-              />
-            )}
-            {currentView.type === "lesson_interactive_paragraph" && (
-              <StepInteractiveParagraph
-                data={LESSONS[currentView.lessonIndex].exercises.interactive_paragraph}
-                revealedIndices={revealedIndices}
-                onReveal={revealWord}
-              />
-            )}
-          </main>
-
-          <footer className="shrink-0 border-t border-stone-100/80 bg-white/80 backdrop-blur-sm px-6 pt-2 pb-[max(env(safe-area-inset-bottom),0.75rem)]">
-            <div className="mx-auto max-w-3xl">
+            <footer className="shrink-0 border-t border-stone-100/80 bg-white/80 backdrop-blur-sm px-6 pt-2 pb-[max(env(safe-area-inset-bottom),0.75rem)]">
               <div className="flex items-stretch gap-3">
                 <button
                   onClick={goPrev}
@@ -225,10 +236,10 @@ export default function Home() {
                   </button>
                 )}
               </div>
-            </div>
-          </footer>
-        </>
-      )}
+            </footer>
+          </>
+        )}
+      </div>
     </div>
   );
 }
