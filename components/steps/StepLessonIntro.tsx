@@ -10,8 +10,8 @@ export function StepLessonIntro({ lesson, concepts }: { lesson: Lesson; concepts
       <h1 className="text-2xl font-bold text-stone-900 leading-[1.8]">{lesson.title}</h1>
 
       {/* ── Lesson introduction ── */}
-      <div className="border-r-4 border-amber-400 pr-5 py-1">
-        <p className="text-xl text-stone-800 leading-[2.4]">
+      <div className="rounded-2xl border border-stone-100 bg-white px-7 py-6 shadow-sm">
+        <p className="text-lg text-stone-700 leading-[2.6]">
           <RichText text={lesson.introduction} />
         </p>
       </div>
