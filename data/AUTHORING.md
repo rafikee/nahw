@@ -20,6 +20,8 @@ The AI reads the source, maps it to our JSON structure, and produces a complete 
 - Flag suspected OCR/tashkeel errors
 - Flag content decisions it's unsure about (e.g. should two short sections be merged into one lesson?)
 
+**Important: stop and escalate if the lesson doesn't fit.** If the source material doesn't map cleanly to our JSON structure -- for example, a lesson has no clear "concepts" to extract, or the exercises don't convert to quick checks or word sorts without heavy rewriting, or the lesson seems to need a new step type we don't have -- **do not force it**. Instead, stop and tell the human: "This lesson doesn't fit the current format well. Here's what's different: [specifics]. We should discuss how to handle it before I draft the JSON." It's always better to pause and adapt the format than to silently produce a lesson that feels wrong.
+
 ### Step 3: Wire it up
 
 Add the new file to `data/index.ts`:
