@@ -8,27 +8,26 @@ export function StepLessonIntro({ lesson }: { lesson: Lesson }) {
 
       <h1 className="text-2xl font-bold text-stone-900 leading-[1.8]">{lesson.title}</h1>
 
-      <div className="rounded-2xl border border-stone-100 bg-white px-7 py-6 shadow-sm">
-        <p className="text-lg text-stone-700 leading-[2.6]">
+      {/* Single-sentence hook as pull quote */}
+      <div className="border-r-4 border-amber-400 pr-5 py-1">
+        <p className="text-xl text-stone-800 leading-[2.4]">
           <RichText text={lesson.introduction} />
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+      {/* Concept name badges — preview only, no definitions */}
+      <div className="grid grid-cols-3 gap-3">
         {lesson.concepts.map((concept, i) => {
           const theme = conceptThemes[i % conceptThemes.length];
           return (
             <div
               key={concept.type}
-              className={`rounded-2xl border ${theme.border} ${theme.bg} p-6 space-y-5`}
+              className={`rounded-2xl border ${theme.border} ${theme.bg} flex flex-col items-center gap-3 py-5 px-3`}
             >
-              <div className={`w-9 h-9 ${theme.iconColor}`}>{theme.icon}</div>
-              <span className={`inline-flex items-center rounded-xl border px-3 py-1.5 text-2xl font-bold ${theme.badgeBg}`}>
+              <div className={`w-7 h-7 ${theme.iconColor}`}>{theme.icon}</div>
+              <span className={`inline-flex items-center justify-center rounded-xl border px-3 py-1.5 text-xl font-bold ${theme.badgeBg}`}>
                 {concept.type}
               </span>
-              <p className="text-lg leading-[2.4] text-stone-600 relative z-10">
-                <RichText text={concept.definition} />
-              </p>
             </div>
           );
         })}
