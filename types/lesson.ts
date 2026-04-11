@@ -1,9 +1,4 @@
-export type GrammarType = "فِعْل" | "اسْم" | "حَرْف" | "punctuation";
-
-export interface ParsedWord {
-  word: string;
-  grammar_type: GrammarType;
-}
+export type GrammarType = "فِعْل" | "اسْم" | "حَرْف";
 
 export interface Concept {
   type: string;
@@ -11,44 +6,37 @@ export interface Concept {
   examples: string[];
 }
 
-export interface WordLengthRule {
-  length: string;
-  examples: string[];
-}
-
-export interface CourseIntro {
-  id: string;
-  title: string;
-  paragraphs: string[];
-  word_length_rules_intro: string;
-  word_length_rules: WordLengthRule[];
-  conclusion: string;
-}
-
-export interface InteractiveParagraph {
-  instruction: string;
-  full_sentence: string;
-  parsing_breakdown: ParsedWord[];
-}
-
-export interface TextQuestion {
+export interface QuickCheck {
   question: string;
-  answer: string;
+  options: { text: string; correct: boolean }[];
+  explanation: string;
+}
+
+export interface WordSortCategory {
+  key: string;
+  label: string;
+}
+
+export interface WordSortWord {
+  word: string;
+  category: string;
+}
+
+export interface WordSortExercise {
+  instruction: string;
+  categories: WordSortCategory[];
+  words: WordSortWord[];
 }
 
 export interface Exercises {
-  text_questions: TextQuestion[];
-  word_classification_list: {
-    instruction: string;
-    words: string[];
-  };
-  interactive_paragraph: InteractiveParagraph;
+  review_quiz: QuickCheck[];
+  word_sort: WordSortExercise;
 }
 
 export interface Lesson {
   module_id: string;
   title: string;
   introduction: string;
-  concepts: Concept[];
+  concepts: (Concept & { quick_check: QuickCheck })[];
   exercises: Exercises;
 }

@@ -1,21 +1,28 @@
 /**
- * Renders a string that uses **double-asterisk** syntax for emphasis.
- * Bold segments are rendered as a warm amber highlight matching the app's palette.
+ * Renders a string with **bold** markers and \n\n as paragraph breaks.
  */
 export function RichText({ text }: { text: string }) {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  const paragraphs = text.split("\n\n");
 
   return (
     <>
-      {parts.map((part, i) => {
-        if (part.startsWith("**") && part.endsWith("**")) {
-          return (
-            <strong key={i} className="font-bold text-stone-900">
-              {part.slice(2, -2)}
-            </strong>
-          );
-        }
-        return <span key={i}>{part}</span>;
+      {paragraphs.map((para, pi) => {
+        const parts = para.split(/(\*\*[^*]+\*\*)/g);
+        return (
+          <span key={pi}>
+            {pi > 0 && <><br /><br /></>}
+            {parts.map((part, i) => {
+              if (part.startsWith("**") && part.endsWith("**")) {
+                return (
+                  <strong key={i} className="font-bold text-stone-900">
+                    {part.slice(2, -2)}
+                  </strong>
+                );
+              }
+              return <span key={i}>{part}</span>;
+            })}
+          </span>
+        );
       })}
     </>
   );

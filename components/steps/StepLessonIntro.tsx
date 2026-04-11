@@ -1,24 +1,21 @@
-import type { Lesson, Concept } from "@/types/lesson";
+import type { Lesson } from "@/types/lesson";
 import { conceptThemes } from "@/components/ui/conceptThemes";
 import { RichText } from "@/components/ui/RichText";
 
-export function StepLessonIntro({ lesson, concepts }: { lesson: Lesson; concepts: Concept[] }) {
+export function StepLessonIntro({ lesson }: { lesson: Lesson }) {
   return (
     <div className="space-y-8">
 
-      {/* ── Page title ── */}
       <h1 className="text-2xl font-bold text-stone-900 leading-[1.8]">{lesson.title}</h1>
 
-      {/* ── Lesson introduction ── */}
       <div className="rounded-2xl border border-stone-100 bg-white px-7 py-6 shadow-sm">
         <p className="text-lg text-stone-700 leading-[2.6]">
           <RichText text={lesson.introduction} />
         </p>
       </div>
 
-      {/* ── Concept preview cards ── */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        {concepts.map((concept, i) => {
+        {lesson.concepts.map((concept, i) => {
           const theme = conceptThemes[i % conceptThemes.length];
           return (
             <div

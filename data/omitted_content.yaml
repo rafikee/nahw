@@ -1,0 +1,59 @@
+# Content omitted from the app
+#
+# This file tracks source-book content that we chose not to include
+# in the interactive lessons. Each entry records what was cut, which
+# lesson/section it belongs to, and why it was left out. We can
+# revisit any of these later if the app's scope changes.
+
+- lesson: "01 — أَنْوَاعُ الْكَلِمَاتِ"
+  items:
+
+    - title: "Word-length rules (1–7 letters)"
+      source: "data/course_intro.json → word_length_rules"
+      content: |
+        Arabic words can be 1 to 7 letters long, and never longer.
+        Examples by length:
+          1 letter  — الباء في ﴿بِسْمِ اللَّهِ﴾ / الهمزة في ﴿أَلَمْ نَشْرَحْ لَكَ﴾
+          2 letters — مِنْ، فِي
+          3 letters — عِنَبٍ، شَجَرٍ
+          4 letters — جَدْوَلِ، جَعْفَرٍ
+          5 letters — سَفَرْجَلٍ
+          6 letters — زَعْفَرَانِ
+          7 letters — اسْتِفْهَامٍ
+      reason: >
+        Interesting trivia but not essential to understanding فعل/اسم/حرف.
+        Front-loaded dry material that hurt first-time engagement.
+
+    - title: "Course intro prose (word formation paragraphs)"
+      source: "data/course_intro.json → paragraphs"
+      content: |
+        Three paragraphs explaining that words are composed of
+        alphabet letters (alif through yaa), with examples like
+        أب، أم، أخ، أخت، اجتهاد، نجاح. The core idea was folded
+        into the lesson introduction; the verbose version was cut.
+      reason: >
+        The key message ("all words come from alphabet letters") is
+        already captured in the lesson intro text. The longer version
+        added length without adding understanding.
+
+    - title: "Open-ended recall questions"
+      source: "data/lesson_1.json (original) → exercises.text_questions[3–4]"
+      content: |
+        Q4: اذْكُرْ عَشْرَةَ أَفْعَالٍ (Name 10 verbs)
+        Q5: اذْكُرْ خَمْسَةَ أَسْمَاءٍ مِنْ أَسْمَاءِ النَّاسِ، وَمِثْلَهَا مِنْ
+            أَسْمَاءِ أَجْنَاسِ الْحَيَوَانِ، وَالنَّبَاتِ، وَالْجَمَادِ
+            (Name 5 nouns each from people, animals, plants, and objects)
+      reason: >
+        Pure recall / open-ended prompts that don't translate to a
+        deterministic interactive exercise. Suited for oral classroom
+        recitation, not a tap-based app.
+
+    - title: "Interactive paragraph (Nile passage)"
+      source: "data/lesson_1.json (original) → exercises.interactive_paragraph"
+      content: |
+        A paragraph about the Nile river with 27 words, each tagged
+        as فعل/اسم/حرف. The user tapped each word to reveal its type.
+      reason: >
+        The reveal-only interaction required zero thinking from the
+        learner — there was no wrong answer possible. Replaced by
+        the word-sort exercise which requires active classification.
