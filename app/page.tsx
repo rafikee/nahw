@@ -112,21 +112,34 @@ export default function Home() {
         {/* ── Splash ── */}
         {currentView.type === "splash" && (
           <div className="flex-1 flex flex-col justify-center gap-10 px-8">
-            <div style={{ lineHeight: 1.6 }}>
-              <p className="text-2xl font-semibold text-stone-500">مَرْحَبًا بِكَ فِي</p>
-              <h1 className="text-3xl font-bold text-stone-800">أَسَاسِيَّاتُ النَّحْوِ</h1>
+
+            {/* App identity */}
+            <div className="relative">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center shrink-0">
+                  <svg className="w-5 h-5 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                  </svg>
+                </div>
+                <p className="text-base font-semibold text-stone-500">مَرْحَبًا بِكَ فِي</p>
+              </div>
+              <h1 className="text-4xl font-bold text-stone-900" style={{ lineHeight: 1.5 }}>أَسَاسِيَّاتُ النَّحْوِ</h1>
             </div>
 
-            <div className="border-r-4 border-amber-400 pr-5" style={{ lineHeight: 1.5 }}>
-              <p className="text-lg font-semibold text-amber-600 mb-3">دَرْسُ الْيَوْمِ</p>
-              <p className="text-3xl font-bold text-stone-900">{LESSONS[0].title}</p>
+            {/* Lesson of the day */}
+            <div className="relative border-r-4 border-amber-400 pr-5 bg-amber-50/60 rounded-l-xl py-4 pl-4" style={{ lineHeight: 1.5 }}>
+              <p className="text-sm font-semibold text-amber-600 mb-2">دَرْسُ الْيَوْمِ</p>
+              <p className="text-2xl font-bold text-stone-900">{LESSONS[0].title}</p>
             </div>
 
+            {/* CTA */}
             <button
               onClick={goNext}
-              className="w-full rounded-2xl bg-amber-600 py-4 text-base font-bold text-white hover:bg-amber-700 active:scale-[0.98] transition-all duration-200 shadow-sm"
+              className="relative w-full flex items-center justify-center gap-3 rounded-2xl bg-amber-600 py-4 text-base font-bold text-white hover:bg-amber-700 active:scale-[0.98] active:shadow-none transition-all duration-200 shadow-sm"
             >
               ابْدَأِ الدَّرْسَ
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
             </button>
           </div>
         )}
@@ -135,7 +148,7 @@ export default function Home() {
         {currentView.type !== "splash" && (
           <>
             <header className="shrink-0 bg-white/90 backdrop-blur-sm">
-              <div className="flex items-center gap-2.5 px-6 py-4 min-w-0">
+              <div className="flex items-center gap-2.5 px-6 py-3.5 min-w-0">
                 {(() => {
                   const { lesson, step } = getBreadcrumb(currentView);
                   return (
@@ -149,20 +162,25 @@ export default function Home() {
                       </button>
                       {lesson && (
                         <>
-                          <span className="text-stone-200 select-none shrink-0">|</span>
+                          <svg className="w-3 h-3 text-stone-300 shrink-0 rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
                           <span className="shrink-0 text-sm text-stone-400">{lesson}</span>
                         </>
                       )}
-                      <span className="text-stone-200 select-none shrink-0">|</span>
+                      <svg className="w-3 h-3 text-stone-300 shrink-0 rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
                       <h1 className="text-sm font-semibold text-stone-800 truncate min-w-0">{step}</h1>
+                      {progress && (
+                        <span className="mr-auto shrink-0 text-xs font-medium text-stone-400 tabular-nums">
+                          {progress.step}/{progress.total}
+                        </span>
+                      )}
                     </>
                   );
                 })()}
               </div>
-              <div className="h-[3px] bg-stone-100">
+              <div className="h-1.5 bg-stone-100 overflow-hidden">
                 {progress && (
                   <div
-                    className="h-full bg-amber-400 transition-all duration-300 ease-out"
+                    className="h-full bg-gradient-to-l from-amber-500 to-amber-400 transition-all duration-300 ease-out"
                     style={{ width: `${(progress.step / progress.total) * 100}%` }}
                   />
                 )}
@@ -209,22 +227,24 @@ export default function Home() {
                 <button
                   onClick={goPrev}
                   disabled={!canGoBack}
-                  className="shrink-0 rounded-xl border border-stone-200 px-4 py-2.5 text-sm font-semibold text-stone-400 hover:bg-stone-50 hover:border-stone-300 disabled:opacity-20 disabled:pointer-events-none transition-all"
+                  className="shrink-0 flex items-center gap-1.5 rounded-xl border border-stone-200 px-4 py-2.5 text-sm font-semibold text-stone-500 hover:bg-stone-50 hover:border-stone-300 disabled:opacity-20 disabled:pointer-events-none transition-all"
                 >
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
                   السَّابِقُ
                 </button>
 
                 {!isLast ? (
                   <button
                     onClick={goNext}
-                    className="flex-1 rounded-xl bg-amber-600 py-2.5 text-sm font-bold text-white hover:bg-amber-700 active:scale-[0.98] transition-all duration-150 shadow-sm"
+                    className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-amber-600 py-2.5 text-sm font-bold text-white hover:bg-amber-700 active:scale-[0.98] active:shadow-none transition-all duration-150 shadow-sm"
                   >
                     التَّالِي
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
                   </button>
                 ) : (
                   <button
                     onClick={goHome}
-                    className="flex-1 rounded-xl bg-stone-800 py-2.5 text-sm font-bold text-white hover:bg-stone-900 active:scale-[0.98] transition-all duration-150 shadow-sm"
+                    className="flex-1 rounded-xl bg-stone-800 py-2.5 text-sm font-bold text-white hover:bg-stone-900 active:scale-[0.98] active:shadow-none transition-all duration-150 shadow-sm"
                   >
                     إِعَادَةُ الدَّرْسِ
                   </button>

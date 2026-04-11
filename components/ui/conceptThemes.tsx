@@ -3,6 +3,7 @@ export const conceptThemes = [
     bg: "bg-sky-50",
     border: "border-sky-100",
     badgeBg: "bg-sky-100 border-sky-200 text-sky-900",
+    chipBg: "bg-sky-50 border-sky-200 text-sky-900",
     iconColor: "text-sky-400",
     watermark: "text-sky-200",
     icon: (
@@ -15,6 +16,7 @@ export const conceptThemes = [
     bg: "bg-amber-50",
     border: "border-amber-100",
     badgeBg: "bg-amber-100 border-amber-200 text-amber-900",
+    chipBg: "bg-amber-50 border-amber-200 text-amber-900",
     iconColor: "text-amber-400",
     watermark: "text-amber-200",
     icon: (
@@ -28,6 +30,7 @@ export const conceptThemes = [
     bg: "bg-violet-50",
     border: "border-violet-100",
     badgeBg: "bg-violet-100 border-violet-200 text-violet-900",
+    chipBg: "bg-violet-50 border-violet-200 text-violet-900",
     iconColor: "text-violet-400",
     watermark: "text-violet-200",
     icon: (

@@ -15,19 +15,19 @@ export function StepConcept({ concept, conceptIndex }: { concept: Concept; conce
       </div>
 
       <div className="rounded-2xl border border-stone-100 bg-white px-7 py-6 shadow-sm space-y-2">
-        <p className="text-sm font-semibold text-stone-400">التَّعْرِيفُ</p>
+        <p className="text-xs font-medium tracking-wide text-stone-400 uppercase">التَّعْرِيفُ</p>
         <p className="text-lg leading-[2.6] text-stone-700">
           <RichText text={concept.definition} />
         </p>
       </div>
 
       <div className="rounded-2xl border border-stone-100 bg-white px-7 py-6 shadow-sm space-y-4">
-        <p className="text-sm font-semibold text-stone-400">أَمْثِلَةٌ</p>
+        <p className="text-xs font-medium tracking-wide text-stone-400 uppercase">أَمْثِلَةٌ</p>
         <div className="flex flex-wrap gap-2">
           {concept.examples.map((ex) => (
             <span
               key={ex}
-              className="rounded-xl bg-stone-50 border border-stone-100 px-4 py-2 text-lg font-semibold text-stone-800"
+              className={`rounded-xl border px-4 py-2 text-lg font-semibold ${theme.chipBg}`}
             >
               {ex}
             </span>

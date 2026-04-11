@@ -121,7 +121,7 @@ export function StepWordSort({ data }: { data: WordSortExercise }) {
       </div>
 
       {isComplete && (
-        <div className={`rounded-2xl border px-6 py-4 text-center ${
+        <div className={`completion-pop rounded-2xl border px-6 py-4 text-center ${
           correctCount === data.words.length
             ? "border-emerald-200 bg-emerald-50"
             : "border-amber-200 bg-amber-50"

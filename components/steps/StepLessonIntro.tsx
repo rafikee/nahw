@@ -10,12 +10,18 @@ export function StepLessonIntro({ lesson }: { lesson: Lesson }) {
 
       {/* Single-sentence hook as pull quote */}
       <div className="border-r-4 border-amber-400 pr-5 py-1">
+        <p className="text-base font-medium text-amber-600 mb-1 flex items-center gap-1.5">
+          <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+          </svg>
+          الْفِكْرَةُ الرَّئِيسِيَّةُ
+        </p>
         <p className="text-xl text-stone-800 leading-[2.4]">
           <RichText text={lesson.introduction} />
         </p>
       </div>
 
-      {/* Concept name badges — preview only, no definitions */}
+      {/* Concept name badges */}
       <div className="grid grid-cols-3 gap-3">
         {lesson.concepts.map((concept, i) => {
           const theme = conceptThemes[i % conceptThemes.length];

@@ -73,15 +73,15 @@ export function StepQuickCheck({ data }: { data: QuickCheck }) {
       )}
 
       {confirmed && (
-        <div className={`rounded-2xl border px-6 py-5 ${
+        <div className={`feedback-enter rounded-2xl border px-6 py-5 ${
           isCorrect
             ? "bg-emerald-50 border-emerald-200"
             : "bg-red-50 border-red-200"
         }`}>
-          <p className={`text-sm font-bold mb-2 ${isCorrect ? "text-emerald-700" : "text-red-700"}`}>
+          <p className={`text-base font-bold mb-2 ${isCorrect ? "text-emerald-700" : "text-red-700"}`}>
             {isCorrect ? "إِجَابَةٌ صَحِيحَةٌ!" : "إِجَابَةٌ خَاطِئَةٌ"}
           </p>
-          <p className="text-base text-stone-700 leading-[2.4]">{data.explanation}</p>
+          <p className="text-base font-medium text-stone-600 leading-[2.4]">{data.explanation}</p>
           {!isCorrect && (
             <button
               onClick={handleRetry}
