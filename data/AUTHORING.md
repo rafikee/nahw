@@ -2,6 +2,75 @@
 
 Reference for creating new lessons in this app. Follow this when converting source-book content into `lesson_N.json` files.
 
+The lesson format may evolve over time. When in doubt, treat `types/lesson.ts` as the source of truth for the current schema and the existing `lesson_*.json` files as the reference for content quality.
+
+## Project Structure
+
+The app is organized around a **Book → Lesson → Step** hierarchy:
+
+```
+data/
+  course.ts            ← Course manifest: defines books and which lessons belong to each
+  index.ts             ← Imports all lesson JSON files, exports LESSONS array
+  lesson_1.json        ← Lesson content (one file per lesson)
+  lesson_2.json
+  omitted_content.yaml ← Log of source-book content deliberately left out, with reasons
+  course_intro.json    ← Reference artifact (intro prose from the source book, not loaded by the app)
+  AUTHORING.md         ← This file
+  LESSON_PROMPT.md     ← Copy-paste prompt for starting a new lesson with an AI agent
+
+source-content/
+  nahw-book-13-25.md   ← OCR'd source text from the textbook (pages 13-25)
+
+types/
+  lesson.ts            ← TypeScript types for Lesson, Concept, QuickCheck, WordSortExercise
+
+components/
+  screens/
+    HomeScreen.tsx     ← Book/lesson browser (the landing page)
+    LessonPlayer.tsx   ← Step-by-step lesson flow (header, progress bar, footer nav)
+    LessonComplete.tsx ← End-of-lesson screen with "next lesson" transition
+  steps/
+    StepLessonIntro.tsx   ← Lesson title + introduction + concept preview grid
+    StepConcept.tsx       ← Single concept: name, definition, examples
+    StepQuickCheck.tsx    ← MCQ (used for per-concept checks and review quiz)
+    StepWordSort.tsx      ← Tap-to-classify word sorting exercise
+  ui/
+    RichText.tsx       ← Renders **bold** markup in lesson text strings
+
+app/
+  page.tsx             ← Root: manages screen navigation (home / lesson / lesson_complete)
+  layout.tsx           ← HTML shell, font loading, theme bootstrap
+  globals.css          ← Theme palettes, typography roles, animations
+```
+
+### Navigation model
+
+The app uses a client-side state machine with three screens:
+
+- **Home** (`HomeScreen`) — shows all books with their lessons listed. Tapping a lesson starts it.
+- **Lesson** (`LessonPlayer`) — walks through a single lesson's steps: intro → (concept → quick check) × N → review quiz → word sort. Footer "next" on the last step triggers the completion screen.
+- **Lesson complete** (`LessonComplete`) — congratulations, lesson stats, and a "next lesson" button that auto-resolves the next lesson (even across book boundaries).
+
+### Book/lesson hierarchy
+
+The course manifest lives in `data/course.ts`. It defines `BOOKS` — an array of `BookMeta` objects, each listing the `module_id` values of its lessons in order. Lesson JSON files do not know which book they belong to; that mapping is only in the manifest.
+
+```ts
+// data/course.ts (simplified)
+export const BOOKS: BookMeta[] = [
+  {
+    id: "book-1",
+    title: "الْجُزْءُ الْأَوَّلُ",
+    subtitle: "أَسَاسِيَّاتُ النَّحْوِ",
+    lessonIds: ["01_anwaa_al_kalimat", "02_aqsaam_al_fil"],
+  },
+  // future books go here
+];
+```
+
+Adding a new lesson means: (1) create the JSON, (2) import it in `data/index.ts`, (3) add its `module_id` to the right book's `lessonIds` in `data/course.ts`. See "Adding the Lesson to the App" at the bottom for the full checklist.
+
 ## Process
 
 ### Step 1: Provide the source text
@@ -24,13 +93,29 @@ The AI reads the source, maps it to our JSON structure, and produces a complete 
 
 ### Step 3: Wire it up
 
-Add the new file to `data/index.ts`:
+Two files need updating:
+
+**`data/index.ts`** — import the JSON and add it to the `LESSONS` array:
 
 ```ts
-import lesson2Data from "./lesson_2.json";
+import lesson3Data from "./lesson_3.json";
 // ...
-export const LESSONS = [lesson1Data, lesson2Data] as unknown as Lesson[];
+export const LESSONS = [lesson1Data, lesson2Data, lesson3Data] as unknown as Lesson[];
 ```
+
+**`data/course.ts`** — add the lesson's `module_id` to the correct book's `lessonIds` array:
+
+```ts
+export const BOOKS: BookMeta[] = [
+  {
+    id: "book-1",
+    // ...
+    lessonIds: ["01_anwaa_al_kalimat", "02_aqsaam_al_fil", "03_new_lesson"],
+  },
+];
+```
+
+The order in `lessonIds` determines the order lessons appear in the app and the "next lesson" flow.
 
 ### Step 4: Review in the app
 
@@ -210,74 +295,9 @@ All button labels, breadcrumb text, section headings, and feedback messages in t
 
 ---
 
-## Theme System
+## Theme and Typography
 
-The app now uses semantic theme tokens for runtime colors. If a future change touches app UI, do not introduce hard-coded Tailwind color names like `bg-red-50`, `text-white`, `bg-black/20`, or raw hex values in components.
-
-### Use theme tokens instead
-
-Prefer the shared classes defined in `app/globals.css`, including:
-
-- Core lesson/app colors: `primary`, `primary-hover`, `primary-soft`, `primary-border`, `primary-text`
-- Surfaces and text: `page`, `page-outer`, `surface`, `surface-hover`, `elevated`, `elevated-strong`, `elevated-muted`
-- Structure: `divider`, `divider-strong`, `track`
-- Text roles: `heading`, `body`, `label`, `muted`, `faint`
-- Strong contrast text: `on-primary`, `on-dark`
-- Feedback states: `success`, `success-soft`, `success-border`, `success-text`, `danger`, `danger-soft`, `danger-border`, `danger-text`
-- Overlays and highlights: `overlay`, `highlight`, `highlight-text`
-
-These are available through the utility-style classes already used in the app, for example:
-
-- `bg-primary`, `hover:bg-primary-hover`
-- `text-heading`, `text-muted`
-- `border-divider-strong`
-- `bg-success-soft`, `text-success-text`
-- `bg-overlay`
-
-### Exceptions
-
-- Theme preview swatches in the settings picker may use direct per-theme color values, because they need to show multiple themes at once.
-- The palette definitions in `app/globals.css` are the source of truth, so hard-coded color values belong there, not in app components.
-
-### Authoring implication
-
-Most lesson authoring stays in JSON and does not require color decisions. But if a new step type, badge, feedback state, or piece of app chrome is added while wiring lessons into the UI, it should use the semantic theme vocabulary above instead of inventing new one-off colors.
-
----
-
-## Typography System
-
-The app uses a small set of semantic type roles defined in `app/globals.css`. Do not use ad hoc Tailwind size classes like `text-xs`, `text-sm`, `text-base`, `text-lg`, `text-xl`, `text-2xl`, etc., or inline `lineHeight` / `leading-[…]` values in components. Use the type roles instead.
-
-### Type roles
-
-| Role | Size | Line-height | When to use |
-|------|------|-------------|-------------|
-| `type-display` | 2.25rem (36px) | 1.5 | Splash/course hero title only |
-| `type-title` | 1.5rem (24px) | 1.8 | All step headings, sheet titles, concept names |
-| `type-body-lg` | 1.125rem (18px) | 2.2 | Lesson definitions, quiz options, example chips, key explanatory copy |
-| `type-body` | 1rem (16px) | 2.2 | Standard body text, section labels, badges, chips, breadcrumb, buttons, feedback copy — this is the smallest allowed size |
-| `type-compact` | 1rem (16px) | 1.4 | Same as `type-body` but with tight line-height for space-constrained controls like footer nav buttons |
-
-### Rules
-
-- **No text smaller than 16px.** `type-body` (1rem) is the floor. There is no 14px tier. Arabic script with diacritics needs this minimum to stay readable.
-- **Font weight stays separate.** The type roles set size and line-height only. Add `font-bold`, `font-semibold`, etc. alongside the role class as needed.
-- **Line-height comes from the role.** Do not add `leading-*` or inline `lineHeight` overrides. If a new control genuinely needs a different rhythm, add a role variant (like `type-compact`) in `app/globals.css` instead of a one-off value.
-- **Body baseline.** The `body` element uses 1rem / 2.2 line-height, so unstyled text inherits a comfortable Arabic reading size.
-
-### Examples
-
-```html
-<h1 class="type-title font-bold text-heading">…</h1>
-<p class="type-body-lg text-body">…</p>
-<span class="type-body font-semibold text-muted">…</span>
-<button class="type-compact font-bold text-on-primary">…</button>
-```
-
-### Authoring implication
-
-Lesson content lives in JSON and does not set font sizes. But if a new step type, card, or piece of app chrome is added while wiring lessons into the UI, it must use these type roles instead of inventing new size classes.
+Lesson authoring is JSON-only and does not require color or font-size decisions. The app uses semantic theme tokens (colors) and type roles (sizes/line-heights) defined in `app/globals.css`. If a new step type or UI element is added while wiring a lesson into the app, use the existing tokens and roles from `globals.css` and follow the patterns in the existing step components -- do not introduce hard-coded Tailwind color classes, raw hex values, or ad-hoc size classes.
 
 ---
 
@@ -316,6 +336,16 @@ Some textbook sections are closely related (e.g. singular/dual/plural and plural
 After creating `data/lesson_N.json`:
 
 1. Import it in `data/index.ts` and add to the `LESSONS` array
-2. No other code changes needed -- the app dynamically builds views from the `LESSONS` array
+2. Add its `module_id` to the correct book's `lessonIds` array in `data/course.ts`
 3. Run `npx next build` to verify there are no type errors
-4. Test on your phone
+4. Test on your phone — the lesson should appear in the home screen under its book, and the "next lesson" button on the previous lesson's completion screen should link to it
+
+### Adding a new book
+
+If the lesson belongs to a new book (not yet in `data/course.ts`):
+
+1. Add a new `BookMeta` entry to the `BOOKS` array in `data/course.ts`
+2. Use a sequential `id` like `"book-2"`, `"book-3"`, etc.
+3. Set `title` (e.g. `"الْجُزْءُ الثَّانِي"`) and `subtitle` (the book's topic, with tashkeel)
+4. List the book's lesson `module_id` values in `lessonIds`
+5. The home screen and next-lesson navigation automatically pick up the new book — no component changes needed
