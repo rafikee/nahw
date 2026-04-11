@@ -210,6 +210,77 @@ All button labels, breadcrumb text, section headings, and feedback messages in t
 
 ---
 
+## Theme System
+
+The app now uses semantic theme tokens for runtime colors. If a future change touches app UI, do not introduce hard-coded Tailwind color names like `bg-red-50`, `text-white`, `bg-black/20`, or raw hex values in components.
+
+### Use theme tokens instead
+
+Prefer the shared classes defined in `app/globals.css`, including:
+
+- Core lesson/app colors: `primary`, `primary-hover`, `primary-soft`, `primary-border`, `primary-text`
+- Surfaces and text: `page`, `page-outer`, `surface`, `surface-hover`, `elevated`, `elevated-strong`, `elevated-muted`
+- Structure: `divider`, `divider-strong`, `track`
+- Text roles: `heading`, `body`, `label`, `muted`, `faint`
+- Strong contrast text: `on-primary`, `on-dark`
+- Feedback states: `success`, `success-soft`, `success-border`, `success-text`, `danger`, `danger-soft`, `danger-border`, `danger-text`
+- Overlays and highlights: `overlay`, `highlight`, `highlight-text`
+
+These are available through the utility-style classes already used in the app, for example:
+
+- `bg-primary`, `hover:bg-primary-hover`
+- `text-heading`, `text-muted`
+- `border-divider-strong`
+- `bg-success-soft`, `text-success-text`
+- `bg-overlay`
+
+### Exceptions
+
+- Theme preview swatches in the settings picker may use direct per-theme color values, because they need to show multiple themes at once.
+- The palette definitions in `app/globals.css` are the source of truth, so hard-coded color values belong there, not in app components.
+
+### Authoring implication
+
+Most lesson authoring stays in JSON and does not require color decisions. But if a new step type, badge, feedback state, or piece of app chrome is added while wiring lessons into the UI, it should use the semantic theme vocabulary above instead of inventing new one-off colors.
+
+---
+
+## Typography System
+
+The app uses a small set of semantic type roles defined in `app/globals.css`. Do not use ad hoc Tailwind size classes like `text-xs`, `text-sm`, `text-base`, `text-lg`, `text-xl`, `text-2xl`, etc., or inline `lineHeight` / `leading-[…]` values in components. Use the type roles instead.
+
+### Type roles
+
+| Role | Size | Line-height | When to use |
+|------|------|-------------|-------------|
+| `type-display` | 2.25rem (36px) | 1.5 | Splash/course hero title only |
+| `type-title` | 1.5rem (24px) | 1.8 | All step headings, sheet titles, concept names |
+| `type-body-lg` | 1.125rem (18px) | 2.2 | Lesson definitions, quiz options, example chips, key explanatory copy |
+| `type-body` | 1rem (16px) | 2.2 | Standard body text, section labels, badges, chips, breadcrumb, buttons, feedback copy — this is the smallest allowed size |
+| `type-compact` | 1rem (16px) | 1.4 | Same as `type-body` but with tight line-height for space-constrained controls like footer nav buttons |
+
+### Rules
+
+- **No text smaller than 16px.** `type-body` (1rem) is the floor. There is no 14px tier. Arabic script with diacritics needs this minimum to stay readable.
+- **Font weight stays separate.** The type roles set size and line-height only. Add `font-bold`, `font-semibold`, etc. alongside the role class as needed.
+- **Line-height comes from the role.** Do not add `leading-*` or inline `lineHeight` overrides. If a new control genuinely needs a different rhythm, add a role variant (like `type-compact`) in `app/globals.css` instead of a one-off value.
+- **Body baseline.** The `body` element uses 1rem / 2.2 line-height, so unstyled text inherits a comfortable Arabic reading size.
+
+### Examples
+
+```html
+<h1 class="type-title font-bold text-heading">…</h1>
+<p class="type-body-lg text-body">…</p>
+<span class="type-body font-semibold text-muted">…</span>
+<button class="type-compact font-bold text-on-primary">…</button>
+```
+
+### Authoring implication
+
+Lesson content lives in JSON and does not set font sizes. But if a new step type, card, or piece of app chrome is added while wiring lessons into the UI, it must use these type roles instead of inventing new size classes.
+
+---
+
 ## Content Guidelines
 
 ### Introduction hook

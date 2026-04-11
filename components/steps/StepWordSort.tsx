@@ -3,11 +3,11 @@
 import { useState, useCallback } from "react";
 import type { WordSortExercise } from "@/types/lesson";
 
-const bucketColors: Record<number, { bg: string; border: string; badge: string; wrongBg: string }> = {
-  0: { bg: "bg-sky-50", border: "border-sky-200", badge: "bg-sky-100 border-sky-200 text-sky-800", wrongBg: "bg-red-50 border-red-200 text-red-600" },
-  1: { bg: "bg-amber-50", border: "border-amber-200", badge: "bg-amber-100 border-amber-200 text-amber-800", wrongBg: "bg-red-50 border-red-200 text-red-600" },
-  2: { bg: "bg-violet-50", border: "border-violet-200", badge: "bg-violet-100 border-violet-200 text-violet-800", wrongBg: "bg-red-50 border-red-200 text-red-600" },
-};
+const bucketStyle = {
+  active: { bg: "bg-primary-soft", border: "border-primary-border", badge: "bg-primary-soft border-primary-border text-heading" },
+  inactive: { bg: "bg-surface-hover", border: "border-divider-strong" },
+  wrong: "bg-danger-soft border-danger text-danger-text",
+} as const;
 
 interface PlacedWord {
   wordIndex: number;
@@ -46,10 +46,9 @@ export function StepWordSort({ data }: { data: WordSortExercise }) {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-xl font-bold text-stone-900 leading-relaxed">{data.instruction}</h1>
+      <h1 className="type-display font-bold text-heading">{data.instruction}</h1>
 
-      {/* Word pool */}
-      <div className="rounded-2xl border border-stone-100 bg-white px-5 py-5 shadow-sm">
+      <div className="rounded-2xl border border-divider bg-surface px-5 py-5 shadow-sm">
         <div className="flex flex-wrap gap-2 justify-center min-h-[3rem]">
           {data.words.map((w, i) => {
             if (placedIndices.has(i)) return null;
@@ -60,10 +59,10 @@ export function StepWordSort({ data }: { data: WordSortExercise }) {
               <button
                 key={i}
                 onClick={() => handleWordTap(i)}
-                className={`rounded-xl border px-4 py-2 text-lg font-semibold transition-all duration-150 ${
+                className={`rounded-xl border px-4 py-2 type-title font-semibold transition-all duration-150 ${
                   isSelected
-                    ? "bg-amber-50 border-amber-400 ring-2 ring-amber-200 text-stone-800 scale-105"
-                    : "bg-stone-50 border-stone-200 text-stone-700 hover:bg-stone-100"
+                    ? "bg-primary-soft border-primary ring-2 ring-primary-border text-heading scale-105"
+                    : "bg-surface-hover border-divider-strong text-body hover:bg-track"
                 }`}
               >
                 {w.word}
@@ -71,15 +70,13 @@ export function StepWordSort({ data }: { data: WordSortExercise }) {
             );
           })}
           {isComplete && (
-            <p className="text-sm text-stone-400 py-2">تَمَّ تَصْنِيفُ جَمِيعِ الْكَلِمَاتِ</p>
+            <p className="type-body text-faint py-2">تَمَّ تَصْنِيفُ جَمِيعِ الْكَلِمَاتِ</p>
           )}
         </div>
       </div>
 
-      {/* Category buckets */}
       <div className="grid gap-3">
-        {data.categories.map((cat, ci) => {
-          const color = bucketColors[ci % Object.keys(bucketColors).length];
+        {data.categories.map((cat) => {
           const wordsInBucket = placed.filter((p) => p.categoryKey === cat.key);
 
           return (
@@ -89,11 +86,11 @@ export function StepWordSort({ data }: { data: WordSortExercise }) {
               disabled={selectedWord === null}
               className={`rounded-2xl border-2 border-dashed px-5 py-4 text-right transition-all duration-150 ${
                 selectedWord !== null
-                  ? `${color.border} ${color.bg} cursor-pointer hover:shadow-sm`
-                  : "border-stone-200 bg-stone-50 cursor-default"
+                  ? `${bucketStyle.active.border} ${bucketStyle.active.bg} cursor-pointer hover:shadow-sm`
+                  : `${bucketStyle.inactive.border} ${bucketStyle.inactive.bg} cursor-default`
               }`}
             >
-              <span className={`inline-block rounded-lg border px-3 py-1 text-base font-bold mb-2 ${color.badge}`}>
+              <span className={`inline-block rounded-lg border px-3 py-1 type-body-lg font-bold mb-2 ${bucketStyle.active.badge}`}>
                 {cat.label}
               </span>
               {wordsInBucket.length > 0 && (
@@ -101,13 +98,13 @@ export function StepWordSort({ data }: { data: WordSortExercise }) {
                   {wordsInBucket.map((pw) => (
                     <span
                       key={pw.wordIndex}
-                      className={`rounded-lg border px-3 py-1 text-base font-semibold ${
-                        pw.correct ? color.badge : color.wrongBg
+                      className={`rounded-lg border px-3 py-1 type-body font-semibold ${
+                        pw.correct ? bucketStyle.active.badge : bucketStyle.wrong
                       }`}
                     >
                       {data.words[pw.wordIndex].word}
                       {!pw.correct && (
-                        <span className="text-xs mr-1 opacity-70">
+                        <span className="type-body mr-1 opacity-70">
                           ← {correctCategoryLabel(pw.wordIndex)}
                         </span>
                       )}
@@ -123,11 +120,11 @@ export function StepWordSort({ data }: { data: WordSortExercise }) {
       {isComplete && (
         <div className={`completion-pop rounded-2xl border px-6 py-4 text-center ${
           correctCount === data.words.length
-            ? "border-emerald-200 bg-emerald-50"
-            : "border-amber-200 bg-amber-50"
+            ? "border-success-border bg-success-soft"
+            : "border-primary-border bg-primary-soft"
         }`}>
-          <p className={`text-lg font-bold ${
-            correctCount === data.words.length ? "text-emerald-700" : "text-amber-700"
+          <p className={`type-body-lg font-bold ${
+            correctCount === data.words.length ? "text-success-text" : "text-primary-text"
           }`}>
             {correctCount === data.words.length
               ? "أَحْسَنْتَ! جَمِيعُ الْإِجَابَاتِ صَحِيحَةٌ."

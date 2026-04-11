@@ -26,6 +26,11 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="ar" className={`${notoNaskhArabic.variable} antialiased`} style={{ colorScheme: "light" }} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{
+          __html: `(function(){try{var t=localStorage.getItem('nahw-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})()`,
+        }} />
+      </head>
       <body>{children}</body>
     </html>
   );
