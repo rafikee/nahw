@@ -6,23 +6,13 @@ import { RichText } from "@/components/ui/RichText";
 
 export function StepQuickCheck({ data }: { data: QuickCheck }) {
   const [selected, setSelected] = useState<number | null>(null);
-  const [confirmed, setConfirmed] = useState(false);
 
-  const isCorrect = selected !== null && data.options[selected].correct;
+  const answered = selected !== null;
+  const isCorrect = answered && data.options[selected].correct;
 
   function handleSelect(index: number) {
-    if (confirmed) return;
+    if (answered) return;
     setSelected(index);
-  }
-
-  function handleConfirm() {
-    if (selected === null) return;
-    setConfirmed(true);
-  }
-
-  function handleRetry() {
-    setSelected(null);
-    setConfirmed(false);
   }
 
   return (
@@ -35,13 +25,11 @@ export function StepQuickCheck({ data }: { data: QuickCheck }) {
         {data.options.map((opt, i) => {
           let style = "bg-surface border-divider-strong text-body hover:bg-surface-hover";
 
-          if (selected === i && !confirmed) {
-            style = "bg-primary-soft border-primary text-heading ring-2 ring-primary-border";
-          } else if (confirmed && opt.correct) {
+          if (answered && opt.correct) {
             style = "bg-success-soft border-success text-success-text";
-          } else if (confirmed && selected === i && !opt.correct) {
+          } else if (answered && selected === i && !opt.correct) {
             style = "bg-danger-soft border-danger text-danger-text";
-          } else if (confirmed) {
+          } else if (answered) {
             style = "bg-surface-hover border-divider text-faint";
           }
 
@@ -49,16 +37,16 @@ export function StepQuickCheck({ data }: { data: QuickCheck }) {
             <button
               key={i}
               onClick={() => handleSelect(i)}
-              disabled={confirmed}
+              disabled={answered}
               className={`w-full rounded-xl border px-6 py-4 text-right type-title font-semibold transition-all duration-150 ${style} ${
-                confirmed ? "cursor-default" : "cursor-pointer active:scale-[0.98]"
+                answered ? "cursor-default" : "cursor-pointer active:scale-[0.98]"
               }`}
             >
               <RichText text={opt.text} />
-              {confirmed && opt.correct && (
+              {answered && opt.correct && (
                 <span className="mr-3 inline-block">✓</span>
               )}
-              {confirmed && selected === i && !opt.correct && (
+              {answered && selected === i && !opt.correct && (
                 <span className="mr-3 inline-block">✗</span>
               )}
             </button>
@@ -66,16 +54,7 @@ export function StepQuickCheck({ data }: { data: QuickCheck }) {
         })}
       </div>
 
-      {!confirmed && selected !== null && (
-        <button
-          onClick={handleConfirm}
-          className="w-full rounded-xl bg-primary py-3 type-body font-bold text-on-primary hover:bg-primary-hover active:scale-[0.98] transition-all duration-150 shadow-sm"
-        >
-          تَأْكِيدُ الْإِجَابَةِ
-        </button>
-      )}
-
-      {confirmed && (
+      {answered && (
         <div className={`feedback-enter rounded-2xl border px-6 py-5 ${
           isCorrect
             ? "bg-success-soft border-success-border"
@@ -87,14 +66,6 @@ export function StepQuickCheck({ data }: { data: QuickCheck }) {
           <p className="type-body font-medium text-label">
             <RichText text={data.explanation} />
           </p>
-          {!isCorrect && (
-            <button
-              onClick={handleRetry}
-              className="mt-3 rounded-lg bg-surface border border-divider-strong px-4 py-2 type-body font-semibold text-label hover:bg-surface-hover transition-colors"
-            >
-              حَاوِلْ مَرَّةً أُخْرَى
-            </button>
-          )}
         </div>
       )}
     </div>

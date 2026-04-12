@@ -1,10 +1,17 @@
 export type GrammarType = "فِعْل" | "اسْم" | "حَرْف";
 
+export interface SpotTheWord {
+  prompt: string;
+  words: string[];
+  answer: number;
+}
+
 export interface Concept {
   type: string;
   definition: string;
   examples: string[];
   group?: string;
+  spot_the_word?: SpotTheWord;
 }
 
 export interface QuickCheck {
