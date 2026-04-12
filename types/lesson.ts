@@ -4,6 +4,7 @@ export interface Concept {
   type: string;
   definition: string;
   examples: string[];
+  group?: string;
 }
 
 export interface QuickCheck {

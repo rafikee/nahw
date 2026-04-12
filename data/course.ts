@@ -13,7 +13,7 @@ export const BOOKS: BookMeta[] = [
     id: "book-1",
     title: "الْجُزْءُ الْأَوَّلُ",
     subtitle: "أَسَاسِيَّاتُ النَّحْوِ",
-    lessonIds: ["01_anwaa_al_kalimat", "02_aqsaam_al_fil"],
+    lessonIds: ["01_anwaa_al_kalimat", "02_aqsaam_al_fil", "03_al_mudhakkar_wal_muannath", "04_al_mufrad_wal_muthanna_wal_jam"],
   },
 ];
 
