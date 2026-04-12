@@ -6,7 +6,7 @@ export function StepLessonIntro({ lesson }: { lesson: Lesson }) {
   return (
     <div className="space-y-8">
 
-      <h1 className="type-display font-bold text-heading">{lesson.title}</h1>
+      <h1 className="type-heading font-bold text-heading">{lesson.title}</h1>
 
       <div className="rounded-2xl border border-divider bg-surface px-7 py-6 shadow-sm space-y-3">
         <p className="type-body-lg font-bold text-label">الْفِكْرَةُ الرَّئِيسِيَّةُ</p>

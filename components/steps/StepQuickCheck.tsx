@@ -27,7 +27,7 @@ export function StepQuickCheck({ data }: { data: QuickCheck }) {
 
   return (
     <div className="space-y-6">
-      <h1 className="type-display font-bold text-heading">
+      <h1 className="type-heading font-bold text-heading">
         <RichText text={data.question} />
       </h1>
 

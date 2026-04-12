@@ -46,7 +46,7 @@ export function StepWordSort({ data }: { data: WordSortExercise }) {
 
   return (
     <div className="space-y-6">
-      <h1 className="type-display font-bold text-heading">{data.instruction}</h1>
+      <h1 className="type-heading font-bold text-heading">{data.instruction}</h1>
 
       <div className="rounded-2xl border border-divider bg-surface px-5 py-5 shadow-sm">
         <div className="flex flex-wrap gap-2 justify-center min-h-[3rem]">

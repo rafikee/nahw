@@ -209,6 +209,7 @@
 /* ═══ Typography roles ═══ */
 
 .type-display { font-size: 2.25rem; line-height: 1.5; }
+.type-heading { font-size: 1.75rem; line-height: 1.6; }
 .type-title   { font-size: 1.5rem;  line-height: 1.8; }
 .type-body-lg { font-size: 1.125rem; line-height: 2.2; }
 .type-body    { font-size: 1rem;    line-height: 2.2; }

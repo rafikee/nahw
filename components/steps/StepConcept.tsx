@@ -8,7 +8,7 @@ export function StepConcept({ concept, conceptIndex }: { concept: Concept; conce
     <div className="space-y-6">
 
       <div className={`border-r-4 ${theme.accentSide} pr-5 py-2`}>
-        <p className={`type-display font-bold ${theme.text}`}>
+        <p className={`type-heading font-bold ${theme.text}`}>
           {concept.type}
         </p>
       </div>
