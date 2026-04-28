@@ -45,4 +45,4 @@ jobs:
         run: |
           curl -fsS -X GET \
             -H "Authorization: Bearer $COOLIFY_TOKEN" \
-            "https://coolify.barada.dev/api/v1/deploy?uuid=anu61busrc7vvzcdhqsknga3&force=false"
+            "https://coolify.barada.dev/api/v1/deploy?uuid=u8km6isr7bcfonf4xdfuz8rr&force=false"
