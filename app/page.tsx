@@ -5,23 +5,32 @@ import { BOOKS, getLesson, getLessonNumber } from "@/data/course";
 import { HomeScreen } from "@/components/screens/HomeScreen";
 import { LessonPlayer } from "@/components/screens/LessonPlayer";
 import { LessonComplete } from "@/components/screens/LessonComplete";
+import { OnboardingFlow } from "@/components/screens/OnboardingFlow";
 import { THEMES, ThemePicker, applyTheme, getStoredTheme, type ThemeId } from "@/components/ui/ThemePicker";
 
 /* ── Navigation state ── */
 
 type AppScreen =
+  | { screen: "welcome" }
   | { screen: "home" }
   | { screen: "lesson"; bookId: string; lessonId: string }
   | { screen: "lesson_complete"; bookId: string; lessonId: string };
 
 export default function Home() {
-  const [nav, setNav] = useState<AppScreen>({ screen: "home" });
+  const [nav, setNav] = useState<AppScreen>({ screen: "welcome" });
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [theme, setTheme] = useState<ThemeId>(() => getStoredTheme());
 
   const activeTheme = THEMES.find((option) => option.id === theme) ?? THEMES[0];
 
   const goHome = useCallback(() => setNav({ screen: "home" }), []);
+
+  const dismissWelcome = useCallback(() => setNav({ screen: "home" }), []);
+
+  const goToWelcome = useCallback(() => {
+    setSettingsOpen(false);
+    setNav({ screen: "welcome" });
+  }, []);
 
   const goToLesson = useCallback((bookId: string, lessonId: string) => {
     setNav({ screen: "lesson", bookId, lessonId });
@@ -51,9 +60,10 @@ export default function Home() {
   const openSettings = useCallback(() => setSettingsOpen(true), []);
 
   /* ── Resolve current lesson data ── */
-  const lesson = nav.screen !== "home" ? getLesson(nav.lessonId) : null;
-  const book = nav.screen !== "home" ? BOOKS.find((b) => b.id === nav.bookId) : null;
-  const lessonNumber = nav.screen !== "home" && book ? getLessonNumber(nav.bookId, nav.lessonId) : 0;
+  const inLesson = nav.screen === "lesson" || nav.screen === "lesson_complete";
+  const lesson = inLesson ? getLesson(nav.lessonId) : null;
+  const book = inLesson ? BOOKS.find((b) => b.id === nav.bookId) : null;
+  const lessonNumber = inLesson && book ? getLessonNumber(nav.bookId, nav.lessonId) : 0;
 
   return (
     <div dir="rtl" className="relative h-dvh font-arabic flex flex-col lg:items-center lg:justify-center bg-page lg:bg-page-outer/60 overflow-hidden">
@@ -98,12 +108,24 @@ export default function Home() {
               </div>
               <ThemePicker currentTheme={theme} onChange={handleThemeChange} />
             </div>
+
+            <button
+              type="button"
+              onClick={goToWelcome}
+              className="mt-4 w-full rounded-2xl border border-divider-strong bg-surface px-4 py-3 type-body font-semibold text-label transition-colors hover:bg-surface-hover hover:text-heading"
+            >
+              شَاهِدِ الْمُقَدِّمَةَ مَرَّةً أُخْرَى
+            </button>
           </div>
         </div>
       )}
 
       {/* ── App shell ── */}
       <div className="flex-1 min-h-0 flex flex-col w-full lg:flex-none lg:w-[520px] lg:h-[88vh] lg:rounded-3xl lg:shadow-2xl lg:overflow-hidden bg-page">
+
+        {nav.screen === "welcome" && (
+          <OnboardingFlow onComplete={dismissWelcome} />
+        )}
 
         {nav.screen === "home" && (
           <HomeScreen

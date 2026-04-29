@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { BOOKS, getLesson } from "@/data/course";
 
 interface HomeScreenProps {
@@ -19,13 +20,19 @@ const BOOK_ORDINALS = [
 export function HomeScreen({ onSelectLesson, onOpenSettings }: HomeScreenProps) {
   return (
     <div className="flex-1 min-h-0 overflow-y-auto">
-      <div className="px-8 py-10 space-y-8">
+      <div className="px-8 pt-6 pb-10 space-y-6">
 
         {/* Header */}
         <div className="flex items-center justify-between">
-          <div className="rounded-full bg-primary-soft px-3 py-1 type-body-lg font-semibold text-primary-text">
-            تَعَلُّمُ النَّحْوِ
-          </div>
+          <Image
+            src="/nahw-mark.png"
+            alt="نَحْو"
+            width={939}
+            height={751}
+            priority
+            className="h-10 w-auto object-contain"
+          />
+
           <button
             type="button"
             onClick={onOpenSettings}
@@ -41,20 +48,6 @@ export function HomeScreen({ onSelectLesson, onOpenSettings }: HomeScreenProps) 
             </svg>
             الإِعْدَادَاتُ
           </button>
-        </div>
-
-        {/* Hero */}
-        <div>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-primary-soft flex items-center justify-center shrink-0">
-              <svg className="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-              </svg>
-            </div>
-            <p className="type-body-lg font-semibold text-muted">مَرْحَبًا بِكَ فِي</p>
-          </div>
-          <h1 className="type-display font-bold text-heading">تَعَلُّمُ النَّحْوِ</h1>
         </div>
 
         {/* Books */}
