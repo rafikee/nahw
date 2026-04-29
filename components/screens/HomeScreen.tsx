@@ -84,9 +84,6 @@ export function HomeScreen({ onSelectLesson, onOpenSettings }: HomeScreenProps) 
                         {lesson.title}
                       </p>
                     </div>
-                    <svg className="w-5 h-5 text-faint shrink-0 rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M9 18l6-6-6-6"/>
-                    </svg>
                   </button>
                 );
               })}
