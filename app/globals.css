@@ -2,7 +2,7 @@
 
 /* ═══ Theme palettes ═══ */
 
-:root, [data-theme="amber"] {
+:root {
   --theme-primary: #d97706;
   --theme-primary-hover: #b45309;
   --theme-primary-soft: #fffbeb;
@@ -12,7 +12,7 @@
   --theme-grad-to: #f59e0b;
   --theme-highlight: rgba(254, 243, 199, 0.6);
   --theme-highlight-text: #92400e;
-  --theme-page: #fafaf9;
+  --theme-page: #fdfbf7;
   --theme-page-outer: #e7e5e4;
   --theme-surface: #ffffff;
   --theme-surface-hover: #fafaf9;
@@ -28,63 +28,7 @@
   --theme-dark-hover: #1c1917;
 }
 
-
-[data-theme="indigo"] {
-  --theme-primary: #4f46e5;
-  --theme-primary-hover: #4338ca;
-  --theme-primary-soft: #eef2ff;
-  --theme-primary-border: #c7d2fe;
-  --theme-primary-text: #4338ca;
-  --theme-grad-from: #818cf8;
-  --theme-grad-to: #6366f1;
-  --theme-highlight: rgba(224, 231, 255, 0.7);
-  --theme-highlight-text: #3730a3;
-  --theme-page: #f8fafc;
-  --theme-page-outer: #e2e8f0;
-  --theme-surface: #ffffff;
-  --theme-surface-hover: #f8fafc;
-  --theme-divider: #e2e8f0;
-  --theme-divider-strong: #cbd5e1;
-  --theme-heading: #0f172a;
-  --theme-body: #334155;
-  --theme-label: #475569;
-  --theme-muted: #64748b;
-  --theme-faint: #94a3b8;
-  --theme-track: #e2e8f0;
-  --theme-dark: #1e293b;
-  --theme-dark-hover: #0f172a;
-}
-
-[data-theme="rose"] {
-  --theme-primary: #e11d48;
-  --theme-primary-hover: #be123c;
-  --theme-primary-soft: #fff1f2;
-  --theme-primary-border: #fecdd3;
-  --theme-primary-text: #be123c;
-  --theme-grad-from: #fb923c;
-  --theme-grad-to: #f43f5e;
-  --theme-highlight: rgba(255, 228, 230, 0.7);
-  --theme-highlight-text: #9f1239;
-  --theme-page: #fafafa;
-  --theme-page-outer: #e4e4e7;
-  --theme-surface: #ffffff;
-  --theme-surface-hover: #fafafa;
-  --theme-divider: #e7e5e4;
-  --theme-divider-strong: #d6d3d1;
-  --theme-heading: #1c1917;
-  --theme-body: #44403c;
-  --theme-label: #57534e;
-  --theme-muted: #78716c;
-  --theme-faint: #a8a29e;
-  --theme-track: #f4f4f5;
-  --theme-dark: #292524;
-  --theme-dark-hover: #1c1917;
-}
-
-:root,
-[data-theme="amber"],
-[data-theme="indigo"],
-[data-theme="rose"] {
+:root {
   --theme-overlay: rgba(0, 0, 0, 0.2);
   --theme-elevated: #ffffff;
   --theme-elevated-strong: rgba(255, 255, 255, 0.9);

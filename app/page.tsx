@@ -6,7 +6,6 @@ import { HomeScreen } from "@/components/screens/HomeScreen";
 import { LessonPlayer } from "@/components/screens/LessonPlayer";
 import { LessonComplete } from "@/components/screens/LessonComplete";
 import { OnboardingFlow } from "@/components/screens/OnboardingFlow";
-import { THEMES, ThemePicker, applyTheme, getStoredTheme, type ThemeId } from "@/components/ui/ThemePicker";
 
 /* ── Navigation state ── */
 
@@ -19,9 +18,6 @@ type AppScreen =
 export default function Home() {
   const [nav, setNav] = useState<AppScreen>({ screen: "welcome" });
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [theme, setTheme] = useState<ThemeId>(() => getStoredTheme());
-
-  const activeTheme = THEMES.find((option) => option.id === theme) ?? THEMES[0];
 
   const goHome = useCallback(() => setNav({ screen: "home" }), []);
 
@@ -47,15 +43,6 @@ export default function Home() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
-
-  useEffect(() => {
-    applyTheme(theme);
-  }, [theme]);
-
-  function handleThemeChange(nextTheme: ThemeId) {
-    setTheme(nextTheme);
-    applyTheme(nextTheme);
-  }
 
   const openSettings = useCallback(() => setSettingsOpen(true), []);
 
@@ -84,9 +71,8 @@ export default function Home() {
             <div className="mx-auto mb-4 h-1.5 w-14 rounded-full bg-divider-strong" />
             <div className="mb-5 flex items-start justify-between gap-4">
               <div>
-                <p className="type-body font-semibold text-faint">الإِعْدَادَاتُ</p>
-                <h2 className="mt-1 type-title font-bold text-heading">اللَّوْنُ</h2>
-                <p className="mt-2 type-body text-muted">غَيِّرْ لَوْنَ التَّطْبِيقِ وَشَاهِدِ النَّتِيجَةَ مُبَاشَرَةً</p>
+                <h2 className="type-title font-bold text-heading">الإِعْدَادَاتُ</h2>
+                <p className="mt-1 type-body text-muted">المَزِيدُ مِنَ الْخَيَارَاتِ قَرِيبًا</p>
               </div>
               <button
                 type="button"
@@ -96,23 +82,11 @@ export default function Home() {
                 إِغْلَاقٌ
               </button>
             </div>
-            <div className="rounded-2xl border border-divider bg-page px-4 py-5">
-              <div className="mb-4 flex items-center justify-between gap-3">
-                <div>
-                  <p className="type-body font-semibold text-label">المِظْهَرُ</p>
-                  <p className="type-body text-faint">هٰذِهِ هِيَ الإِعْدَادَاتُ الْمُتَاحَةُ حَالِيًّا</p>
-                </div>
-                <div className="rounded-full bg-primary-soft px-3 py-1.5 type-body font-semibold text-primary-text">
-                  {activeTheme.label}
-                </div>
-              </div>
-              <ThemePicker currentTheme={theme} onChange={handleThemeChange} />
-            </div>
 
             <button
               type="button"
               onClick={goToWelcome}
-              className="mt-4 w-full rounded-2xl border border-divider-strong bg-surface px-4 py-3 type-body font-semibold text-label transition-colors hover:bg-surface-hover hover:text-heading"
+              className="w-full rounded-2xl border border-divider-strong bg-surface px-4 py-3 type-body font-semibold text-label transition-colors hover:bg-surface-hover hover:text-heading"
             >
               شَاهِدِ الْمُقَدِّمَةَ مَرَّةً أُخْرَى
             </button>

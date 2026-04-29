@@ -25,12 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang="ar" className={`${notoNaskhArabic.variable} antialiased`} style={{ colorScheme: "light" }} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{
-          __html: `(function(){try{var t=localStorage.getItem('nahw-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})()`,
-        }} />
-      </head>
+    <html lang="ar" className={`${notoNaskhArabic.variable} antialiased`} style={{ colorScheme: "light" }}>
       <body>{children}</body>
     </html>
   );

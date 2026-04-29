@@ -36,17 +36,14 @@ export function HomeScreen({ onSelectLesson, onOpenSettings }: HomeScreenProps) 
           <button
             type="button"
             onClick={onOpenSettings}
-            className="flex h-11 items-center gap-2 rounded-2xl border border-divider-strong bg-surface px-3 type-body-lg font-semibold text-muted shadow-sm transition-colors hover:bg-surface-hover hover:text-heading"
+            className="flex h-11 w-11 items-center justify-center rounded-2xl border border-divider-strong bg-surface text-muted shadow-sm transition-colors hover:bg-surface-hover hover:text-heading"
             aria-label="الإعدادات"
             title="الإعدادات"
           >
-            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 3v3" /><path d="M12 18v3" /><path d="M3 12h3" /><path d="M18 12h3" />
-              <path d="m5.64 5.64 2.12 2.12" /><path d="m16.24 16.24 2.12 2.12" />
-              <path d="m5.64 18.36 2.12-2.12" /><path d="m16.24 7.76 2.12-2.12" />
-              <circle cx="12" cy="12" r="3.5" />
+            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+              <circle cx="12" cy="12" r="3" />
             </svg>
-            الإِعْدَادَاتُ
           </button>
         </div>
 
@@ -69,9 +66,9 @@ export function HomeScreen({ onSelectLesson, onOpenSettings }: HomeScreenProps) 
                   <button
                     key={lessonId}
                     onClick={() => onSelectLesson(book.id, lessonId)}
-                    className="w-full flex items-center gap-4 rounded-2xl border border-divider bg-surface px-5 py-4 text-right transition-all duration-150 hover:bg-surface-hover hover:border-divider-strong hover:shadow-sm active:scale-[0.98]"
+                    className="w-full flex items-center gap-4 rounded-2xl border border-primary-border bg-primary-soft px-5 py-4 text-right transition-all duration-150 hover:bg-primary-border/30 hover:shadow-sm active:scale-[0.98]"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-primary-soft flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-surface flex items-center justify-center shrink-0">
                       <span className="type-body font-bold text-primary-text">
                         {lessonIdx + 1}
                       </span>
