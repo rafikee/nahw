@@ -6,11 +6,11 @@ The lesson format may evolve over time. When in doubt, treat `types/lesson.ts` a
 
 ## Project Structure
 
-The app is organized around a **Book → Lesson → Step** hierarchy:
+The app is organized around a **Level → Lesson → Step** hierarchy. ("Level" = الْمُسْتَوَى in the UI; called `Level` / `LEVELS` / `LevelMeta` in the code. Earlier versions called these "books" — the rename is purely cosmetic.)
 
 ```
 data/
-  course.ts            ← Course manifest: defines books and which lessons belong to each
+  course.ts            ← Course manifest: defines levels and which lessons belong to each
   index.ts             ← Imports all lesson JSON files, exports LESSONS array
   lesson_1.json        ← Lesson content (one file per lesson)
   lesson_2.json
@@ -27,7 +27,7 @@ types/
 
 components/
   screens/
-    HomeScreen.tsx     ← Book/lesson browser (the landing page)
+    HomeScreen.tsx     ← Level/lesson browser (the landing page)
     LessonPlayer.tsx   ← Step-by-step lesson flow (header, progress bar, footer nav)
     LessonComplete.tsx ← End-of-lesson screen with "next lesson" transition
   steps/
@@ -48,28 +48,34 @@ app/
 
 The app uses a client-side state machine with three screens:
 
-- **Home** (`HomeScreen`) — shows all books with their lessons listed. Tapping a lesson starts it.
+- **Home** (`HomeScreen`) — shows all levels with their lessons listed. Tapping a lesson starts it.
 - **Lesson** (`LessonPlayer`) — walks through a single lesson's steps: intro → (concept → quick check) × N → review quiz → word sort. Footer "next" on the last step triggers the completion screen.
-- **Lesson complete** (`LessonComplete`) — congratulations, lesson stats, and a "next lesson" button that auto-resolves the next lesson (even across book boundaries).
+- **Lesson complete** (`LessonComplete`) — congratulations and a "next lesson" button that auto-resolves the next lesson (even across level boundaries).
 
-### Book/lesson hierarchy
+### Level/lesson hierarchy
 
-The course manifest lives in `data/course.ts`. It defines `BOOKS` — an array of `BookMeta` objects, each listing the `module_id` values of its lessons in order. Lesson JSON files do not know which book they belong to; that mapping is only in the manifest.
+The course manifest lives in `data/course.ts`. It defines `LEVELS` — an array of `LevelMeta` objects, each listing the `module_id` values of its lessons in order. Lesson JSON files do not know which level they belong to; that mapping is only in the manifest.
 
 ```ts
 // data/course.ts (simplified)
-export const BOOKS: BookMeta[] = [
+export const LEVELS: LevelMeta[] = [
   {
-    id: "book-1",
-    title: "الْجُزْءُ الْأَوَّلُ",
+    id: "level-1",
     subtitle: "أَسَاسِيَّاتُ النَّحْوِ",
     lessonIds: ["01_anwaa_al_kalimat", "02_aqsaam_al_fil"],
   },
-  // future books go here
+  // future levels go here
 ];
 ```
 
-Adding a new lesson means: (1) create the JSON, (2) import it in `data/index.ts`, (3) add its `module_id` to the right book's `lessonIds` in `data/course.ts`. See "Adding the Lesson to the App" at the bottom for the full checklist.
+`LevelMeta` fields:
+- `id` — slug like `"level-1"`, `"level-2"`. Internal only; never user-facing.
+- `subtitle` — what the user sees on the home screen and in the lesson breadcrumb. Full tashkeel.
+- `lessonIds` — ordered `module_id` values. Order determines display order and the "next lesson" sequence.
+
+The user-facing ordinal label ("الْمُسْتَوَى الْأَوَّلُ", "الْمُسْتَوَى الثَّانِي") is derived in `HomeScreen.tsx` from the level's index — there is no `title` field on `LevelMeta`.
+
+Adding a new lesson means: (1) create the JSON, (2) import it in `data/index.ts`, (3) add its `module_id` to the right level's `lessonIds` in `data/course.ts`. See "Adding the Lesson to the App" at the bottom for the full checklist.
 
 ## Process
 
@@ -103,12 +109,12 @@ import lesson3Data from "./lesson_3.json";
 export const LESSONS = [lesson1Data, lesson2Data, lesson3Data] as unknown as Lesson[];
 ```
 
-**`data/course.ts`** — add the lesson's `module_id` to the correct book's `lessonIds` array:
+**`data/course.ts`** — add the lesson's `module_id` to the correct level's `lessonIds` array:
 
 ```ts
-export const BOOKS: BookMeta[] = [
+export const LEVELS: LevelMeta[] = [
   {
-    id: "book-1",
+    id: "level-1",
     // ...
     lessonIds: ["01_anwaa_al_kalimat", "02_aqsaam_al_fil", "03_new_lesson"],
   },
@@ -336,16 +342,16 @@ Some textbook sections are closely related (e.g. singular/dual/plural and plural
 After creating `data/lesson_N.json`:
 
 1. Import it in `data/index.ts` and add to the `LESSONS` array
-2. Add its `module_id` to the correct book's `lessonIds` array in `data/course.ts`
+2. Add its `module_id` to the correct level's `lessonIds` array in `data/course.ts`
 3. Run `npx next build` to verify there are no type errors
-4. Test on your phone — the lesson should appear in the home screen under its book, and the "next lesson" button on the previous lesson's completion screen should link to it
+4. Test on your phone — the lesson should appear in the home screen under its level, and the "next lesson" button on the previous lesson's completion screen should link to it
 
-### Adding a new book
+### Adding a new level
 
-If the lesson belongs to a new book (not yet in `data/course.ts`):
+If the lesson belongs to a new level (not yet in `data/course.ts`):
 
-1. Add a new `BookMeta` entry to the `BOOKS` array in `data/course.ts`
-2. Use a sequential `id` like `"book-2"`, `"book-3"`, etc.
-3. Set `title` (e.g. `"الْجُزْءُ الثَّانِي"`) and `subtitle` (the book's topic, with tashkeel)
-4. List the book's lesson `module_id` values in `lessonIds`
-5. The home screen and next-lesson navigation automatically pick up the new book — no component changes needed
+1. Add a new `LevelMeta` entry to the `LEVELS` array in `data/course.ts`
+2. Use a sequential `id` like `"level-2"`, `"level-3"`, etc.
+3. Set `subtitle` (the level's topic, with tashkeel). The user-facing ordinal ("الْمُسْتَوَى الثَّانِي") is derived from index — no `title` field.
+4. List the level's lesson `module_id` values in `lessonIds`
+5. The home screen and next-lesson navigation automatically pick up the new level — no component changes needed

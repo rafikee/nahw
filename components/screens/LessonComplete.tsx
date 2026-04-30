@@ -2,28 +2,28 @@
 
 import { useEffect } from "react";
 import type { Lesson } from "@/types/lesson";
-import { getNextLesson, BOOKS } from "@/data/course";
+import { getLevel, getNextLesson } from "@/data/course";
 import { LessonRating } from "@/components/ui/LessonRating";
 import { track } from "@/lib/events";
 
 interface LessonCompleteProps {
   lesson: Lesson;
-  bookId: string;
+  levelId: string;
   lessonId: string;
-  onNextLesson: (bookId: string, lessonId: string) => void;
+  onNextLesson: (levelId: string, lessonId: string) => void;
   onCurriculumComplete: () => void;
 }
 
 export function LessonComplete({
   lesson,
-  bookId,
+  levelId,
   lessonId,
   onNextLesson,
   onCurriculumComplete,
 }: LessonCompleteProps) {
-  const next = getNextLesson(bookId, lessonId);
-  const nextBook = next ? BOOKS.find((b) => b.id === next.bookId) : null;
-  const isNewBook = next ? next.bookId !== bookId : false;
+  const next = getNextLesson(levelId, lessonId);
+  const nextLevel = next ? getLevel(next.levelId) : null;
+  const isNewLevel = next ? next.levelId !== levelId : false;
 
   useEffect(() => {
     track("lesson_complete", { contextId: lesson.module_id });
@@ -31,7 +31,7 @@ export function LessonComplete({
 
   function handleAdvance() {
     if (next) {
-      onNextLesson(next.bookId, next.lessonId);
+      onNextLesson(next.levelId, next.lessonId);
     } else {
       onCurriculumComplete();
     }
@@ -46,9 +46,9 @@ export function LessonComplete({
       >
         <LessonRating contextId={lesson.module_id} />
 
-        {isNewBook && nextBook && (
+        {isNewLevel && nextLevel && (
           <p className="type-body font-semibold text-primary text-center">
-            {nextBook.subtitle}
+            {nextLevel.subtitle}
           </p>
         )}
 

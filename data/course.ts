@@ -1,19 +1,22 @@
 import type { Lesson } from "@/types/lesson";
 import { LESSONS } from "./index";
 
-export interface BookMeta {
+export interface LevelMeta {
   id: string;
-  title: string;
   subtitle: string;
   lessonIds: string[];
 }
 
-export const BOOKS: BookMeta[] = [
+export const LEVELS: LevelMeta[] = [
   {
-    id: "book-1",
-    title: "الْجُزْءُ الْأَوَّلُ",
+    id: "level-1",
     subtitle: "أَسَاسِيَّاتُ النَّحْوِ",
-    lessonIds: ["01_anwaa_al_kalimat", "02_aqsaam_al_fil", "03_al_mudhakkar_wal_muannath", "04_al_mufrad_wal_muthanna_wal_jam"],
+    lessonIds: [
+      "01_anwaa_al_kalimat",
+      "02_aqsaam_al_fil",
+      "03_al_mudhakkar_wal_muannath",
+      "04_al_mufrad_wal_muthanna_wal_jam",
+    ],
   },
 ];
 
@@ -25,30 +28,34 @@ export function getLesson(id: string): Lesson | undefined {
   return LESSON_MAP.get(id);
 }
 
+export function getLevel(id: string): LevelMeta | undefined {
+  return LEVELS.find((l) => l.id === id);
+}
+
 export function getNextLesson(
-  bookId: string,
+  levelId: string,
   lessonId: string
-): { bookId: string; lessonId: string } | null {
-  const bookIndex = BOOKS.findIndex((b) => b.id === bookId);
-  if (bookIndex === -1) return null;
+): { levelId: string; lessonId: string } | null {
+  const levelIndex = LEVELS.findIndex((l) => l.id === levelId);
+  if (levelIndex === -1) return null;
 
-  const book = BOOKS[bookIndex];
-  const lessonIndex = book.lessonIds.indexOf(lessonId);
+  const level = LEVELS[levelIndex];
+  const lessonIndex = level.lessonIds.indexOf(lessonId);
 
-  if (lessonIndex < book.lessonIds.length - 1) {
-    return { bookId, lessonId: book.lessonIds[lessonIndex + 1] };
+  if (lessonIndex < level.lessonIds.length - 1) {
+    return { levelId, lessonId: level.lessonIds[lessonIndex + 1] };
   }
 
-  if (bookIndex < BOOKS.length - 1) {
-    const nextBook = BOOKS[bookIndex + 1];
-    return { bookId: nextBook.id, lessonId: nextBook.lessonIds[0] };
+  if (levelIndex < LEVELS.length - 1) {
+    const nextLevel = LEVELS[levelIndex + 1];
+    return { levelId: nextLevel.id, lessonId: nextLevel.lessonIds[0] };
   }
 
   return null;
 }
 
-export function getLessonNumber(bookId: string, lessonId: string): number {
-  const book = BOOKS.find((b) => b.id === bookId);
-  if (!book) return 0;
-  return book.lessonIds.indexOf(lessonId) + 1;
+export function getLessonNumber(levelId: string, lessonId: string): number {
+  const level = LEVELS.find((l) => l.id === levelId);
+  if (!level) return 0;
+  return level.lessonIds.indexOf(lessonId) + 1;
 }

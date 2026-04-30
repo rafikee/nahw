@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { BOOKS, getLesson, getLessonNumber, getNextLesson } from "@/data/course";
+import { getLesson, getLessonNumber, getLevel, getNextLesson } from "@/data/course";
 import { HomeScreen } from "@/components/screens/HomeScreen";
 import { LessonPlayer } from "@/components/screens/LessonPlayer";
 import { LessonComplete } from "@/components/screens/LessonComplete";
@@ -13,8 +13,8 @@ import { CurriculumComplete } from "@/components/screens/CurriculumComplete";
 type AppScreen =
   | { screen: "welcome" }
   | { screen: "home" }
-  | { screen: "lesson"; bookId: string; lessonId: string }
-  | { screen: "lesson_complete"; bookId: string; lessonId: string }
+  | { screen: "lesson"; levelId: string; lessonId: string }
+  | { screen: "lesson_complete"; levelId: string; lessonId: string }
   | { screen: "curriculum_complete" };
 
 const RATED_LESSONS_KEY = "nahw-lessons-rated";
@@ -66,8 +66,8 @@ export default function Home() {
     setNav({ screen: "welcome" });
   }, []);
 
-  const goToLesson = useCallback((bookId: string, lessonId: string) => {
-    setNav({ screen: "lesson", bookId, lessonId });
+  const goToLesson = useCallback((levelId: string, lessonId: string) => {
+    setNav({ screen: "lesson", levelId, lessonId });
   }, []);
 
   const goToCurriculumComplete = useCallback(() => {
@@ -79,19 +79,19 @@ export default function Home() {
   }, []);
 
   const goToComplete = useCallback(
-    (bookId: string, lessonId: string) => {
+    (levelId: string, lessonId: string) => {
       // Skip the rating dialog if this lesson was already rated.
       if (getRatedLessons().has(lessonId)) {
-        const next = getNextLesson(bookId, lessonId);
+        const next = getNextLesson(levelId, lessonId);
         if (next) {
-          setNav({ screen: "lesson", bookId: next.bookId, lessonId: next.lessonId });
+          setNav({ screen: "lesson", levelId: next.levelId, lessonId: next.lessonId });
         } else {
           goToCurriculumComplete();
         }
         return;
       }
       markLessonRated(lessonId);
-      setNav({ screen: "lesson_complete", bookId, lessonId });
+      setNav({ screen: "lesson_complete", levelId, lessonId });
     },
     [goToCurriculumComplete]
   );
@@ -109,8 +109,8 @@ export default function Home() {
   /* ── Resolve current lesson data ── */
   const inLesson = nav.screen === "lesson" || nav.screen === "lesson_complete";
   const lesson = inLesson ? getLesson(nav.lessonId) : null;
-  const book = inLesson ? BOOKS.find((b) => b.id === nav.bookId) : null;
-  const lessonNumber = inLesson && book ? getLessonNumber(nav.bookId, nav.lessonId) : 0;
+  const level = inLesson ? getLevel(nav.levelId) : null;
+  const lessonNumber = inLesson && level ? getLessonNumber(nav.levelId, nav.lessonId) : 0;
 
   return (
     <div dir="rtl" className="relative h-dvh font-arabic flex flex-col lg:items-center lg:justify-center bg-page lg:bg-page-outer/60 overflow-hidden">
@@ -168,22 +168,22 @@ export default function Home() {
           />
         )}
 
-        {nav.screen === "lesson" && lesson && book && (
+        {nav.screen === "lesson" && lesson && level && (
           <LessonPlayer
             key={nav.lessonId}
             lesson={lesson}
             lessonNumber={lessonNumber}
-            bookSubtitle={book.subtitle}
-            onComplete={() => goToComplete(nav.bookId, nav.lessonId)}
+            levelSubtitle={level.subtitle}
+            onComplete={() => goToComplete(nav.levelId, nav.lessonId)}
             onHome={goHome}
             onOpenSettings={openSettings}
           />
         )}
 
-        {nav.screen === "lesson_complete" && lesson && (
+        {nav.screen === "lesson_complete" && lesson && level && (
           <LessonComplete
             lesson={lesson}
-            bookId={nav.bookId}
+            levelId={nav.levelId}
             lessonId={nav.lessonId}
             onNextLesson={goToLesson}
             onCurriculumComplete={goToCurriculumComplete}

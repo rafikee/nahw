@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { BOOKS, getLesson } from "@/data/course";
+import { LEVELS, getLesson } from "@/data/course";
 import { EmailCapture } from "@/components/ui/EmailCapture";
 
 interface HomeScreenProps {
-  onSelectLesson: (bookId: string, lessonId: string) => void;
+  onSelectLesson: (levelId: string, lessonId: string) => void;
   onOpenSettings: () => void;
 }
 
@@ -14,7 +14,7 @@ const ARABIC_ORDINALS = [
   "السَّادِسُ", "السَّابِعُ", "الثَّامِنُ", "التَّاسِعُ", "الْعَاشِرُ",
 ];
 
-const BOOK_ORDINALS = [
+const LEVEL_ORDINALS = [
   "الْأَوَّلُ", "الثَّانِي", "الثَّالِثُ", "الرَّابِعُ",
 ];
 
@@ -48,25 +48,25 @@ export function HomeScreen({ onSelectLesson, onOpenSettings }: HomeScreenProps) 
           </button>
         </div>
 
-        {/* Books */}
-        {BOOKS.map((book, bookIdx) => (
-          <section key={book.id} className="space-y-4">
+        {/* Levels */}
+        {LEVELS.map((level, levelIdx) => (
+          <section key={level.id} className="space-y-4">
             <div className="border-r-4 border-primary-hover pr-4 py-1">
               <p className="type-body font-semibold text-primary">
-                الْكِتَابُ {BOOK_ORDINALS[bookIdx] ?? bookIdx + 1}
+                الْمُسْتَوَى {LEVEL_ORDINALS[levelIdx] ?? levelIdx + 1}
               </p>
-              <h2 className="type-title font-bold text-heading">{book.subtitle}</h2>
+              <h2 className="type-title font-bold text-heading">{level.subtitle}</h2>
             </div>
 
             <div className="space-y-2">
-              {book.lessonIds.map((lessonId, lessonIdx) => {
+              {level.lessonIds.map((lessonId, lessonIdx) => {
                 const lesson = getLesson(lessonId);
                 if (!lesson) return null;
 
                 return (
                   <button
                     key={lessonId}
-                    onClick={() => onSelectLesson(book.id, lessonId)}
+                    onClick={() => onSelectLesson(level.id, lessonId)}
                     className="w-full flex items-center gap-4 rounded-2xl border border-primary-border bg-primary-soft px-5 py-4 text-right transition-all duration-150 hover:bg-primary-border/30 hover:shadow-sm active:scale-[0.98]"
                   >
                     <div className="w-10 h-10 rounded-xl bg-surface flex items-center justify-center shrink-0">

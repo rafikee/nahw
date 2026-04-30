@@ -45,7 +45,7 @@ const ARABIC_ORDINALS = [
 interface LessonPlayerProps {
   lesson: Lesson;
   lessonNumber: number;
-  bookSubtitle: string;
+  levelSubtitle: string;
   onComplete: () => void;
   onHome: () => void;
   onOpenSettings: () => void;
@@ -54,7 +54,7 @@ interface LessonPlayerProps {
 export function LessonPlayer({
   lesson,
   lessonNumber,
-  bookSubtitle,
+  levelSubtitle,
   onComplete,
   onHome,
   onOpenSettings,
@@ -111,7 +111,7 @@ export function LessonPlayer({
             className="shrink-0 rounded-md bg-primary-soft px-2.5 py-1 type-body font-semibold text-primary-text border border-primary-soft hover:bg-primary-border/30 transition-colors"
             title="الصَّفْحَةُ الرَّئِيسِيَّةُ"
           >
-            {bookSubtitle}
+            {levelSubtitle}
           </button>
           <svg className="w-3 h-3 text-faint shrink-0 rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
           <span className="shrink-0 type-body text-faint">{lessonLabel}</span>
