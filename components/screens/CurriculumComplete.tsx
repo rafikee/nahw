@@ -1,14 +1,20 @@
 "use client";
 
+import { useEffect } from "react";
 import { EmailCapture } from "@/components/ui/EmailCapture";
 import { LearnedNew } from "@/components/ui/LearnedNew";
 import { PMFRating } from "@/components/ui/PMFRating";
+import { track } from "@/lib/events";
 
 interface CurriculumCompleteProps {
   onDone: () => void;
 }
 
 export function CurriculumComplete({ onDone }: CurriculumCompleteProps) {
+  useEffect(() => {
+    track("curriculum_complete");
+  }, []);
+
   return (
     <div className="flex-1 min-h-0 overflow-y-auto">
       <div className="px-8 py-10 space-y-8">

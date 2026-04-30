@@ -1,8 +1,10 @@
 "use client";
 
+import { useEffect } from "react";
 import type { Lesson } from "@/types/lesson";
 import { getNextLesson, BOOKS } from "@/data/course";
 import { LessonRating } from "@/components/ui/LessonRating";
+import { track } from "@/lib/events";
 
 interface LessonCompleteProps {
   lesson: Lesson;
@@ -22,6 +24,10 @@ export function LessonComplete({
   const next = getNextLesson(bookId, lessonId);
   const nextBook = next ? BOOKS.find((b) => b.id === next.bookId) : null;
   const isNewBook = next ? next.bookId !== bookId : false;
+
+  useEffect(() => {
+    track("lesson_complete", { contextId: lesson.module_id });
+  }, [lesson.module_id]);
 
   function handleAdvance() {
     if (next) {

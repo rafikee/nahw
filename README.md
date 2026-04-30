@@ -146,6 +146,16 @@ CREATE TABLE feedback (
   email TEXT COLLATE NOCASE,       -- auto-attached if user is subscribed
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
+
+CREATE TABLE events (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  kind TEXT NOT NULL,              -- one of the event allowlist below
+  session_id TEXT NOT NULL,        -- anonymous random UUID per device
+  context_id TEXT,                 -- lesson module_id when relevant
+  payload TEXT,                    -- JSON string for step_kind, etc; null otherwise
+  email TEXT COLLATE NOCASE,       -- auto-attached if user is subscribed
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
 ```
 
 ### Rating semantics
@@ -158,6 +168,19 @@ CREATE TABLE feedback (
 | `general` | — (null) | — | — |
 
 Higher rating = more positive product signal (more attached / clearer / yes-learned).
+
+### Event taxonomy
+
+| `kind` | Fired when | `context_id` | `payload` |
+|---|---|---|---|
+| `app_open` | OnboardingFlow first mounts | — | — |
+| `onboarding_complete` | User exits onboarding into home | — | — |
+| `lesson_start` | LessonPlayer mounts | lesson `module_id` | — |
+| `step_complete` | User taps "next" inside a lesson | lesson `module_id` | `{ step_kind }` |
+| `lesson_complete` | LessonComplete dialog mounts | lesson `module_id` | — |
+| `curriculum_complete` | CurriculumComplete mounts | — | — |
+
+Events are fired client-side via [`lib/events.ts`](./lib/events.ts) with `keepalive: true` so they survive page unloads. Anonymous `session_id` is a UUID generated once per device, persisted in `localStorage["nahw-session-id"]`. Email auto-attaches once the user subscribes (same pattern as feedback).
 
 ### Email auto-attach
 
@@ -187,6 +210,38 @@ FROM feedback WHERE kind='learned_new';
 SELECT created_at, email, comment FROM feedback
 WHERE comment IS NOT NULL AND length(comment) > 5
 ORDER BY id DESC;
+
+-- Daily unique app opens (events table)
+SELECT date(created_at) AS day, COUNT(DISTINCT session_id) AS uniques
+FROM events WHERE kind = 'app_open' GROUP BY day ORDER BY day DESC;
+
+-- Onboarding completion rate
+WITH starts AS (SELECT DISTINCT session_id FROM events WHERE kind='app_open'),
+     done   AS (SELECT DISTINCT session_id FROM events WHERE kind='onboarding_complete')
+SELECT (SELECT COUNT(*) FROM starts) AS opens,
+       (SELECT COUNT(*) FROM done) AS completed,
+       ROUND(100.0 * (SELECT COUNT(*) FROM done) / NULLIF((SELECT COUNT(*) FROM starts), 0)) AS pct;
+
+-- Per-lesson start vs complete
+SELECT context_id AS lesson,
+       SUM(CASE WHEN kind='lesson_start' THEN 1 END) AS starts,
+       SUM(CASE WHEN kind='lesson_complete' THEN 1 END) AS completes,
+       ROUND(100.0 * SUM(CASE WHEN kind='lesson_complete' THEN 1 END) /
+             NULLIF(SUM(CASE WHEN kind='lesson_start' THEN 1 END), 0)) AS pct
+FROM events WHERE kind IN ('lesson_start','lesson_complete') AND context_id IS NOT NULL
+GROUP BY context_id ORDER BY context_id;
+
+-- Step-level drop-off — last step type completed per (session, lesson)
+SELECT json_extract(payload, '$.step_kind') AS last_step, COUNT(*) AS sessions
+FROM (
+  SELECT session_id, context_id, payload,
+         ROW_NUMBER() OVER (PARTITION BY session_id, context_id ORDER BY created_at DESC) AS rn
+  FROM events WHERE kind = 'step_complete'
+) WHERE rn = 1
+GROUP BY last_step ORDER BY sessions DESC;
+
+-- Sessions that subscribed at any point
+SELECT COUNT(DISTINCT session_id) FROM events WHERE email IS NOT NULL;
 ```
 
 ---
@@ -276,6 +331,12 @@ Currently **not configured**. To add (deferred task): nightly `cp` of `/data/coo
 | Rate a lesson | `feedback(kind='lesson_rating', rating, context_id)` | LessonComplete dialog |
 | Answer "would you miss it" | `feedback(kind='pmf', rating)` | CurriculumComplete `<PMFRating />` |
 | Answer "did you learn something new" | `feedback(kind='learned_new', rating)` | CurriculumComplete `<LearnedNew />` |
+| Open the app | `events(kind='app_open')` | OnboardingFlow mount |
+| Finish onboarding | `events(kind='onboarding_complete')` | OnboardingFlow exit |
+| Start a lesson | `events(kind='lesson_start', context_id=<lesson>)` | LessonPlayer mount |
+| Advance any step inside a lesson | `events(kind='step_complete', payload={step_kind})` | LessonPlayer `goNext` |
+| Reach lesson completion dialog | `events(kind='lesson_complete', context_id=<lesson>)` | LessonComplete mount |
+| Reach end-of-curriculum screen | `events(kind='curriculum_complete')` | CurriculumComplete mount |
 
 ---
 

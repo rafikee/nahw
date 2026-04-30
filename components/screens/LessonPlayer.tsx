@@ -6,6 +6,7 @@ import { StepLessonIntro } from "@/components/steps/StepLessonIntro";
 import { StepConcept } from "@/components/steps/StepConcept";
 import { StepQuickCheck } from "@/components/steps/StepQuickCheck";
 import { StepWordSort } from "@/components/steps/StepWordSort";
+import { track } from "@/lib/events";
 
 type StepView =
   | { type: "lesson_intro" }
@@ -67,14 +68,22 @@ export function LessonPlayer({
   const canGoBack = stepIndex > 0;
   const progress = { step: stepIndex + 1, total: steps.length };
 
+  useEffect(() => {
+    track("lesson_start", { contextId: lesson.module_id });
+  }, [lesson.module_id]);
+
   const goNext = useCallback(() => {
+    track("step_complete", {
+      contextId: lesson.module_id,
+      payload: { step_kind: current.type },
+    });
     if (isLast) {
       onComplete();
       return;
     }
     setDirection("forward");
     setStepIndex((i) => i + 1);
-  }, [isLast, onComplete]);
+  }, [isLast, onComplete, lesson.module_id, current.type]);
 
   const goPrev = useCallback(() => {
     setDirection("backward");

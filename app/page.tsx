@@ -132,7 +132,7 @@ export default function Home() {
             <div className="mb-5 flex items-start justify-between gap-4">
               <div>
                 <h2 className="type-title font-bold text-heading">الإِعْدَادَاتُ</h2>
-                <p className="mt-1 type-body text-muted">نُسْخَةٌ تَجْرِيبِيَّةٌ · v0.2.0</p>
+                <p className="mt-1 type-body text-muted">نُسْخَةٌ تَجْرِيبِيَّةٌ · v0.3.0</p>
               </div>
               <button
                 type="button"

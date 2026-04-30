@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { track } from "@/lib/events";
 
 interface OnboardingFlowProps {
   onComplete: () => void;
@@ -13,9 +14,18 @@ const TOTAL_STEPS = 3;
 export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
   const [step, setStep] = useState<StepIndex>(0);
 
+  useEffect(() => {
+    track("app_open");
+  }, []);
+
+  const finish = () => {
+    track("onboarding_complete");
+    onComplete();
+  };
+
   const handleNext = () => {
     if (step === TOTAL_STEPS - 1) {
-      onComplete();
+      finish();
     } else {
       setStep((step + 1) as StepIndex);
     }
@@ -54,7 +64,7 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
         {!isLast && (
           <button
             type="button"
-            onClick={onComplete}
+            onClick={finish}
             className="w-full type-body font-semibold text-muted hover:text-heading transition-colors"
           >
             تَخَطَّ
