@@ -45,4 +45,6 @@ next-env.d.ts
 /source-content
 
 # local SQLite database (subscribers, etc.)
-/data
+data/nahw.db
+data/nahw.db-wal
+data/nahw.db-shm
