@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { BOOKS, getLesson } from "@/data/course";
+import { EmailCapture } from "@/components/ui/EmailCapture";
 
 interface HomeScreenProps {
   onSelectLesson: (bookId: string, lessonId: string) => void;
@@ -87,6 +88,8 @@ export function HomeScreen({ onSelectLesson, onOpenSettings }: HomeScreenProps) 
             </div>
           </section>
         ))}
+
+        <EmailCapture source="home" />
 
       </div>
     </div>

@@ -32,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -42,3 +43,6 @@ next-env.d.ts
 
 # source book content (PDFs, OCR markdown) — not needed at runtime
 /source-content
+
+# local SQLite database (subscribers, etc.)
+/data

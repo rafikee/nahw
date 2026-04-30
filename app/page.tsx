@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { BOOKS, getLesson, getLessonNumber } from "@/data/course";
+import { BOOKS, getLesson, getLessonNumber, getNextLesson } from "@/data/course";
 import { HomeScreen } from "@/components/screens/HomeScreen";
 import { LessonPlayer } from "@/components/screens/LessonPlayer";
 import { LessonComplete } from "@/components/screens/LessonComplete";
 import { OnboardingFlow } from "@/components/screens/OnboardingFlow";
+import { CurriculumComplete } from "@/components/screens/CurriculumComplete";
 
 /* ── Navigation state ── */
 
@@ -13,7 +14,44 @@ type AppScreen =
   | { screen: "welcome" }
   | { screen: "home" }
   | { screen: "lesson"; bookId: string; lessonId: string }
-  | { screen: "lesson_complete"; bookId: string; lessonId: string };
+  | { screen: "lesson_complete"; bookId: string; lessonId: string }
+  | { screen: "curriculum_complete" };
+
+const RATED_LESSONS_KEY = "nahw-lessons-rated";
+
+function getRatedLessons(): Set<string> {
+  try {
+    const raw = window.localStorage.getItem(RATED_LESSONS_KEY);
+    if (!raw) return new Set();
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed)) return new Set(parsed.filter((s) => typeof s === "string"));
+  } catch {
+    /* ignore */
+  }
+  return new Set();
+}
+
+function markLessonRated(lessonId: string) {
+  try {
+    const set = getRatedLessons();
+    set.add(lessonId);
+    window.localStorage.setItem(RATED_LESSONS_KEY, JSON.stringify([...set]));
+  } catch {
+    /* ignore */
+  }
+}
+
+function allCurriculumQuestionsAnswered(): boolean {
+  try {
+    return (
+      !!window.localStorage.getItem("nahw-subscribed") &&
+      !!window.localStorage.getItem("nahw-pmf-answered") &&
+      !!window.localStorage.getItem("nahw-learned-new-answered")
+    );
+  } catch {
+    return false;
+  }
+}
 
 export default function Home() {
   const [nav, setNav] = useState<AppScreen>({ screen: "welcome" });
@@ -32,9 +70,31 @@ export default function Home() {
     setNav({ screen: "lesson", bookId, lessonId });
   }, []);
 
-  const goToComplete = useCallback((bookId: string, lessonId: string) => {
-    setNav({ screen: "lesson_complete", bookId, lessonId });
+  const goToCurriculumComplete = useCallback(() => {
+    if (allCurriculumQuestionsAnswered()) {
+      setNav({ screen: "home" });
+      return;
+    }
+    setNav({ screen: "curriculum_complete" });
   }, []);
+
+  const goToComplete = useCallback(
+    (bookId: string, lessonId: string) => {
+      // Skip the rating dialog if this lesson was already rated.
+      if (getRatedLessons().has(lessonId)) {
+        const next = getNextLesson(bookId, lessonId);
+        if (next) {
+          setNav({ screen: "lesson", bookId: next.bookId, lessonId: next.lessonId });
+        } else {
+          goToCurriculumComplete();
+        }
+        return;
+      }
+      markLessonRated(lessonId);
+      setNav({ screen: "lesson_complete", bookId, lessonId });
+    },
+    [goToCurriculumComplete]
+  );
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -126,8 +186,12 @@ export default function Home() {
             bookId={nav.bookId}
             lessonId={nav.lessonId}
             onNextLesson={goToLesson}
-            onHome={goHome}
+            onCurriculumComplete={goToCurriculumComplete}
           />
+        )}
+
+        {nav.screen === "curriculum_complete" && (
+          <CurriculumComplete onDone={goHome} />
         )}
 
       </div>
