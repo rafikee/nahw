@@ -26,6 +26,7 @@ I need you to create a new lesson for my Arabic grammar (nahw) learning app.
 2. Draft a complete `lesson_N.json` following the guide. This means:
    - A one-sentence introduction hook
    - Concepts with definitions, examples, and a quick check each
+   - For concepts that teach a **derivation** (feminine, dual, plural, etc.), use the optional `example_pairs` field — see "Example pairs" in `AUTHORING.md`
    - A review quiz (2-4 MCQs converted from the textbook exercises)
    - A word sort exercise (from the classification exercise, or create one if none exists)
 3. Flag any suspected OCR/tashkeel errors you notice in the source.

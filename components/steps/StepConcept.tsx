@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import type { Concept } from "@/types/lesson";
+import type { Concept, ExamplePair } from "@/types/lesson";
 import { conceptThemes } from "@/components/ui/conceptThemes";
 import { RichText } from "@/components/ui/RichText";
+
+type Theme = (typeof conceptThemes)[number];
 
 function SpotTheWordExercise({ data }: { data: NonNullable<Concept["spot_the_word"]> }) {
   const [tapped, setTapped] = useState<number | null>(null);
@@ -50,8 +52,65 @@ function SpotTheWordExercise({ data }: { data: NonNullable<Concept["spot_the_wor
   );
 }
 
+function FlatExamples({ examples, theme }: { examples: string[]; theme: Theme }) {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {examples.map((ex) => (
+        <span
+          key={ex}
+          className={`rounded-xl border px-4 py-2 type-title font-semibold ${theme.chipBg}`}
+        >
+          {ex}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function PairedExamples({
+  pairs,
+  fromLabel,
+  toLabel,
+  theme,
+}: {
+  pairs: ExamplePair[];
+  fromLabel?: string;
+  toLabel?: string;
+  theme: Theme;
+}) {
+  const showHeaders = !!fromLabel || !!toLabel;
+  const chipClass = `rounded-xl border px-4 py-2 type-title font-semibold text-center ${theme.chipBg}`;
+  const rowClass = "grid grid-cols-[1fr_auto_1fr] gap-3 items-center";
+
+  return (
+    <div className="space-y-2.5">
+      {showHeaders && (
+        <div className={rowClass}>
+          <p className="type-body font-semibold text-muted text-center">
+            {fromLabel ?? ""}
+          </p>
+          <span aria-hidden="true" />
+          <p className="type-body font-semibold text-muted text-center">
+            {toLabel ?? ""}
+          </p>
+        </div>
+      )}
+      {pairs.map((pair, i) => (
+        <div key={i} className={rowClass}>
+          <span className={chipClass}>{pair.from}</span>
+          <span aria-hidden="true" className="type-body-lg text-faint">←</span>
+          <span className={chipClass}>{pair.to}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function StepConcept({ concept, conceptIndex }: { concept: Concept; conceptIndex: number }) {
   const theme = conceptThemes[conceptIndex % conceptThemes.length];
+  const usePairs = !!concept.example_pairs && concept.example_pairs.length > 0;
+  const toLabel = concept.pair_to_label ?? concept.type;
+
   return (
     <div className="space-y-6">
 
@@ -74,16 +133,16 @@ export function StepConcept({ concept, conceptIndex }: { concept: Concept; conce
 
       <div className="rounded-2xl border border-divider bg-surface px-7 py-6 shadow-sm space-y-4">
         <p className="type-body-lg font-bold text-label">أَمْثِلَةٌ</p>
-        <div className="flex flex-wrap gap-2">
-          {concept.examples.map((ex) => (
-            <span
-              key={ex}
-              className={`rounded-xl border px-4 py-2 type-title font-semibold ${theme.chipBg}`}
-            >
-              {ex}
-            </span>
-          ))}
-        </div>
+        {usePairs ? (
+          <PairedExamples
+            pairs={concept.example_pairs!}
+            fromLabel={concept.pair_from_label}
+            toLabel={toLabel}
+            theme={theme}
+          />
+        ) : (
+          <FlatExamples examples={concept.examples} theme={theme} />
+        )}
       </div>
     </div>
   );

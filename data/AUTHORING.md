@@ -239,6 +239,36 @@ The classification exercise at the end of the lesson.
 - The textbook's "عيِّنِ..." (classify...) exercises are the primary source
 - If the textbook doesn't have a classification exercise, create one using examples from the concepts plus a few new words
 
+### Example pairs (optional)
+
+When a concept teaches a **derivation** — feminine from masculine, dual from singular, plural from singular — use `example_pairs` instead of (or in addition to) flat `examples`. The pair layout shows the base form on the right (RTL) and the derived form on the left, with an arrow between, so the rule is visible rather than implied.
+
+```json
+{
+  "type": "مُؤَنَّثٌ",
+  "definition": "...",
+  "examples": ["عَائِشَةُ", "فَاطِمَةُ"],
+  "pair_from_label": "مُذَكَّرٌ",
+  "pair_to_label": "مُؤَنَّثٌ",
+  "example_pairs": [
+    { "from": "مُؤْمِنٌ", "to": "مُؤْمِنَةٌ" },
+    { "from": "مُعَلِّمٌ", "to": "مُعَلِّمَةٌ" }
+  ]
+}
+```
+
+| Field | Guidelines |
+|-------|-----------|
+| `example_pairs` | 4–6 pairs. Both `from` and `to` with full tashkeel. Pick examples where the rule is visible (avoid irregular forms unless the concept is *about* irregularity, like جَمْعُ التَّكْسِيرِ). |
+| `pair_from_label` | Optional column header for the base form (e.g. `مُذَكَّرٌ`, `مُفْرَدٌ`). Omit for no header. |
+| `pair_to_label` | Optional column header for the derived form. Defaults to `concept.type` when omitted. |
+| `examples` | Still required. Kept as data, but **not rendered** when `example_pairs` is present. Useful as a fallback or for future tooling. |
+
+**When NOT to use pairs:**
+- The concept is the *base* form (e.g. مُفْرَدٌ in lesson 4, مُذَكَّرٌ in lesson 3). Pairs imply derivation; use flat `examples`.
+- The forms are co-equal rather than derived (e.g. verb tenses — past and present aren't derivations of each other in a way that pairs convey cleanly). Stick with flat `examples` until/unless a multi-form variant exists.
+- The examples are proper nouns or fixed vocabulary that don't transform.
+
 ### Review Quiz
 
 The review quiz sits between the per-concept quick checks and the word sort. It tests comprehension of the lesson as a whole.

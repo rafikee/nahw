@@ -6,11 +6,20 @@ export interface SpotTheWord {
   answer: number;
 }
 
+export interface ExamplePair {
+  from: string;
+  to: string;
+}
+
 export interface Concept {
   type: string;
   definition: string;
   examples: string[];
+  example_pairs?: ExamplePair[];
+  pair_from_label?: string;
+  pair_to_label?: string;
   group?: string;
+  group_title?: string;
   spot_the_word?: SpotTheWord;
 }
 
@@ -41,10 +50,16 @@ export interface Exercises {
   word_sort: WordSortExercise;
 }
 
+export interface IntroBonus {
+  title: string;
+  body: string;
+}
+
 export interface Lesson {
   module_id: string;
   title: string;
   introduction: string;
+  intro_bonus?: IntroBonus;
   concepts: (Concept & { quick_check: QuickCheck })[];
   exercises: Exercises;
 }
