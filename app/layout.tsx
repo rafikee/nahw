@@ -8,9 +8,36 @@ const notoNaskhArabic = Noto_Naskh_Arabic({
   weight: ["400", "500", "600", "700"],
 });
 
+const SITE_URL = "https://nahw.barada.dev";
+const SITE_TITLE = "نَحْو — قَوَاعِدُ الْعَرَبِيَّةِ بِطَرِيقَةٍ تَفَاعُلِيَّةٍ";
+const SITE_DESCRIPTION = "أداة تعليم قواعد اللغة العربية التفاعلية";
+
 export const metadata: Metadata = {
-  title: "أَنْوَاعُ الكَلِمَاتِ — نَحْو",
-  description: "أداة تعليم قواعد اللغة العربية التفاعلية",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: "نَحْو",
+    type: "website",
+    locale: "ar",
+    images: [
+      {
+        url: "/nahw-mark.png",
+        width: 939,
+        height: 751,
+        alt: "نَحْو",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ["/nahw-mark.png"],
+  },
 };
 
 export const viewport: Viewport = {
