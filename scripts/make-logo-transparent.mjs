@@ -2,7 +2,7 @@ import sharp from "sharp";
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-const SRC = resolve("public/icon.png");
+const SRC = resolve("scripts/icon-master.png");
 const OUT = resolve("public/nahw-mark.png");
 
 // Threshold: pixels with R, G, B all >= this become transparent.

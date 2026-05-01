@@ -2,11 +2,12 @@ import sharp from "sharp";
 import { resolve } from "node:path";
 
 // Source: the wide-aspect master logo (2816x1536) with the rounded-square
-// card centered in the canvas.
+// card centered in the canvas. Lives in scripts/ rather than public/ so it
+// doesn't collide with the app-router /icon.png route in production.
 // Output: a square 512x512 favicon at app/icon.png — Next.js picks this up
 // automatically and serves it at /icon.png.
 
-const SRC = resolve("public/icon.png");
+const SRC = resolve("scripts/icon-master.png");
 const OUT = resolve("app/icon.png");
 const SIZE = 512;
 
