@@ -48,3 +48,6 @@ next-env.d.ts
 data/nahw.db
 data/nahw.db-wal
 data/nahw.db-shm
+
+# personal, machine-local Claude Code permissions — never share
+.claude/settings.local.json

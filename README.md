@@ -12,7 +12,7 @@ For the product thesis, audience, and roadmap, see [`INVESTMENT.md`](./INVESTMEN
 - **Styling:** Tailwind CSS v4 with custom theme tokens (single amber palette)
 - **Type:** TypeScript
 - **Persistence:** SQLite via `better-sqlite3` (embedded, file-on-volume — no separate DB process)
-- **Build / deploy:** GitHub Actions builds the Docker image → Coolify on a Pi pulls and runs
+- **Build / deploy:** GitHub Actions builds the arm64 image → GHCR → Coolify on the baradapi Pi pulls and runs it (the Pi never builds). See [`CLAUDE.md`](./CLAUDE.md).
 - **Font:** Noto Naskh Arabic (full tashkeel everywhere)
 
 ---
@@ -295,8 +295,8 @@ location.reload();
 
 ### Pipeline
 
-1. Push to `main` → GitHub Actions builds Docker image → pushes to `ghcr.io/rafikee/nahw:latest`.
-2. Coolify on the Pi has a redeploy webhook (added in commit `615fac5`) that pulls and restarts the container.
+1. Push to `main` → GitHub Actions builds a `linux/arm64` image → pushes to `ghcr.io/rafikee/nahw:latest`.
+2. The last workflow step calls the Coolify API (`GET /api/v1/deploy?uuid=u8km6isr7bcfonf4xdfuz8rr`), authenticated by the `COOLIFY_API_TOKEN` repo secret, and Coolify pulls the image and restarts the container. It is an API call from Actions, not a Coolify-side git webhook — Coolify has no git source for this app any more.
 3. New container starts with `/data` bind-mounted to the host filesystem.
 4. First request to either API route triggers `lib/db.ts` to bootstrap schema (idempotent — existing tables and rows preserved).
 
@@ -318,7 +318,14 @@ Sudo is required because the bind-mount directory is owned by the Docker daemon'
 
 ### Backups
 
-Currently **not configured**. To add (deferred task): nightly `cp` of `/data/coolify/nahw-data/nahw.db` to a Cloudflare R2 / Backblaze B2 bucket via a small cron, or use Litestream for continuous WAL streaming. The DB is small enough that simple copy backups are sufficient at beta scale.
+**Still not covered, and this is the real gap.** The Pi runs a nightly restic backup to the NAS (see `~/dev/baradapi-backup-runbook.md`), but its paths are `/home/rafikee/dev`, `/var/lib/docker/volumes`, `/etc/cloudflared`, the crontabs, and the Coolify DB dump. This app's data is a **host bind mount at `/data/coolify/nahw-data`**, which is in none of them. Losing the SD card loses every subscriber, rating, and event.
+
+Two ways to fix it, either is fine:
+
+- Add `/data/coolify` to the path list in `/usr/local/sbin/restic-backup.sh` on the Pi. One line, and it inherits the existing encryption, retention, and offsite NAS target.
+- Or dump first: `sqlite3 /data/coolify/nahw-data/nahw.db ".backup /var/backups/nahw.db"` in the same script, next to the Coolify dump.
+
+**Do not back this up with a plain `cp` of `nahw.db` alone.** WAL journaling is on and the WAL file is routinely much larger than the `.db` (4.1 MB vs 106 KB as of 2026-08-21), so a naive copy captures a stale database. Take `nahw.db-wal` and `nahw.db-shm` with it, or use `.backup`.
 
 ---
 
@@ -349,6 +356,7 @@ Currently **not configured**. To add (deferred task): nightly `cp` of `/data/coo
 - [`data/AUTHORING.md`](./data/AUTHORING.md) — lesson authoring guide (source-of-truth for content shape)
 - [`data/LESSON_PROMPT.md`](./data/LESSON_PROMPT.md) — AI-assisted lesson draft prompt
 - [`AGENTS.md`](./AGENTS.md) — instructions for AI agents working in this repo
+- [`CLAUDE.md`](./CLAUDE.md) — deployment values for this app (UUID, ports, data path) plus the AGENTS.md import
 
 ---
 
