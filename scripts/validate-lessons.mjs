@@ -19,7 +19,7 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { findBareLetters, findLoneShadda } from "./lib/tashkeel.mjs";
+import { findBareLetters, findLoneShadda, normalizeArabic } from "./lib/tashkeel.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DATA = join(ROOT, "data");
@@ -75,7 +75,8 @@ function checkQuickCheck(file, path, qc) {
     add(file, `${path}.options`, "error", "mcq-shape",
       `${correct} options marked correct; exactly 1 required`);
   }
-  const texts = options.map((o) => o.text);
+  // Normalised: two options differing only in mark order are duplicates.
+  const texts = options.map((o) => normalizeArabic(o.text));
   const dupes = texts.filter((t, i) => texts.indexOf(t) !== i);
   if (dupes.length) {
     add(file, `${path}.options`, "error", "duplicate",
@@ -135,7 +136,8 @@ function checkLesson(file, doc, seenIds) {
       add(file, `${p}.examples`, "warn", "example-count",
         `${examples.length} examples; the guide calls for 5-12`);
     }
-    const exDupes = examples.filter((e, j) => examples.indexOf(e) !== j);
+    const norm = examples.map(normalizeArabic);
+    const exDupes = norm.filter((e, j) => norm.indexOf(e) !== j);
     if (exDupes.length) {
       add(file, `${p}.examples`, "error", "duplicate",
         `repeated example: ${[...new Set(exDupes)].join(", ")}`);
@@ -206,11 +208,12 @@ function checkLesson(file, doc, seenIds) {
       add(file, "exercises.word_sort.words", "error", "dangling-category",
         `word "${w.word}" is in category "${w.category}", which is not declared`);
     }
-    if (seenWords.has(w.word)) {
+    const wordKey = normalizeArabic(w.word);
+    if (seenWords.has(wordKey)) {
       add(file, "exercises.word_sort.words", "error", "duplicate",
         `word "${w.word}" appears twice`);
     }
-    seenWords.add(w.word);
+    seenWords.add(wordKey);
     perCategory.set(w.category, (perCategory.get(w.category) ?? 0) + 1);
   }
   for (const k of keys) {

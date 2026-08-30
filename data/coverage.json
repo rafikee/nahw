@@ -1,50 +1,59 @@
 {
-  "_comment": "Which source-book sections have become lessons. `sources` declares reading order — filename sort is not reading order. `claims` records slicing decisions already made, so they are never silently re-proposed. Reconciled by scripts/coverage.mjs.",
+  "_comment": "Which source-book sections have become lessons. `sources` declares reading order — filename sort is not reading order. `claims` records slicing decisions already made, so they are never silently re-proposed. `heading` must match the transcribed markdown heading exactly. Reconciled by scripts/coverage.mjs.",
+  "_source_of_record": "source-content/nahw-full-book.pdf (415 pages, all four volumes, الدروس النحوية). Transcribed in <=30 page chunks by scripts/transcribe-book.mjs, then corrected by scripts/lint-transcription.mjs. Volume boundaries in PDF pages: vol1 7-76, vol2 77-164, vol3 165-272, vol4 273-414; each volume's own فهرس sits at its end. Full per-page map in source-content/page-map.json. PDF page number equals the book's printed page number.",
+  "_superseded": "source-content/nahw-book-13-25.superseded.md is a different edition with different headings and only partial tashkeel. Lessons 1-4 were authored from it, but the claims below are remapped onto the PDF edition so future slicing works against one consistent text. Do not use the superseded file as source.",
   "sources": [
     {
-      "file": "source-content/nahw-book-13-25.md",
+      "file": "source-content/vol1-009-038.md",
       "volume": 1,
-      "note": "OCR of الكتاب الأول pages 13-25. Add remaining volumes here in reading order as they arrive."
+      "pdf_pages": "9-38",
+      "note": "الكتاب الأول, from the start of teaching content."
     }
   ],
   "claims": [
     {
-      "file": "source-content/nahw-book-13-25.md",
-      "heading": "أصلُ تكوُّنِ الكلماتِ وتركُّبِها",
+      "file": "source-content/vol1-009-038.md",
+      "heading": "تَكَوُّنُ الْكَلِمَاتِ",
       "lesson": "01_anwaa_al_kalimat",
-      "note": "Folded into lesson 1's introduction; the word-length trivia was cut (see omitted_content.yaml)."
+      "note": "Folded into lesson 1's introduction. The word-length trivia was cut — see omitted_content.yaml."
     },
     {
-      "file": "source-content/nahw-book-13-25.md",
-      "heading": "أقسامُ الكلمةِ من حيثُ عددِ أحرُفِها",
-      "lesson": "01_anwaa_al_kalimat",
-      "note": "Deliberately omitted as trivia; recorded here so it is not re-proposed."
-    },
-    {
-      "file": "source-content/nahw-book-13-25.md",
-      "heading": "أنواعُ الكلمةِ",
+      "file": "source-content/vol1-009-038.md",
+      "heading": "أَنْوَاعُ الْكَلِمَاتِ",
       "lesson": "01_anwaa_al_kalimat"
     },
     {
-      "file": "source-content/nahw-book-13-25.md",
-      "heading": "أقسامُ الفعلِ",
+      "file": "source-content/vol1-009-038.md",
+      "heading": "أَقْسَامُ الْفِعْلِ",
       "lesson": "02_aqsaam_al_fil"
     },
     {
-      "file": "source-content/nahw-book-13-25.md",
-      "heading": "المذكَّرُ والمؤنَّثُ",
+      "file": "source-content/vol1-009-038.md",
+      "heading": "أَقْسَامُ الْاسْمِ",
+      "lesson": "03_al_mudhakkar_wal_muannath",
+      "note": "Container heading only; its two numbered subsections became lessons 3 and 4."
+    },
+    {
+      "file": "source-content/vol1-009-038.md",
+      "heading": "١ - الْمُذَكَّرُ وَالْمُؤَنَّثُ",
       "lesson": "03_al_mudhakkar_wal_muannath"
     },
     {
-      "file": "source-content/nahw-book-13-25.md",
-      "heading": "المفردُ والمثنَّى والجَمْعُ",
+      "file": "source-content/vol1-009-038.md",
+      "heading": "٢ - الْمُفْرَدُ وَالْمُثَنَّى وَالْجَمْعُ",
       "lesson": "04_al_mufrad_wal_muthanna_wal_jam"
     },
     {
-      "file": "source-content/nahw-book-13-25.md",
-      "heading": "أقسامُ الجَمْعِ",
+      "file": "source-content/vol1-009-038.md",
+      "heading": "أَقْسَامُ الْجَمْعِ",
       "lesson": "04_al_mufrad_wal_muthanna_wal_jam",
       "note": "Merged into lesson 4 as concepts 3-5 rather than split out."
+    },
+    {
+      "file": "source-content/vol1-009-038.md",
+      "heading": "الْكَلَامُ",
+      "lesson": "05_al_kalaam",
+      "note": "Three concepts: الكلام itself, then the فعلية/اسمية split. Two of the four textbook exercises were dropped — see omitted_content.yaml."
     }
   ]
 }

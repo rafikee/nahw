@@ -17,6 +17,7 @@
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join, dirname, relative } from "node:path";
 import { fileURLToPath } from "node:url";
+import { normalizeArabic } from "./lib/tashkeel.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = join(ROOT, "source-content");
@@ -27,14 +28,15 @@ const args = process.argv.slice(2);
 /* ── Scan the source for sections ────────────────────────────────────── */
 
 /**
- * A "section" is an H2 or deeper heading. H1 is the volume title and never a
- * lesson boundary on its own.
+ * A "section" is any Markdown heading. H1 is usually the volume or chapter
+ * title, but the transcriber does emit content under one, so it still counts as
+ * a slice candidate rather than being skipped.
  */
 function scanFile(path) {
   const lines = readFileSync(path, "utf8").split("\n");
   const heads = [];
   lines.forEach((line, i) => {
-    const m = line.match(/^(#{2,})\s+(.*?)\s*$/);
+    const m = line.match(/^(#{1,})\s+(.*?)\s*$/);
     if (m) heads.push({ level: m[1].length, heading: m[2], start: i + 1 });
   });
   return heads.map((h, i) => {
@@ -45,7 +47,8 @@ function scanFile(path) {
       end,
       words: body.split(/\s+/).filter(Boolean).length,
       // Exercise blocks are converted, not taught, so they are not slices.
-      isExercises: /تمرين/.test(h.heading),
+      // Strip harakat first: the transcribed headings are fully voweled.
+      isExercises: /تمرين/.test(h.heading.replace(/[\u064B-\u0652\u0670]/g, "")),
     };
   });
 }
@@ -83,7 +86,7 @@ for (const f of files) {
   }
 }
 
-const claimKey = (file, heading) => `${file}::${heading}`;
+const claimKey = (file, heading) => `${file}::${normalizeArabic(heading)}`;
 const claimed = new Map(
   ledger.claims.map((c) => [claimKey(c.file, c.heading), c])
 );
@@ -131,7 +134,7 @@ for (const r of rows) {
     : r.isExercises
       ? "(exercises)"
       : `${r.words}w`;
-  console.log(`${mark}${"  ".repeat(r.level - 2)}${r.heading.padEnd(40)} ${tail}`);
+  console.log(`${mark}${"  ".repeat(Math.max(0, r.level - 2))}${r.heading.padEnd(40)} ${tail}`);
 }
 
 const done = teachable.length - unclaimed.length;

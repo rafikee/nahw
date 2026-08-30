@@ -40,6 +40,20 @@ const STRIP = /\*\*|[^؀-ۿ\s]/g;
 const BARE_BY_NATURE = new Set(["ا", "آ", "ى", "ٱ"]);
 
 /**
+ * Canonicalise combining-mark order.
+ *
+ * Arabic harakat can be stored in either order around a shadda — كَّ is
+ * kaf+shadda+fatha or kaf+fatha+shadda depending on the source, and the two
+ * render identically. Left alone, that makes visually identical strings compare
+ * unequal, which silently breaks heading lookups and duplicate detection.
+ * NFC sorts them by canonical combining class, so every comparison must go
+ * through this first.
+ */
+export function normalizeArabic(text) {
+  return text.normalize("NFC");
+}
+
+/**
  * Split display copy into bare Arabic words, dropping `**bold**` markers,
  * Latin text and punctuation.
  */
@@ -71,11 +85,10 @@ function bareIsLegal(segs, i) {
 
   if (BARE_BY_NATURE.has(letter)) return true;
 
-  // Silent lam of a sun-letter article: النَّاس، بِالنُّون. The article's alif sits
-  // before it and the assimilated consonant after it carries the shadda.
-  if (letter === "ل" && prev && prev.letter === "ا" && next && next.marks.includes(SHADDA)) {
-    return true;
-  }
+  // Silent lam of a sun-letter article: النَّاس، بِالنُّون، لِلنَّاس. The condition is
+  // just that the assimilated consonant after it carries the shadda — requiring
+  // an alif before it would miss لِلنَّاس, where the article contracts onto لِ.
+  if (letter === "ل" && next && next.marks.includes(SHADDA)) return true;
 
   // Long vowel و: a damma on the letter before it, as in يَقُولُ.
   if (letter === "و" && prev && prev.marks.includes(DAMMA)) return true;

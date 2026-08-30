@@ -75,22 +75,38 @@ export function StepWordSort({ data }: { data: WordSortExercise }) {
         </div>
       </div>
 
+      {/*
+        Pinned to the bottom of the scrolling area so the drop targets stay
+        reachable however tall the chips are. Entries can be whole sentences
+        (lesson 5 sorts فعلية/اسمية), which made the buckets tall enough to push
+        off screen — you would select a chip and have nothing visible to tap.
+        Capped and internally scrollable so a full bucket cannot take the screen.
+      */}
+      <div className="sticky -bottom-10 -mx-6 -mb-10 px-6 pt-3 pb-10 bg-page/95 backdrop-blur-sm border-t border-divider/60 max-h-[50vh] overflow-y-auto">
       <div className="grid gap-3">
         {data.categories.map((cat) => {
           const wordsInBucket = placed.filter((p) => p.categoryKey === cat.key);
+          // Empty buckets stay compact and grow as words land in them. Now that
+          // the row is pinned, a lesson with three categories would otherwise
+          // reserve most of the screen for empty drop zones and leave almost no
+          // room for the words themselves.
 
           return (
             <button
               key={cat.key}
               onClick={() => handleCategoryTap(cat.key)}
               disabled={selectedWord === null}
-              className={`rounded-2xl border-2 border-dashed px-5 py-4 text-right transition-all duration-150 ${
+              className={`rounded-2xl border-2 border-dashed px-5 text-right transition-all duration-150 ${
+                wordsInBucket.length > 0 ? "py-4" : "py-2.5"
+              } ${
                 selectedWord !== null
                   ? `${bucketStyle.active.border} ${bucketStyle.active.bg} cursor-pointer hover:shadow-sm`
                   : `${bucketStyle.inactive.border} ${bucketStyle.inactive.bg} cursor-default`
               }`}
             >
-              <span className={`inline-block rounded-lg border px-3 py-1 type-body-lg font-bold mb-2 ${bucketStyle.active.badge}`}>
+              <span className={`inline-block rounded-lg border px-3 py-1 type-body-lg font-bold ${
+                wordsInBucket.length > 0 ? "mb-2" : ""
+              } ${bucketStyle.active.badge}`}>
                 {cat.label}
               </span>
               {wordsInBucket.length > 0 && (
@@ -115,6 +131,7 @@ export function StepWordSort({ data }: { data: WordSortExercise }) {
             </button>
           );
         })}
+      </div>
       </div>
 
       {isComplete && (

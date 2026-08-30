@@ -57,3 +57,31 @@
         The reveal-only interaction required zero thinking from the
         learner — there was no wrong answer possible. Replaced by
         the word-sort exercise which requires active classification.
+
+- lesson: "05 — الْكَلَامُ"
+  items:
+
+    - title: "Word-counting exercise"
+      source: "source-content/vol1-009-038.md → الْكَلَامُ → تَمْرِينٌ, question 3"
+      content: |
+        كَمْ كَلِمَةً فِي كُلِّ جُمْلَةٍ مِنْ هَذِهِ الْجُمَلِ
+        (How many words are in each of these sentences?), over three
+        proverb-style sentences.
+      reason: >
+        Counting words in a sentence tests attention, not the lesson's
+        actual idea, which is that a sentence needs two or more words and is
+        named by what starts it. As an MCQ it also degrades into arithmetic
+        with one defensible answer per sentence, so it would need three
+        separate questions to convert at all.
+
+    - title: "Singular/dual/plural identification passage"
+      source: "source-content/vol1-009-038.md → الْكَلَامُ → تَمْرِينٌ, question 4"
+      content: |
+        عَيِّنِ الْمُفْرَدَ وَالْمُثَنَّى وَأَنْوَاعَ الْجَمْعِ فِي الْعِبَارَاتِ الْآتِيَةِ
+        followed by a passage about honouring one's parents.
+      reason: >
+        This is lesson 4's material, not lesson 5's — the textbook uses it as
+        spaced review. The app has no cross-lesson review step yet, and
+        folding it into this lesson's word sort would have made the sort test
+        two unrelated skills at once. Worth revisiting if a review step is
+        ever added.

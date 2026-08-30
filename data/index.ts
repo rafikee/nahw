@@ -6,10 +6,12 @@ import lesson1Data from "./lesson_1.json";
 import lesson2Data from "./lesson_2.json";
 import lesson3Data from "./lesson_3.json";
 import lesson4Data from "./lesson_4.json";
+import lesson5Data from "./lesson_5.json";
 
 export const LESSONS = [
   lesson1Data, // 01_anwaa_al_kalimat
   lesson2Data, // 02_aqsaam_al_fil
   lesson3Data, // 03_al_mudhakkar_wal_muannath
   lesson4Data, // 04_al_mufrad_wal_muthanna_wal_jam
+  lesson5Data, // 05_al_kalaam
 ] as unknown as Lesson[];
