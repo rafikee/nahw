@@ -1,0 +1,50 @@
+{
+  "_comment": "Which source-book sections have become lessons. `sources` declares reading order — filename sort is not reading order. `claims` records slicing decisions already made, so they are never silently re-proposed. Reconciled by scripts/coverage.mjs.",
+  "sources": [
+    {
+      "file": "source-content/nahw-book-13-25.md",
+      "volume": 1,
+      "note": "OCR of الكتاب الأول pages 13-25. Add remaining volumes here in reading order as they arrive."
+    }
+  ],
+  "claims": [
+    {
+      "file": "source-content/nahw-book-13-25.md",
+      "heading": "أصلُ تكوُّنِ الكلماتِ وتركُّبِها",
+      "lesson": "01_anwaa_al_kalimat",
+      "note": "Folded into lesson 1's introduction; the word-length trivia was cut (see omitted_content.yaml)."
+    },
+    {
+      "file": "source-content/nahw-book-13-25.md",
+      "heading": "أقسامُ الكلمةِ من حيثُ عددِ أحرُفِها",
+      "lesson": "01_anwaa_al_kalimat",
+      "note": "Deliberately omitted as trivia; recorded here so it is not re-proposed."
+    },
+    {
+      "file": "source-content/nahw-book-13-25.md",
+      "heading": "أنواعُ الكلمةِ",
+      "lesson": "01_anwaa_al_kalimat"
+    },
+    {
+      "file": "source-content/nahw-book-13-25.md",
+      "heading": "أقسامُ الفعلِ",
+      "lesson": "02_aqsaam_al_fil"
+    },
+    {
+      "file": "source-content/nahw-book-13-25.md",
+      "heading": "المذكَّرُ والمؤنَّثُ",
+      "lesson": "03_al_mudhakkar_wal_muannath"
+    },
+    {
+      "file": "source-content/nahw-book-13-25.md",
+      "heading": "المفردُ والمثنَّى والجَمْعُ",
+      "lesson": "04_al_mufrad_wal_muthanna_wal_jam"
+    },
+    {
+      "file": "source-content/nahw-book-13-25.md",
+      "heading": "أقسامُ الجَمْعِ",
+      "lesson": "04_al_mufrad_wal_muthanna_wal_jam",
+      "note": "Merged into lesson 4 as concepts 3-5 rather than split out."
+    }
+  ]
+}

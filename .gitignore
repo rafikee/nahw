@@ -51,3 +51,6 @@ data/nahw.db-shm
 
 # personal, machine-local Claude Code permissions — never share
 .claude/settings.local.json
+
+# Playwright QA screenshots
+/.qa

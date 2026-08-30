@@ -45,6 +45,8 @@
   --theme-danger-soft: #fef2f2;
   --theme-danger-border: #fecaca;
   --theme-danger-text: #b91c1c;
+  --theme-danger-strong: #b91c1c;
+  --theme-danger-strong-hover: #991b1b;
 }
 
 /* ═══ Register tokens as Tailwind utilities ═══ */
@@ -92,6 +94,8 @@
   --color-danger-soft: var(--theme-danger-soft);
   --color-danger-border: var(--theme-danger-border);
   --color-danger-text: var(--theme-danger-text);
+  --color-danger-strong: var(--theme-danger-strong);
+  --color-danger-strong-hover: var(--theme-danger-strong-hover);
 }
 
 /* ═══ Runtime theme utility classes ═══ */
@@ -116,6 +120,8 @@
 .hover\:bg-success-strong-hover:hover { background-color: var(--theme-success-strong-hover); }
 .bg-danger { background-color: var(--theme-danger); }
 .bg-danger-soft { background-color: var(--theme-danger-soft); }
+.bg-danger-strong { background-color: var(--theme-danger-strong); }
+.hover\:bg-danger-strong-hover:hover { background-color: var(--theme-danger-strong-hover); }
 
 .text-primary { color: var(--theme-primary); }
 .text-primary-text { color: var(--theme-primary-text); }

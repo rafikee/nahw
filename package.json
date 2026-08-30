@@ -1,12 +1,16 @@
 {
   "name": "nahw",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm run gen:lessons && npm run validate",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "gen:lessons": "node scripts/gen-lesson-index.mjs",
+    "validate": "node scripts/validate-lessons.mjs",
+    "qa:lesson": "node scripts/qa-lesson.mjs"
   },
   "dependencies": {
     "better-sqlite3": "^12.9.0",
@@ -22,6 +26,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
+    "playwright": "^1.62.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

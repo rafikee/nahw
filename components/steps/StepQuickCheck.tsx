@@ -4,15 +4,28 @@ import { useState } from "react";
 import type { QuickCheck } from "@/types/lesson";
 import { RichText } from "@/components/ui/RichText";
 
-export function StepQuickCheck({ data }: { data: QuickCheck }) {
+interface StepQuickCheckProps {
+  data: QuickCheck;
+  /**
+   * Reports the result upward so the player can render the verdict in the
+   * footer. The explanation used to sit below the options, which put it under
+   * the footer on a phone at exactly the moment it needed reading.
+   */
+  onAnswer: (result: { correct: boolean; explanation: string }) => void;
+}
+
+export function StepQuickCheck({ data, onAnswer }: StepQuickCheckProps) {
   const [selected, setSelected] = useState<number | null>(null);
 
   const answered = selected !== null;
-  const isCorrect = answered && data.options[selected].correct;
 
   function handleSelect(index: number) {
     if (answered) return;
     setSelected(index);
+    onAnswer({
+      correct: data.options[index].correct,
+      explanation: data.explanation,
+    });
   }
 
   return (
@@ -54,20 +67,6 @@ export function StepQuickCheck({ data }: { data: QuickCheck }) {
         })}
       </div>
 
-      {answered && (
-        <div className={`feedback-enter rounded-2xl border px-6 py-5 ${
-          isCorrect
-            ? "bg-success-soft border-success-border"
-            : "bg-danger-soft border-danger-border"
-        }`}>
-          <p className={`type-body font-bold mb-2 ${isCorrect ? "text-success-text" : "text-danger-text"}`}>
-            {isCorrect ? "إِجَابَةٌ صَحِيحَةٌ!" : "إِجَابَةٌ خَاطِئَةٌ"}
-          </p>
-          <p className="type-body font-medium text-label">
-            <RichText text={data.explanation} />
-          </p>
-        </div>
-      )}
     </div>
   );
 }

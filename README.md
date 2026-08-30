@@ -45,11 +45,12 @@ components/
     conceptThemes.tsx    ← per-concept color theming inside lessons
 
 data/
-  course.ts             ← Book → Lesson manifest
-  index.ts              ← lesson JSON registry
+  course.ts             ← Level → Lesson manifest (hand-maintained: a curriculum decision)
+  index.ts              ← GENERATED lesson registry — run `npm run gen:lessons`
   lesson_*.json         ← lesson content (one file per lesson)
+  coverage.json         ← which source-book sections are already lessons; declares reading order
+  omitted_content.yaml  ← source content deliberately cut, with reasons
   AUTHORING.md          ← how to write a new lesson (source-of-truth doc)
-  LESSON_PROMPT.md      ← copy-paste prompt for AI-assisted lesson drafts
 
 lib/
   db.ts                 ← better-sqlite3 singleton + schema bootstrap
@@ -57,6 +58,13 @@ lib/
 types/lesson.ts         ← Lesson, Concept, QuickCheck, WordSort types
 
 scripts/
+  coverage.mjs          ← reconciles the ledger against source-content/; names the next slice
+  gen-lesson-index.mjs  ← rewrites data/index.ts from the lesson files on disk
+  validate-lessons.mjs  ← schema, referential integrity, tashkeel coverage (gates `npm run build`)
+  gemini-review.mjs     ← second-model review: grammar, tashkeel accuracy, answer keys
+  qa-lesson.mjs         ← Playwright walk of every lesson step, with screenshots
+  lib/tashkeel.mjs      ← the haraka-coverage rules, calibrated against lessons 1-4
+  prod-stats.sh         ← aggregate subscriber/usage/feedback counts from the prod db
   make-logo-transparent.mjs  ← one-shot script that produced /public/nahw-mark.png from the original icon
 
 public/
@@ -64,7 +72,21 @@ public/
   nahw-mark.png         ← extracted transparent calligraphy (used in onboarding hero + home header)
 ```
 
-For the lesson-content authoring pipeline (OCR → JSON → review), read [`data/AUTHORING.md`](./data/AUTHORING.md). It's the source of truth for content shape and review process.
+For the lesson-content authoring pipeline, the process is the `/lesson` skill
+(`.claude/skills/lesson/SKILL.md`) and the standard it authors against is
+[`data/AUTHORING.md`](./data/AUTHORING.md).
+
+```bash
+node scripts/coverage.mjs             # what's converted, what's next
+npm run validate                      # schema + tashkeel coverage (also runs on build)
+node scripts/gemini-review.mjs data/lesson_5.json   # second-model grammar review
+npm run qa:lesson -- 05_module_id     # browser walk + screenshots into .qa/
+```
+
+Validation is deliberately split: `validate-lessons.mjs` proves tashkeel is *present* and the
+schema holds, Gemini judges whether each haraka is the *right* one. Neither is asked to do the
+other's job. `npm run build` runs the generator and validator first, so content with schema or
+tashkeel errors cannot reach production.
 
 ---
 
@@ -354,7 +376,7 @@ Two ways to fix it, either is fine:
 - [`email-capture-plan.md`](./email-capture-plan.md) — design plan for the email subscription system
 - [`feedback-plan.md`](./feedback-plan.md) — design plan for the native product-feedback system
 - [`data/AUTHORING.md`](./data/AUTHORING.md) — lesson authoring guide (source-of-truth for content shape)
-- [`data/LESSON_PROMPT.md`](./data/LESSON_PROMPT.md) — AI-assisted lesson draft prompt
+- [`.claude/skills/lesson/SKILL.md`](./.claude/skills/lesson/SKILL.md) — the `/lesson` authoring loop
 - [`AGENTS.md`](./AGENTS.md) — instructions for AI agents working in this repo
 - [`CLAUDE.md`](./CLAUDE.md) — deployment values for this app (UUID, ports, data path) plus the AGENTS.md import
 

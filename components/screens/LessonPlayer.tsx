@@ -6,6 +6,7 @@ import { StepLessonIntro } from "@/components/steps/StepLessonIntro";
 import { StepConcept } from "@/components/steps/StepConcept";
 import { StepQuickCheck } from "@/components/steps/StepQuickCheck";
 import { StepWordSort } from "@/components/steps/StepWordSort";
+import { RichText } from "@/components/ui/RichText";
 import { track } from "@/lib/events";
 
 type StepView =
@@ -63,10 +64,28 @@ export function LessonPlayer({
   const [stepIndex, setStepIndex] = useState(0);
   const [direction, setDirection] = useState<"forward" | "backward">("forward");
 
+  /**
+   * The answered-quick-check verdict, tagged with the step it belongs to.
+   * Tagging rather than clearing on navigation keeps this out of an effect,
+   * so revisiting a step shows its own verdict and never a stale one.
+   */
+  const [feedback, setFeedback] = useState<{
+    step: number;
+    correct: boolean;
+    explanation: string;
+  } | null>(null);
+
   const current = steps[stepIndex];
   const isLast = stepIndex === steps.length - 1;
   const canGoBack = stepIndex > 0;
   const progress = { step: stepIndex + 1, total: steps.length };
+  const verdict = feedback?.step === stepIndex ? feedback : null;
+
+  const handleAnswer = useCallback(
+    (result: { correct: boolean; explanation: string }) =>
+      setFeedback({ step: stepIndex, ...result }),
+    [stepIndex]
+  );
 
   useEffect(() => {
     track("lesson_start", { contextId: lesson.module_id });
@@ -160,12 +179,14 @@ export function LessonPlayer({
           <StepQuickCheck
             key={stepIndex}
             data={lesson.concepts[current.conceptIndex].quick_check}
+            onAnswer={handleAnswer}
           />
         )}
         {current.type === "lesson_review_quiz" && (
           <StepQuickCheck
             key={stepIndex}
             data={lesson.exercises.review_quiz[current.questionIndex]}
+            onAnswer={handleAnswer}
           />
         )}
         {current.type === "lesson_word_sort" && (
@@ -176,7 +197,44 @@ export function LessonPlayer({
         )}
       </main>
 
-      <footer className="shrink-0 border-t border-divider/80 bg-elevated-muted backdrop-blur-sm px-4 py-1.5 pb-[max(env(safe-area-inset-bottom),0.5rem)]">
+      <footer
+        className={`shrink-0 border-t px-4 py-1.5 pb-[max(env(safe-area-inset-bottom),0.5rem)] transition-colors duration-200 ${
+          verdict
+            ? verdict.correct
+              ? "border-success-border bg-success-soft"
+              : "border-danger-border bg-danger-soft"
+            : "border-divider/80 bg-elevated-muted backdrop-blur-sm"
+        }`}
+      >
+        {verdict ? (
+          <div className="feedback-enter space-y-2 py-1.5">
+            <p
+              className={`type-body font-bold ${
+                verdict.correct ? "text-success-text" : "text-danger-text"
+              }`}
+            >
+              {verdict.correct ? "✓ إِجَابَةٌ صَحِيحَةٌ!" : "✗ إِجَابَةٌ خَاطِئَةٌ"}
+            </p>
+            {/* Capped so a long explanation scrolls inside the sheet rather
+                than pushing the button back off the screen. */}
+            <p className="type-body font-medium text-label max-h-32 overflow-y-auto">
+              <RichText text={verdict.explanation} />
+            </p>
+            <button
+              onClick={goNext}
+              className={`w-full flex items-center justify-center gap-2 rounded-lg py-2 type-compact font-bold text-on-primary active:scale-[0.98] transition-all duration-150 shadow-sm ${
+                verdict.correct
+                  ? "bg-success-strong hover:bg-success-strong-hover"
+                  : "bg-danger-strong hover:bg-danger-strong-hover"
+              }`}
+            >
+              {isLast ? "إِنْهَاءُ الدَّرْسِ" : "التَّالِي"}
+              {!isLast && (
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              )}
+            </button>
+          </div>
+        ) : (
         <div className="flex items-stretch gap-2">
           <button
             onClick={goPrev}
@@ -197,6 +255,7 @@ export function LessonPlayer({
             )}
           </button>
         </div>
+        )}
       </footer>
     </>
   );

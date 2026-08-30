@@ -4,6 +4,10 @@ FROM node:22-alpine AS builder
 RUN apk add --no-cache python3 make g++
 
 WORKDIR /app
+# Playwright is a dev-only QA tool; its postinstall would pull browsers we never
+# run in the image, on an already-emulated arm64 build.
+ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+
 COPY package.json package-lock.json* ./
 RUN npm ci
 COPY . .
