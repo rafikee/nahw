@@ -215,3 +215,17 @@
         The "classify what you find in this passage" pattern, already logged as
         dropped for earlier lessons — it needs a step type that marks up running
         text. Three of its words were lifted into review questions instead.
+
+    - title: "The dual forms اللَّذَانِ، اللَّتَانِ، هَذَانِ، هَاتَانِ"
+      source: "source-content/vol1-009-038.md → أَصْنَافُ الْمَبْنِيَّاتِ"
+      content: |
+        The book lists them among the أسماء موصولة and أسماء إشارة, and lesson 9
+        carried them as examples of مبني nouns.
+      reason: >
+        They are not مبني. The duals of the demonstratives and the relative nouns
+        are مُعرب, declining like المثنى — alif in رفع, ya in نصب and جر. The book
+        lists them under those categories without flagging the exception at this
+        point, and a quick-check explanation here stated outright that they were
+        مبني, which was simply wrong and shipped that way. Caught by
+        gemini-review. Restore them together with the exception once إعرابُ
+        المثنى is taught, which is إِعْرَابُ الْمُثَنَّى وَالْجَمْعِ السَّالِمِ.

@@ -14,8 +14,25 @@
  * one-letter prefixes stripped) so morphological variation does not read as
  * invention.
  *
- * This is a smell test, not a plagiarism check. Low overlap means "justify this
- * or rewrite it from the book", not "this is wrong".
+ * **This reports; it does not judge.** Two thresholds, and the difference matters:
+ *
+ *   - Below FLOOR, the string has drifted to a different subject than the section
+ *     it claims. That is mechanical and worth failing on.
+ *   - Below SIGNAL, the string is worth a second look, and nothing more.
+ *
+ * SIGNAL used to fail the build, and that was wrong. Measured on real strings:
+ * prose invented wholesale scored 50-55%, while prose deliberately simplified
+ * from the book scored 56%. The distributions sit on top of each other, because
+ * both mean "not the book's words" — no threshold can separate them, and moving
+ * it only picks which mistake to make. Worse, gating on it taught the author to
+ * optimise for the score, which is how a sentence no learner could read shipped
+ * at 100%.
+ *
+ * What actually harms a learner is prose that is invented *and wrong*, and that
+ * is a reading task, not a word-overlap task. `gemini-review.mjs` gates it
+ * (`definition_inaccurate`, `source_infidelity`) and is calibrated for it.
+ * Register is `review-flow.mjs`'s `register_too_hard`. This file's job is to
+ * keep drift visible, which it does by printing every score on every run.
  *
  * Usage:
  *   node scripts/check-source-anchor.mjs              # every lesson
@@ -104,8 +121,12 @@ const files = readdirSync(DATA)
   .filter((f) => !filter || f.includes(filter))
   .sort((a, b) => Number(a.match(/\d+/)[0]) - Number(b.match(/\d+/)[0]));
 
-const THRESHOLD = 0.55;
-let flagged = 0;
+/** Different topic entirely. Both invented controls scored well above this. */
+const FLOOR = 0.3;
+/** Worth a second look. Reported, never fatal — see the note at the top. */
+const SIGNAL = 0.55;
+let belowFloor = 0;
+let belowSignal = 0;
 
 for (const file of files) {
   const lesson = JSON.parse(readFileSync(join(DATA, file), "utf8"));
@@ -142,21 +163,28 @@ for (const file of files) {
     return { path, score, missing };
   });
 
-  const bad = rows.filter((r) => r.score < THRESHOLD);
-  flagged += bad.length;
+  belowFloor += rows.filter((r) => r.score < FLOOR).length;
+  belowSignal += rows.filter((r) => r.score >= FLOOR && r.score < SIGNAL).length;
 
   console.log(`\n${file}  (${lesson.module_id})`);
   for (const r of rows) {
     const pct = Math.round(r.score * 100);
-    const tag = r.score < THRESHOLD ? "LOW " : "ok  ";
+    const tag = r.score < FLOOR ? "DRIFT" : r.score < SIGNAL ? "look " : "ok   ";
     console.log(`  ${tag} ${String(pct).padStart(3)}%  ${r.path}`);
-    if (r.score < THRESHOLD && r.missing.length) {
+    if (r.score < SIGNAL && r.missing.length) {
       console.log(`         not in source: ${r.missing.slice(0, 8).join(" ")}`);
     }
   }
 }
 
 console.log(
-  `\n${flagged} string(s) below ${Math.round(THRESHOLD * 100)}% source overlap.`
+  `\n${belowFloor} string(s) below the ${Math.round(FLOOR * 100)}% floor` +
+    `, ${belowSignal} worth a look (under ${Math.round(SIGNAL * 100)}%).`
 );
-process.exit(flagged ? 1 : 0);
+if (belowSignal && !belowFloor) {
+  console.log(
+    "A low score is not a failure. Check the string says what the book says;\n" +
+      "if it does and it reads more easily, that is the point."
+  );
+}
+process.exit(belowFloor ? 1 : 0);
