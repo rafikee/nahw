@@ -74,9 +74,11 @@ export function StepLessonIntro({ lesson }: { lesson: Lesson }) {
           <p className="type-body-lg font-bold text-label">
             {lesson.intro_detail.title}
           </p>
-          <p className="type-title text-heading">
-            <RichText text={lesson.intro_detail.body} />
-          </p>
+          {lesson.intro_detail.body && (
+            <p className="type-title text-heading">
+              <RichText text={lesson.intro_detail.body} />
+            </p>
+          )}
           {lesson.intro_detail.examples && lesson.intro_detail.examples.length > 0 && (
             <div className="flex flex-wrap gap-2 pt-1">
               {lesson.intro_detail.examples.map((ex) => (
@@ -112,24 +114,6 @@ export function StepLessonIntro({ lesson }: { lesson: Lesson }) {
             ))}
           </div>
 
-          {groups.map(([name, children]) => {
-            const title = children.find((c) => c.group_title)?.group_title ?? name;
-            return (
-              <div
-                key={name}
-                className="rounded-2xl border border-divider bg-surface-hover px-4 py-4 space-y-3"
-              >
-                <p className="type-body-lg font-bold text-label text-center">
-                  {title}
-                </p>
-                <div className="flex flex-col gap-3">
-                  {children.map((c) => (
-                    <ConceptCard key={c.type} label={c.type} hint={c.preview_hint} small />
-                  ))}
-                </div>
-              </div>
-            );
-          })}
         </div>
       ) : (
         <div

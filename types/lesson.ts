@@ -71,7 +71,8 @@ export interface IntroBonus {
  */
 export interface IntroDetail {
   title: string;
-  body: string;
+  /** Optional: omit to render a box of examples alone, with no second prose block. */
+  body?: string;
   examples?: string[];
 }
 

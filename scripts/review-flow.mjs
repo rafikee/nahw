@@ -51,11 +51,18 @@ function renderSteps(l) {
   // StepLessonIntro hides the preview grid when intro_detail is present, so the
   // reviewer must too — otherwise it reports on a screen the learner never sees.
   if (!l.intro_detail) {
-    introBits.push(
-      `PREVIEW CARDS: ${l.concepts
-        .map((c) => (c.preview_hint ? `${c.type} (“${c.preview_hint}”)` : `${c.type} — NO HINT`))
-        .join(" | ")}`
-    );
+    // Mirror StepLessonIntro exactly: grouped concepts are NOT previewed
+    // individually — only the group's own card appears. Listing the children
+    // here would invite findings about cards the learner never sees.
+    const previewed = l.concepts.filter((c) => !c.group);
+    const groupNames = [...new Set(l.concepts.filter((c) => c.group).map((c) => c.group))];
+    const cards = [
+      ...previewed.map((c) =>
+        c.preview_hint ? `${c.type} (“${c.preview_hint}”)` : `${c.type} — NO HINT`
+      ),
+      ...groupNames.map((g) => `${g} (group card)`),
+    ];
+    introBits.push(`PREVIEW CARDS: ${cards.join(" | ")}`);
   }
   if (l.intro_bonus) {
     introBits.push(`ASIDE BOX — ${l.intro_bonus.title}: ${l.intro_bonus.body}`);

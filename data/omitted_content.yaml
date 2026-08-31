@@ -85,3 +85,31 @@
         folding it into this lesson's word sort would have made the sort test
         two unrelated skills at once. Worth revisiting if a review step is
         ever added.
+
+    - title: "Whether كلام must contain all three word types"
+      source: "source-content/vol1-009-038.md → الْكَلَامُ, third paragraph + تَمْرِينٌ question 2"
+      content: |
+        The book notes that كلام need not combine فعل، اسم، حرف — it may be two
+        nouns, or a verb and a noun — and its second exercise question asks this
+        directly.
+      reason: >
+        Teaching it properly needed a third box on the lesson's opening screen,
+        which is the screen most at risk of carrying too much, and testing it
+        without teaching it is exactly what the flow reviewer flags. The two
+        worked examples on that screen still demonstrate the point quietly: one
+        is two nouns, the other a verb and a noun. Worth restoring if the intro
+        screen ever gains room.
+
+- lesson: "04 — الْمُفْرَدُ وَالْمُثَنَّى وَالْجَمْعُ"
+  items:
+
+    - title: "The collective name جَمْعُ التَّصْحِيحِ"
+      source: "data/lesson_4.json (previous) → intro_bonus"
+      content: |
+        جَمْعُ الْمُذَكَّرِ وَجَمْعُ الْمُؤَنَّثِ يُسَمَّيَانِ مَعًا جَمْعَ التَّصْحِيحِ.
+      reason: >
+        It sat in an aside on the lesson's opening screen, naming both sound
+        plurals before either had been taught, and a review question then leaned
+        on the term. The flow reviewer flagged it as major once it could see the
+        screen correctly. The app has no post-concept note step, which is where
+        this belongs; restore it if one is ever added.
