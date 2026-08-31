@@ -414,8 +414,13 @@ Two ways to fix it, either is fine:
 
 ---
 
-## Versioning
+## Which build is live
 
-Bump the version in `package.json` whenever you ship a meaningful batch of changes. That is the only place to edit it — `next.config.ts` reads it at build time and the settings sheet renders it (`نُسْخَةٌ تَجْرِيبِيَّةٌ · vX.Y.Z`), so tapping the gear icon on the live site tells you which build is actually serving.
+The settings sheet shows `نُسْخَةٌ تَجْرِيبِيَّةٌ · <build> · <commit>`, both stamped by CI
+from the GitHub run number and commit SHA. Tap the gear icon on your phone: if the
+number went up, your push landed.
 
-It was not always wired that way. The version was hardcoded in `app/page.tsx` and sat at `v0.3.0` from v0.3.0 through v0.9.0, so the one check on "what is live" quietly said the wrong thing for six releases. If you ever find yourself typing a version number into a component, that is the bug coming back.
+There is nothing to bump. A version someone has to remember to edit is a version
+that will be wrong, and this one was — it read `v0.3.0` for six releases before
+anyone checked it against reality. `package.json`'s `version` field is now unused
+by the app; leave it alone.

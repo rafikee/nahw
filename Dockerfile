@@ -11,6 +11,14 @@ ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
 COPY package.json package-lock.json* ./
 RUN npm ci
 COPY . .
+
+# Stamped by CI so the running app can say which build it is. Both are provided
+# by GitHub Actions; a local build leaves them unset and the app shows "dev".
+ARG APP_BUILD
+ARG APP_COMMIT
+ENV NEXT_PUBLIC_APP_BUILD=$APP_BUILD
+ENV NEXT_PUBLIC_APP_COMMIT=$APP_COMMIT
+
 RUN npm run build
 
 FROM node:22-alpine

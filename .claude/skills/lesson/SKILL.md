@@ -154,9 +154,9 @@ a definition that wraps badly, a distractor that gives the answer away by being
 visibly longer, or tashkeel that renders wrong in the actual font.
 
 For "is this screen overloaded?", measure rather than eyeball it — compare
-`main.scrollHeight` against `main.clientHeight`. A lesson intro around 100–135%
-of the viewport is normal; well past that means the screen is carrying too much.
-Lesson 4's intro is currently 203% and is a known outstanding problem.
+`main.scrollHeight` against `main.clientHeight`. A screen around 100–150% of the
+viewport is normal; well past that means it is carrying too much. Measure an
+existing lesson alongside the new one rather than judging the number cold.
 
 ### 7. Record the decisions
 
@@ -169,9 +169,6 @@ Lesson 4's intro is currently 203% and is a known outstanding problem.
 
 `git push` to `main` **is** the production deploy to https://nahw.barada.dev.
 Commit the batch, then push once, at the end — not per lesson.
-
-Bump the minor version in `package.json` for a batch of lessons; it surfaces in
-the app's settings sheet and is how the user spot-checks what is live.
 
 After pushing:
 
