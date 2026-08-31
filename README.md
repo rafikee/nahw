@@ -8,9 +8,9 @@ For the product thesis, audience, and roadmap, see [`INVESTMENT.md`](./INVESTMEN
 
 ## Picking this up
 
-Last worked on 2026-08-30. Everything is committed, pushed, and live at v0.8.0.
+Last worked on 2026-08-30. Everything is committed, pushed, and live at v0.9.0.
 
-**What exists:** five lessons, all from الكتاب الأول. The whole four-volume book is
+**What exists:** six lessons, all from الكتاب الأول. The whole four-volume book is
 a scanned PDF at `source-content/nahw-full-book.pdf` (not committed — it is large
 and easy to download again). Pages 9–38 of it have been turned into text at
 `source-content/vol1-009-038.md`. The rest of the book has not been transcribed
@@ -19,7 +19,7 @@ yet.
 **To write the next lesson:** run the `/lesson` skill. It walks the whole job.
 Start by running `node scripts/coverage.mjs`, which reads a record of which parts
 of the book have already been used and tells you what comes next. Right now that
-is الْمَبْنِيُّ وَالْمُعْرَبُ.
+is أَنْوَاعُ الْبِنَاءِ.
 
 **To get more of the book into text:** `node scripts/transcribe-book.mjs 39-68
 --volume "الكتاب الأول" --out source-content/vol1-039-068.md`, then run
@@ -27,7 +27,7 @@ is الْمَبْنِيُّ وَالْمُعْرَبُ.
 the `sources` list in `data/coverage.json`. Never send more than 30 pages at once.
 `source-content/page-map.json` says what is on every page of the PDF.
 
-**Four checks a lesson has to pass.** Run all of them; they catch different things
+**Five checks a lesson has to pass.** Run all of them; they catch different things
 and none of them replaces another.
 
 | Command | What it looks for |
@@ -38,7 +38,7 @@ and none of them replaces another.
 | `node scripts/review-flow.mjs <lesson>` | repetition, terms used before they are explained, overcrowded screens |
 | `npm run qa:lesson -- <module_id>` | how it actually looks in a browser |
 
-All five lessons currently pass all of them. `npm run build` runs the first check
+All six lessons currently pass all of them. `npm run build` runs the first check
 on its own, so a lesson with broken data cannot reach the live site.
 
 **Decisions already made, so they do not get re-litigated:**
@@ -56,9 +56,10 @@ on its own, so a lesson with broken data cannot reach the live site.
 **Known and not fixed:**
 
 - Lesson 4's explanation of the dual used to mention grammatical cases before any
-  lesson taught them, so those references were removed. The next lesson,
-  الْمَبْنِيُّ وَالْمُعْرَبُ, is the one that teaches cases — after it exists, that
-  explanation could be restored.
+  lesson taught them, so those references were removed. Lesson 6 shows that a
+  word's ending changes but never names رفع/نصب/جر; the lesson that names them is
+  أَنْوَاعُ الْإِعْرَابِ, four sections further on. Restore the explanation once that
+  one exists, not before.
 - `middleware.ts` was deleted; nothing replaced it because nothing needed to.
 - The live database of subscribers and ratings still has no backup.
 

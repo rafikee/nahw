@@ -17,6 +17,7 @@ export const LEVELS: LevelMeta[] = [
       "03_al_mudhakkar_wal_muannath",
       "04_al_mufrad_wal_muthanna_wal_jam",
       "05_al_kalaam",
+      "06_al_mabni_wal_murab",
     ],
   },
 ];

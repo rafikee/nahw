@@ -54,6 +54,12 @@
       "heading": "الْكَلَامُ",
       "lesson": "05_al_kalaam",
       "note": "Three concepts: الكلام itself, then the فعلية/اسمية split. Two of the four textbook exercises were dropped — see omitted_content.yaml."
+    },
+    {
+      "file": "source-content/vol1-009-038.md",
+      "heading": "الْمَبْنِيُّ وَالْمُعْرَبُ",
+      "lesson": "06_al_mabni_wal_murab",
+      "note": "Kept on its own rather than merged with أنواع البناء; that section adds four more concepts and would push the lesson past five."
     }
   ]
 }

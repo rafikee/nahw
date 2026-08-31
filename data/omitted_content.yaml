@@ -124,3 +124,27 @@
         as front-loaded and dry, so the question outlived its content and asked
         about something no screen taught. Replaced with a question on الحرف,
         which the lesson does teach and which the review quiz otherwise skipped.
+
+- lesson: "06 — الْمَبْنِيُّ وَالْمُعْرَبُ"
+  items:
+
+    - title: "Recap preamble on how sentences are built from single words"
+      source: "source-content/vol1-009-038.md → الْمَبْنِيُّ وَالْمُعْرَبُ, opening paragraph"
+      content: |
+        سَبَقَ لَكَ أَنَّ الْجُمَلَ الْمُفِيدَةَ تَتَرَكَّبُ مِنَ الْكَلِمَاتِ الْمُفْرَدَةِ، الَّتِي
+        تَنْحَصِرُ فِي الْأَنْوَاعِ الثَّلَاثَةِ: الْفِعْلِ وَالْاسْمِ وَالْحُرُوفِ.
+      reason: >
+        A backward glance at lessons 1 and 5, not new material. The flow
+        reviewer flags re-teaching of what an earlier lesson already covered,
+        and the introduction's own «عِنْدَ التَّرْكِيبِ» carries the same idea in
+        three words.
+
+    - title: "Exercise 2 — «مَا الْمَبْنِيُّ، وَمَا الْمُعْرَبُ؟»"
+      source: "source-content/vol1-009-038.md → الْمَبْنِيُّ وَالْمُعْرَبُ, تَمْرِينٌ"
+      content: |
+        مَا الْمَبْنِيُّ ، وَمَا الْمُعْرَبُ ؟
+      reason: >
+        Straight definition recall. As an MCQ it would restate the two concept
+        screens verbatim with the answer visible; the two per-concept quick
+        checks already test the same thing by application. Exercises 1, 3 and 4
+        did convert, and are the review quiz.

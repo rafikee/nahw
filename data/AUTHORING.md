@@ -346,6 +346,14 @@ All content text (definitions, examples, questions, explanations, instructions) 
 - Compare against the PDF source when in doubt -- the OCR markdown is a lossy copy.
 - Pay special attention to verb conjugations: wrong tashkeel changes the meaning entirely.
 
+### Quranic citations
+
+**Do not use the ornate brackets ﴿ ﴾.** Noto Naskh Arabic has no glyph for them, so
+they render as `{` and `}` with a stray `٠` beside each one, and the bidi run breaks
+around the closing bracket. Quote a verse with the app's own guillemets instead —
+«صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ» — which is what every other quoted string uses.
+Found in lesson 6; the validator cannot see it, only the QA screenshots can.
+
 ### UI chrome tashkeel
 All button labels, breadcrumb text, section headings, and feedback messages in the app must also have full tashkeel. This is handled in the components, not in the JSON. If adding a new step type or label, follow the existing pattern.
 
