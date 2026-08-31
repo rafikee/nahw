@@ -10,20 +10,19 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    # QEMU-emulated arm64 builds crash intermittently ("uncaught target signal 4")
-    # and buildkit then hangs on the dead process rather than failing. One such
-    # hang ran the full 6h GitHub limit before anyone noticed, and a hang means no
-    # image, no Coolify call, and a silently un-deployed commit. Successful builds
-    # take 3-6 minutes, so anything past 20 is that hang. Just re-run it.
+    # The Pi is arm64, so this builds on a native arm64 runner (free for public
+    # repos). It used to build on x86 under QEMU emulation, which crashed
+    # intermittently mid-build ("uncaught target signal 4") and left buildkit
+    # hanging on a dead process for the full 6h GitHub limit — no image, no
+    # Coolify call, a silently un-deployed commit. No emulator, no such crash.
+    runs-on: ubuntu-24.04-arm
+    # A hang should cost 20 minutes, not 6 hours.
     timeout-minutes: 20
     permissions:
       contents: read
       packages: write
     steps:
       - uses: actions/checkout@v7
-
-      - uses: docker/setup-qemu-action@v4
 
       - uses: docker/setup-buildx-action@v4
 
