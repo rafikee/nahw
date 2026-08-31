@@ -242,8 +242,18 @@ The classification exercise at the end of the lesson.
 | Field | Guidelines |
 |-------|-----------|
 | `categories` | `key` is the internal identifier (no tashkeel). `label` is what the user sees (full tashkeel). Usually matches the concept types from the lesson. |
-| `words` | 10-15 words. Each `category` must match a `key` from `categories`. Aim for roughly equal distribution across categories. All words with full tashkeel. |
+| `words` | **5-8 entries.** Each `category` must match a `key` from `categories`. Aim for roughly equal distribution across categories. All entries with full tashkeel. |
 | `instruction` | Full tashkeel. Usually a variation of "classify these words by type." |
+
+**Keep it short.** Four or five taps is enough to show the learner has the rule;
+past that the exercise tests patience rather than understanding. If the textbook
+exercise offers fifteen items, pick the clearest five or six and vary them — a
+person, an animal, an object — rather than taking the first N.
+
+**Entries can be phrases, not just words.** Lesson 5 sorts whole sentences by
+فِعْلِيَّة/اسْمِيَّة. The chips wrap, and the category buckets are pinned to the bottom of
+the scroll area so they stay reachable however tall the entries get. Keep phrases
+to two or three words so a chip stays one line.
 
 **Sourcing word sort data:**
 - The textbook's "عيِّنِ..." (classify...) exercises are the primary source

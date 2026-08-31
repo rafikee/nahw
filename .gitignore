@@ -41,8 +41,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# source book content (PDFs, OCR markdown) — not needed at runtime
-/source-content
+# Source book. The transcriptions and the page map ARE committed, so the corpus a
+# lesson was authored from is reproducible from a clean clone and data/coverage.json
+# points at files that exist. The scanned PDF is not — 5.8MB, not needed at runtime,
+# and easily re-downloaded.
+/source-content/*.pdf
 
 # local SQLite database (subscribers, etc.)
 data/nahw.db

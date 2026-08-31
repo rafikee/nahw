@@ -1,10 +1,18 @@
 import type { Lesson } from "@/types/lesson";
 import { RichText } from "@/components/ui/RichText";
 
-function ConceptCard({ label, small }: { label: string; small?: boolean }) {
+function ConceptCard({
+  label,
+  hint,
+  small,
+}: {
+  label: string;
+  hint?: string;
+  small?: boolean;
+}) {
   return (
     <div
-      className={`rounded-2xl border border-divider border-t-4 border-t-primary bg-surface flex items-center justify-center px-3 ${
+      className={`rounded-2xl border border-divider border-t-4 border-t-primary bg-surface flex flex-col items-center justify-center gap-1 px-3 ${
         small ? "py-3" : "py-5"
       }`}
       style={{ boxShadow: "0 2px 8px var(--theme-primary-soft)" }}
@@ -14,6 +22,11 @@ function ConceptCard({ label, small }: { label: string; small?: boolean }) {
       >
         {label}
       </span>
+      {hint && (
+        <span className="type-body text-muted text-center leading-snug">
+          {hint}
+        </span>
+      )}
     </div>
   );
 }
@@ -31,8 +44,16 @@ export function StepLessonIntro({ lesson }: { lesson: Lesson }) {
   const hasGroups = groups.length > 0;
 
   const topLevelItems = [
-    ...ungrouped.map((c) => ({ kind: "concept" as const, label: c.type })),
-    ...groups.map(([name]) => ({ kind: "group" as const, label: name })),
+    ...ungrouped.map((c) => ({
+      kind: "concept" as const,
+      label: c.type,
+      hint: c.preview_hint,
+    })),
+    ...groups.map(([name]) => ({
+      kind: "group" as const,
+      label: name,
+      hint: undefined as string | undefined,
+    })),
   ];
 
   return (
@@ -48,7 +69,37 @@ export function StepLessonIntro({ lesson }: { lesson: Lesson }) {
         </p>
       </div>
 
-      {hasGroups ? (
+      {lesson.intro_detail && (
+        <div className="rounded-2xl border border-divider bg-surface px-7 py-6 shadow-sm space-y-3">
+          <p className="type-body-lg font-bold text-label">
+            {lesson.intro_detail.title}
+          </p>
+          <p className="type-title text-heading">
+            <RichText text={lesson.intro_detail.body} />
+          </p>
+          {lesson.intro_detail.examples && lesson.intro_detail.examples.length > 0 && (
+            <div className="flex flex-wrap gap-2 pt-1">
+              {lesson.intro_detail.examples.map((ex) => (
+                <span
+                  key={ex}
+                  className="rounded-xl border border-primary-border bg-primary-soft px-3 py-1.5 type-body-lg font-semibold text-heading"
+                >
+                  {ex}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/*
+        The preview grid orients the learner before the concept screens. A
+        lesson carrying an `intro_detail` box already does that teaching work on
+        this screen, and keeping both pushed lesson 5's intro to 149% of the
+        viewport while every other lesson's fits. An intro that teaches does not
+        also need to advertise.
+      */}
+      {!lesson.intro_detail && (hasGroups ? (
         <div className="space-y-4">
           <div
             className={`grid gap-3`}
@@ -57,7 +108,7 @@ export function StepLessonIntro({ lesson }: { lesson: Lesson }) {
             }}
           >
             {topLevelItems.map((item) => (
-              <ConceptCard key={item.label} label={item.label} />
+              <ConceptCard key={item.label} label={item.label} hint={item.hint} />
             ))}
           </div>
 
@@ -73,7 +124,7 @@ export function StepLessonIntro({ lesson }: { lesson: Lesson }) {
                 </p>
                 <div className="flex flex-col gap-3">
                   {children.map((c) => (
-                    <ConceptCard key={c.type} label={c.type} small />
+                    <ConceptCard key={c.type} label={c.type} hint={c.preview_hint} small />
                   ))}
                 </div>
               </div>
@@ -81,12 +132,23 @@ export function StepLessonIntro({ lesson }: { lesson: Lesson }) {
           })}
         </div>
       ) : (
-        <div className="grid grid-cols-3 gap-3">
+        <div
+          className="grid gap-3"
+          style={{
+            // Fit the column count to the lesson, so a two-concept lesson does
+            // not render a phantom third column.
+            gridTemplateColumns: `repeat(${Math.min(lesson.concepts.length, 3)}, minmax(0, 1fr))`,
+          }}
+        >
           {lesson.concepts.map((concept) => (
-            <ConceptCard key={concept.type} label={concept.type} />
+            <ConceptCard
+              key={concept.type}
+              label={concept.type}
+              hint={concept.preview_hint}
+            />
           ))}
         </div>
-      )}
+      ))}
 
       {lesson.intro_bonus && (
         <div className="rounded-2xl border border-primary-border bg-primary-soft px-7 py-5 shadow-sm space-y-2">

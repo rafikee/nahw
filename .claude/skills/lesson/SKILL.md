@@ -28,9 +28,17 @@ The ledger names the next unclaimed section in declared reading order. It does
 - **Bite-sized wins.** A lesson is 2–5 concepts. If a section carries more, split
   it. If two adjacent sections are each one thin concept and share an exercise
   set, merge them.
-- **Cut the repetition.** The book restates itself constantly, and lessons 1–4
-  already taught a lot. Before drafting, check what the existing lessons cover
-  and drop anything that only repeats it. Forward motion is the priority.
+- **Cut the repetition — this gets more important, not less.** The book restates
+  itself constantly, and later volumes revisit earlier material at greater depth.
+  Before drafting, read the `concepts[].type` of every existing lesson and drop
+  anything the course already teaches. Whole sections will eventually be worth
+  skipping outright; record those in `data/coverage.json` with a `note` saying
+  which lesson already covers them, so the section is never re-proposed.
+
+  The exception is a genuine refresher: material worth restating because the new
+  lesson depends on it. Keep that deliberately short and never as a full concept
+  screen — a sentence in the introduction, not a re-teach. `review-flow.mjs`
+  checks this and will flag `already_taught_earlier`.
 - **Drop the noise.** Verbose preamble, oral-recitation passages, and word-length
   trivia do not become lessons. They become entries in
   `data/omitted_content.yaml` with a reason.
@@ -44,6 +52,19 @@ than forcing it. Adding a step type is a real conversation, not a silent choice.
 Write `data/lesson_N.json` per `data/AUTHORING.md`. Use `example_pairs` for
 concepts that teach a derivation. Flag any suspected OCR error in the source
 rather than silently "fixing" it.
+
+**Keep the sorting exercise short — 5 to 8 entries.** Four or five taps prove the
+learner has the rule; beyond that it tests patience. The validator enforces the
+range.
+
+**Choosing the exercise.** The app has three shapes today: the MCQ quick check,
+the review quiz, and the tap-to-sort. Pick what actually tests the concept rather
+than defaulting to all three. If a concept teaches a derivation, `example_pairs`
+on the concept screen may do more than another MCQ.
+
+**Stop and ask before inventing a new exercise type.** A new step type is a
+product decision, a schema change, and a new component — never a silent one. Say
+what the existing shapes cannot test and what you would add, and wait.
 
 ### 3. Validate mechanically
 
@@ -87,6 +108,26 @@ readings rather than silently picking one.
 Re-run steps 3 and 4 until the validator is error-free and the verdict is
 `publish`.
 
+### 4b. Structural review
+
+```bash
+node scripts/review-flow.mjs data/lesson_5.json
+```
+
+A second reviewer with a different job: not whether the Arabic is right, but
+whether the lesson *teaches* well. It sees the lesson as the numbered screens the
+learner walks, plus a digest of every earlier lesson, and judges redundancy
+within the lesson, material already taught earlier, terms shown before anything
+explains them, overloaded screens, wrong ordering, and exercises that do not test
+what preceded them.
+
+Keep it honest: if you change what the player renders, update `renderSteps` to
+match. A reviewer looking at a screen the learner never sees produces confident
+findings about nothing.
+
+Aim for a `ship` verdict. `revise` with only minor findings is a judgement call —
+say what you decided and why in your report rather than silently accepting it.
+
 ### 5. Wire it up
 
 ```bash
@@ -111,6 +152,11 @@ errors, horizontal overflow, and clipped text.
 **A clean exit code is not the QA.** Read the screenshots. The driver cannot see
 a definition that wraps badly, a distractor that gives the answer away by being
 visibly longer, or tashkeel that renders wrong in the actual font.
+
+For "is this screen overloaded?", measure rather than eyeball it — compare
+`main.scrollHeight` against `main.clientHeight`. A lesson intro around 100–135%
+of the viewport is normal; well past that means the screen is carrying too much.
+Lesson 4's intro is currently 203% and is a known outstanding problem.
 
 ### 7. Record the decisions
 

@@ -1,0 +1,3322 @@
+[
+  {
+    "index": 1,
+    "printed_page": "",
+    "volume": "",
+    "kind": "cover",
+    "heading": "الدروس النحوية",
+    "pdf_page": 1
+  },
+  {
+    "index": 2,
+    "printed_page": "",
+    "volume": "",
+    "kind": "front_matter",
+    "heading": "الدروس النحوية",
+    "pdf_page": 2
+  },
+  {
+    "index": 3,
+    "printed_page": "",
+    "volume": "",
+    "kind": "front_matter",
+    "heading": "الدروس النحوية",
+    "pdf_page": 3
+  },
+  {
+    "index": 4,
+    "printed_page": "",
+    "volume": "",
+    "kind": "front_matter",
+    "heading": "",
+    "pdf_page": 4
+  },
+  {
+    "index": 5,
+    "printed_page": "",
+    "volume": "",
+    "kind": "front_matter",
+    "heading": "حقوق الطبع محفوظة",
+    "pdf_page": 5
+  },
+  {
+    "index": 6,
+    "printed_page": "",
+    "volume": "",
+    "kind": "volume_title",
+    "heading": "الدروس النحوية - الكتاب الأول",
+    "pdf_page": 6
+  },
+  {
+    "index": 7,
+    "printed_page": "٧",
+    "volume": "الكتاب الأول",
+    "kind": "front_matter",
+    "heading": "مقدمة الكتاب",
+    "pdf_page": 7
+  },
+  {
+    "index": 8,
+    "printed_page": "٨",
+    "volume": "",
+    "kind": "front_matter",
+    "heading": "",
+    "pdf_page": 8
+  },
+  {
+    "index": 9,
+    "printed_page": "٩",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "تَكَّوُّنُ الكَلِمَاتِ",
+    "pdf_page": 9
+  },
+  {
+    "index": 10,
+    "printed_page": "١٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "أَنْوَاعُ الكَلِمَاتِ",
+    "pdf_page": 10
+  },
+  {
+    "index": 11,
+    "printed_page": "١١",
+    "volume": "الكتاب الأول",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 11
+  },
+  {
+    "index": 12,
+    "printed_page": "١٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "أَقْسَامُ الفِعْلِ",
+    "pdf_page": 12
+  },
+  {
+    "index": 13,
+    "printed_page": "١٣",
+    "volume": "الكتاب الأول",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 13
+  },
+  {
+    "index": 14,
+    "printed_page": "١٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "أَقْسَامُ الأَسْمِ",
+    "pdf_page": 14
+  },
+  {
+    "index": 15,
+    "printed_page": "١٥",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "٢ - المَفْرَدُ وَالمُثَنَّى وَالجَمْعُ",
+    "pdf_page": 15
+  },
+  {
+    "index": 16,
+    "printed_page": "١٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "أَقْسَامُ الْجَمْعِ",
+    "pdf_page": 16
+  },
+  {
+    "index": 17,
+    "printed_page": "١٧",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "الكَلَامُ",
+    "pdf_page": 17
+  },
+  {
+    "index": 18,
+    "printed_page": "١٨",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "",
+    "pdf_page": 18
+  },
+  {
+    "index": 19,
+    "printed_page": "١٩",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "المَبْنِيُّ وَالمُعْرَبُ",
+    "pdf_page": 19
+  },
+  {
+    "index": 20,
+    "printed_page": "٢٠",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "",
+    "pdf_page": 20
+  },
+  {
+    "index": 21,
+    "printed_page": "٢١",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "أَنْوَاعُ البِنَاءِ",
+    "pdf_page": 21
+  },
+  {
+    "index": 22,
+    "printed_page": "٢٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 22
+  },
+  {
+    "index": 23,
+    "printed_page": "٢٣",
+    "volume": "الكتاب الأول",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 23
+  },
+  {
+    "index": 24,
+    "printed_page": "٢٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "أَصْنَافُ الْمَبْنِيَّاتِ",
+    "pdf_page": 24
+  },
+  {
+    "index": 25,
+    "printed_page": "٢٥",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 25
+  },
+  {
+    "index": 26,
+    "printed_page": "٢٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 26
+  },
+  {
+    "index": 27,
+    "printed_page": "٢٧",
+    "volume": "الكتاب الأول",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 27
+  },
+  {
+    "index": 28,
+    "printed_page": "٢٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "أَنْوَاعُ الْإِعْرَابِ",
+    "pdf_page": 28
+  },
+  {
+    "index": 29,
+    "printed_page": "٢٩",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "إِعْرَابُ الْمُثَنَّى وَالْجَمْعِ السَّالِمِ",
+    "pdf_page": 29
+  },
+  {
+    "index": 30,
+    "printed_page": "٣٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "إِعْرَابُ الْفِعْلِ الْمُعْتَلِّ",
+    "pdf_page": 30
+  },
+  {
+    "index": 1,
+    "printed_page": "٣١",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "إِعْرَابُ الأَمْثِلَةِ الْخَمْسَةِ",
+    "pdf_page": 31
+  },
+  {
+    "index": 2,
+    "printed_page": "٣٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "أَهَمِّيَّةُ تَمْيِيزِ التَّرَاكِيبِ",
+    "pdf_page": 32
+  },
+  {
+    "index": 3,
+    "printed_page": "٣٣",
+    "volume": "الكتاب الأول",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 33
+  },
+  {
+    "index": 4,
+    "printed_page": "٣٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "نَصْبُ الْفِعْلِ الْمُضَارِعِ",
+    "pdf_page": 34
+  },
+  {
+    "index": 5,
+    "printed_page": "٣٥",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "جَزْمُ الْفِعْلِ الْمُضَارِعِ",
+    "pdf_page": 35
+  },
+  {
+    "index": 6,
+    "printed_page": "٣٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 36
+  },
+  {
+    "index": 7,
+    "printed_page": "٣٧",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "رَفْعُ الْفِعْلِ الْمُضَارِعِ",
+    "pdf_page": 37
+  },
+  {
+    "index": 8,
+    "printed_page": "٣٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "رَفْعُ الأِسْمِ",
+    "pdf_page": 38
+  },
+  {
+    "index": 9,
+    "printed_page": "٣٩",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "٢ - نَائِبُ الْفَاعِلِ",
+    "pdf_page": 39
+  },
+  {
+    "index": 10,
+    "printed_page": "٤٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 40
+  },
+  {
+    "index": 11,
+    "printed_page": "٤١",
+    "volume": "الكتاب الأول",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 41
+  },
+  {
+    "index": 12,
+    "printed_page": "٤٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "٣، ٤ - الْمُبْتَدَأُ وَالْخَبَرُ",
+    "pdf_page": 42
+  },
+  {
+    "index": 13,
+    "printed_page": "٤٣",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "٥ - اسْمُ «كَانَ»",
+    "pdf_page": 43
+  },
+  {
+    "index": 14,
+    "printed_page": "٤٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "٦ - خَبَرُ «إِنَّ»",
+    "pdf_page": 44
+  },
+  {
+    "index": 15,
+    "printed_page": "٤٥",
+    "volume": "الكتاب الأول",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 45
+  },
+  {
+    "index": 16,
+    "printed_page": "٤٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "نَصْبُ الأَسْمِ",
+    "pdf_page": 46
+  },
+  {
+    "index": 17,
+    "printed_page": "٤٧",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "٢ - الْمَفْعُولُ الْمُطْلَقُ",
+    "pdf_page": 47
+  },
+  {
+    "index": 18,
+    "printed_page": "٤٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "٣ - الْمَفْعُولُ لِأَجْلِهِ",
+    "pdf_page": 48
+  },
+  {
+    "index": 19,
+    "printed_page": "٤٩",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "٤ - الْمَفْعُولُ فِيهِ",
+    "pdf_page": 49
+  },
+  {
+    "index": 20,
+    "printed_page": "٥٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "٥ - الْمَفْعُولُ مَعَهُ",
+    "pdf_page": 50
+  },
+  {
+    "index": 21,
+    "printed_page": "٥١",
+    "volume": "الكتاب الأول",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 51
+  },
+  {
+    "index": 22,
+    "printed_page": "٥٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "٦ - الْمُسْتَثْنَى بِـ «إِلَّا»",
+    "pdf_page": 52
+  },
+  {
+    "index": 23,
+    "printed_page": "٥٣",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "٧ - الْحَالُ",
+    "pdf_page": 53
+  },
+  {
+    "index": 24,
+    "printed_page": "٥٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "٨ - التَّمْيِيزُ",
+    "pdf_page": 54
+  },
+  {
+    "index": 25,
+    "printed_page": "٥٥",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "١٠ - خَبَرُ «كَانَ»",
+    "pdf_page": 55
+  },
+  {
+    "index": 26,
+    "printed_page": "٥٦",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 56
+  },
+  {
+    "index": 27,
+    "printed_page": "٥٧",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "جَرُّ الأَسْمِ",
+    "pdf_page": 57
+  },
+  {
+    "index": 28,
+    "printed_page": "٥٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "٢ - الْمُضَافُ إِلَيْهِ",
+    "pdf_page": 58
+  },
+  {
+    "index": 29,
+    "printed_page": "٥٩",
+    "volume": "الكتاب الأول",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 59
+  },
+  {
+    "index": 30,
+    "printed_page": "٦٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "التَّوَابِعُ",
+    "pdf_page": 60
+  },
+  {
+    "index": 1,
+    "printed_page": "٦١",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 61
+  },
+  {
+    "index": 2,
+    "printed_page": "٦٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "٢ - الْعَطْفُ",
+    "pdf_page": 62
+  },
+  {
+    "index": 3,
+    "printed_page": "٦٣",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 63
+  },
+  {
+    "index": 4,
+    "printed_page": "٦٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "٣ - التَّوْكِيدُ",
+    "pdf_page": 64
+  },
+  {
+    "index": 5,
+    "printed_page": "٦٥",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "٤ - الْبَدَلُ",
+    "pdf_page": 65
+  },
+  {
+    "index": 6,
+    "printed_page": "٦٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 66
+  },
+  {
+    "index": 7,
+    "printed_page": "٦٧",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "نِهَايَةٌ : الإِعْرَابُ المَحَلِّيُّ",
+    "pdf_page": 67
+  },
+  {
+    "index": 8,
+    "printed_page": "٦٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 68
+  },
+  {
+    "index": 9,
+    "printed_page": "٦٩",
+    "volume": "الكتاب الأول",
+    "kind": "content",
+    "heading": "كَيْفِيَّةُ الإِعْرَابِ",
+    "pdf_page": 69
+  },
+  {
+    "index": 10,
+    "printed_page": "٧٠",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 70
+  },
+  {
+    "index": 11,
+    "printed_page": "٧١",
+    "volume": "الكتاب الأول",
+    "kind": "index",
+    "heading": "فهرس الكتاب الأوَّل",
+    "pdf_page": 71
+  },
+  {
+    "index": 12,
+    "printed_page": "٧٢",
+    "volume": "",
+    "kind": "index",
+    "heading": "",
+    "pdf_page": 72
+  },
+  {
+    "index": 13,
+    "printed_page": "٧٣",
+    "volume": "الكتاب الأول",
+    "kind": "index",
+    "heading": "",
+    "pdf_page": 73
+  },
+  {
+    "index": 14,
+    "printed_page": "",
+    "volume": "",
+    "kind": "blank",
+    "heading": "",
+    "pdf_page": 74
+  },
+  {
+    "index": 15,
+    "printed_page": "",
+    "volume": "",
+    "kind": "volume_title",
+    "heading": "الدُُّرُوسُ النَّحْوِيَّةُ الكِتَابُ الثَّانِي",
+    "pdf_page": 75
+  },
+  {
+    "index": 16,
+    "printed_page": "",
+    "volume": "",
+    "kind": "blank",
+    "heading": "",
+    "pdf_page": 76
+  },
+  {
+    "index": 17,
+    "printed_page": "٧٧",
+    "volume": "الكتاب الثاني",
+    "kind": "front_matter",
+    "heading": "« فَائِدَةٌ »",
+    "pdf_page": 77
+  },
+  {
+    "index": 18,
+    "printed_page": "٧٨",
+    "volume": "",
+    "kind": "front_matter",
+    "heading": "",
+    "pdf_page": 78
+  },
+  {
+    "index": 19,
+    "printed_page": "٧٩",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "تَقْسِيمُ الكَلِمَاتِ إِلَى فِعْلٍ وَاسْمٍ وَحَرْفٍ",
+    "pdf_page": 79
+  },
+  {
+    "index": 20,
+    "printed_page": "٨٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "أَمْثِلَةٌ",
+    "pdf_page": 80
+  },
+  {
+    "index": 21,
+    "printed_page": "٨١",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "١ - الكَلاَمُ عَلَى الْحَرْفِ",
+    "pdf_page": 81
+  },
+  {
+    "index": 22,
+    "printed_page": "٨٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 82
+  },
+  {
+    "index": 23,
+    "printed_page": "٨٣",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "٢ - الكَلاَمُ عَلَى الْفِعْلِ",
+    "pdf_page": 83
+  },
+  {
+    "index": 24,
+    "printed_page": "٨٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "أَمْثِلَةٌ",
+    "pdf_page": 84
+  },
+  {
+    "index": 25,
+    "printed_page": "٨٥",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "٢ - تَقْسِيمُ الْفِعْلِ إِلَى صَحِيحِ الآخِرِ، وَمُعْتَلِّ الآخِرِ",
+    "pdf_page": 85
+  },
+  {
+    "index": 26,
+    "printed_page": "٨٦",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 86
+  },
+  {
+    "index": 27,
+    "printed_page": "٨٧",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "إِعْرَابُ الْفِعْلِ وَبِنَاؤُهُ",
+    "pdf_page": 87
+  },
+  {
+    "index": 28,
+    "printed_page": "٨٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "بَيَانُ الْمَبْنِيِّ مِنَ الأَفْعَالِ",
+    "pdf_page": 88
+  },
+  {
+    "index": 29,
+    "printed_page": "٨٩",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "أَمْثِلَةٌ",
+    "pdf_page": 89
+  },
+  {
+    "index": 30,
+    "printed_page": "٩٠",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 90
+  },
+  {
+    "index": 1,
+    "printed_page": "٩١",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "بَيَانُ الْمُعْرَبِ مِنَ الْأَفْعَالِ",
+    "pdf_page": 91
+  },
+  {
+    "index": 2,
+    "printed_page": "٩٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 92
+  },
+  {
+    "index": 3,
+    "printed_page": "٩٣",
+    "volume": "الكتاب الثاني",
+    "kind": "exercises",
+    "heading": "أَمْثِلَةٌ",
+    "pdf_page": 93
+  },
+  {
+    "index": 4,
+    "printed_page": "٩٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "جَزْمُ الْفِعْلِ وَمَوَاضِعُهُ",
+    "pdf_page": 94
+  },
+  {
+    "index": 5,
+    "printed_page": "٩٥",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 95
+  },
+  {
+    "index": 6,
+    "printed_page": "٩٦",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "أَمْثِلَةٌ",
+    "pdf_page": 96
+  },
+  {
+    "index": 7,
+    "printed_page": "٩٧",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "رَفْعُ الْفِعْلِ وَمَوَاضِعُهُ",
+    "pdf_page": 97
+  },
+  {
+    "index": 8,
+    "printed_page": "٩٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "تَتِمَّةٌ فِي الْإِعْرَابِ التَّقْدِيرِيِّ لِلْفِعْلِ",
+    "pdf_page": 98
+  },
+  {
+    "index": 9,
+    "printed_page": "٩٩",
+    "volume": "الكتاب الثاني",
+    "kind": "exercises",
+    "heading": "أَمْثِلَةٌ",
+    "pdf_page": 99
+  },
+  {
+    "index": 10,
+    "printed_page": "١٠٠",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ عُمُومِيٌّ لِلْأَفْعَالِ",
+    "pdf_page": 100
+  },
+  {
+    "index": 11,
+    "printed_page": "١٠١",
+    "volume": "الكتاب الثاني",
+    "kind": "exercises",
+    "heading": "",
+    "pdf_page": 101
+  },
+  {
+    "index": 12,
+    "printed_page": "١٠٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "٣ - الْكَلَامُ عَلَى الْأَسْمِ",
+    "pdf_page": 102
+  },
+  {
+    "index": 13,
+    "printed_page": "١٠٣",
+    "volume": "الكتاب الثاني",
+    "kind": "exercises",
+    "heading": "أَمْثِلَةٌ",
+    "pdf_page": 103
+  },
+  {
+    "index": 14,
+    "printed_page": "١٠٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "٢ - تَقْسِيمُ الْأَسْمِ إِلَى : مُذَكَّرٍ ، وَمُؤَنَّثٍ",
+    "pdf_page": 104
+  },
+  {
+    "index": 15,
+    "printed_page": "١٠٥",
+    "volume": "الكتاب الثاني",
+    "kind": "exercises",
+    "heading": "أَمْثِلَةٌ",
+    "pdf_page": 105
+  },
+  {
+    "index": 16,
+    "printed_page": "١٠٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "٣ - تَقْسِيمُ الْأَسْمِ إِلَى : مَقْصُورٍ ، وَمَنْقُوصٍ ، وَصَحِيحٍ",
+    "pdf_page": 106
+  },
+  {
+    "index": 17,
+    "printed_page": "١٠٧",
+    "volume": "الكتاب الثاني",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 107
+  },
+  {
+    "index": 18,
+    "printed_page": "١٠٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "٤ - تَقْسِيمُ الْأَسْمِ إِلَى : نَكِرَةٍ ، وَمَعْرِفَةٍ",
+    "pdf_page": 108
+  },
+  {
+    "index": 19,
+    "printed_page": "١٠٩",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 109
+  },
+  {
+    "index": 20,
+    "printed_page": "١١٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "وَيُمْكِنُكَ تَصَوُّرُ الضَّمَائِرِ كُلِّهَا مِنْ هَذَا الْجَدْوَلِ",
+    "pdf_page": 110
+  },
+  {
+    "index": 21,
+    "printed_page": "١١١",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 111
+  },
+  {
+    "index": 22,
+    "printed_page": "١١٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "أَمْثِلَةٌ",
+    "pdf_page": 112
+  },
+  {
+    "index": 23,
+    "printed_page": "١١٣",
+    "volume": "الكتاب الثاني",
+    "kind": "exercises",
+    "heading": "",
+    "pdf_page": 113
+  },
+  {
+    "index": 24,
+    "printed_page": "١١٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "٥ - تَقْسِيمُ الْأَسْمِ إِلَى : مُنَوَّنٍ ، وَغَيْرِ مُنَوَّنٍ",
+    "pdf_page": 114
+  },
+  {
+    "index": 25,
+    "printed_page": "١١٥",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "أَمْثِلَةٌ",
+    "pdf_page": 115
+  },
+  {
+    "index": 26,
+    "printed_page": "١١٦",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 116
+  },
+  {
+    "index": 27,
+    "printed_page": "١١٧",
+    "volume": "الكتاب الثاني",
+    "kind": "exercises",
+    "heading": "",
+    "pdf_page": 117
+  },
+  {
+    "index": 28,
+    "printed_page": "١١٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "إِعْرَابُ الْأَسْمِ وَبِنَاؤُهُ",
+    "pdf_page": 118
+  },
+  {
+    "index": 29,
+    "printed_page": "١١٩",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "بَيَانُ الْمُعْرَبِ مِنَ الْأَسْمَاءِ",
+    "pdf_page": 119
+  },
+  {
+    "index": 30,
+    "printed_page": "١٢٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "١ - الْفَاعِلُ",
+    "pdf_page": 120
+  },
+  {
+    "index": 1,
+    "printed_page": "۱۲۱",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "۲ - نَائِبُ الْفَاعِلِ",
+    "pdf_page": 121
+  },
+  {
+    "index": 2,
+    "printed_page": "۱۲۲",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 122
+  },
+  {
+    "index": 3,
+    "printed_page": "۱۲۳",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "٣ ، ٤ - الْمُبْتَدَأُ وَالْخَبَرُ",
+    "pdf_page": 123
+  },
+  {
+    "index": 4,
+    "printed_page": "١٢٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "٥ ، ٦ - اسْمُ «كَانَ» وَأَخَوَاتِهَا وَخَبَرُ «إِنَّ» وَأَخَوَاتِهَا",
+    "pdf_page": 124
+  },
+  {
+    "index": 5,
+    "printed_page": "١٢٥",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 125
+  },
+  {
+    "index": 6,
+    "printed_page": "١٢٦",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 126
+  },
+  {
+    "index": 7,
+    "printed_page": "١٢٧",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "نَصْبُ الْأَسْمِ وَمَوَاضِعُهُ",
+    "pdf_page": 127
+  },
+  {
+    "index": 8,
+    "printed_page": "١٢٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 128
+  },
+  {
+    "index": 9,
+    "printed_page": "١٢٩",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 129
+  },
+  {
+    "index": 10,
+    "printed_page": "١٣٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 130
+  },
+  {
+    "index": 11,
+    "printed_page": "١٣١",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "٢ - الْمَفْعُولُ الْمُطْلَقُ",
+    "pdf_page": 131
+  },
+  {
+    "index": 12,
+    "printed_page": "١٣٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 132
+  },
+  {
+    "index": 13,
+    "printed_page": "١٣٣",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "٣ - الْمَفْعُولُ لِأَجْلِهِ",
+    "pdf_page": 133
+  },
+  {
+    "index": 14,
+    "printed_page": "١٣٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 134
+  },
+  {
+    "index": 15,
+    "printed_page": "١٣٥",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "٥ - الْمَفْعُولُ مَعَهُ",
+    "pdf_page": 135
+  },
+  {
+    "index": 16,
+    "printed_page": "١٣٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "٦ - الْمُسْتَثْنَى بِـ «إِلَّا»",
+    "pdf_page": 136
+  },
+  {
+    "index": 17,
+    "printed_page": "١٣٧",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "٧ - الْحَالُ",
+    "pdf_page": 137
+  },
+  {
+    "index": 18,
+    "printed_page": "١٣٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 138
+  },
+  {
+    "index": 19,
+    "printed_page": "١٣٩",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "٨ - التَّمْيِيزُ",
+    "pdf_page": 139
+  },
+  {
+    "index": 20,
+    "printed_page": "١٤٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "٩ - الْمُنَادَى",
+    "pdf_page": 140
+  },
+  {
+    "index": 21,
+    "printed_page": "١٤١",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "١٠ ، ١١ - خَبَرُ («كَانَ» وَأَخَوَاتِهَا) ، وَاسْمُ («إِنَّ» وَأَخَوَاتِهَا)",
+    "pdf_page": 141
+  },
+  {
+    "index": 22,
+    "printed_page": "١٤٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 142
+  },
+  {
+    "index": 23,
+    "printed_page": "١٤٣",
+    "volume": "الكتاب الثاني",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ عَامٌّ لِمَنْصُوبَاتِ الْأَسْمَاءِ",
+    "pdf_page": 143
+  },
+  {
+    "index": 24,
+    "printed_page": "١٤٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "جَرُّ الْأَسْمِ وَمَوَاضِعُهُ",
+    "pdf_page": 144
+  },
+  {
+    "index": 25,
+    "printed_page": "١٤٥",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 145
+  },
+  {
+    "index": 26,
+    "printed_page": "١٤٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "٢ - الْمُضَافُ إِلَيْهِ",
+    "pdf_page": 146
+  },
+  {
+    "index": 27,
+    "printed_page": "١٤٧",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "تَمْرِينٌ لِلْمَجْرُورَاتِ",
+    "pdf_page": 147
+  },
+  {
+    "index": 28,
+    "printed_page": "١٤٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 148
+  },
+  {
+    "index": 29,
+    "printed_page": "١٤٩",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "التَّوَابِعُ",
+    "pdf_page": 149
+  },
+  {
+    "index": 30,
+    "printed_page": "١٥٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 150
+  },
+  {
+    "index": 1,
+    "printed_page": "١٥١",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "٢ - العَطْفُ",
+    "pdf_page": 151
+  },
+  {
+    "index": 2,
+    "printed_page": "١٥٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "٣ - التَّوْكِيدُ",
+    "pdf_page": 152
+  },
+  {
+    "index": 3,
+    "printed_page": "١٥٣",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "أَمْثِلَةٌ",
+    "pdf_page": 153
+  },
+  {
+    "index": 4,
+    "printed_page": "١٥٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "٤ - البَدَلُ",
+    "pdf_page": 154
+  },
+  {
+    "index": 5,
+    "printed_page": "١٥٥",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "أَمْثِلَةٌ",
+    "pdf_page": 155
+  },
+  {
+    "index": 6,
+    "printed_page": "١٥٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "نِهَايَةٌ",
+    "pdf_page": 156
+  },
+  {
+    "index": 7,
+    "printed_page": "١٥٧",
+    "volume": "الكتاب الثاني",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 157
+  },
+  {
+    "index": 8,
+    "printed_page": "١٥٨",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ عُمُومِيٌّ",
+    "pdf_page": 158
+  },
+  {
+    "index": 9,
+    "printed_page": "١٥٩",
+    "volume": "الكتاب الثاني",
+    "kind": "exercises",
+    "heading": "",
+    "pdf_page": 159
+  },
+  {
+    "index": 10,
+    "printed_page": "١٦٠",
+    "volume": "",
+    "kind": "index",
+    "heading": "فهرس الكتاب الثاني",
+    "pdf_page": 160
+  },
+  {
+    "index": 11,
+    "printed_page": "١٦١",
+    "volume": "الكتاب الثاني",
+    "kind": "index",
+    "heading": "",
+    "pdf_page": 161
+  },
+  {
+    "index": 12,
+    "printed_page": "١٦٢",
+    "volume": "",
+    "kind": "index",
+    "heading": "",
+    "pdf_page": 162
+  },
+  {
+    "index": 13,
+    "printed_page": "",
+    "volume": "",
+    "kind": "volume_title",
+    "heading": "الدُّرُوسُ النَّحْوِيَّةُ",
+    "pdf_page": 163
+  },
+  {
+    "index": 14,
+    "printed_page": "",
+    "volume": "",
+    "kind": "blank",
+    "heading": "",
+    "pdf_page": 164
+  },
+  {
+    "index": 15,
+    "printed_page": "١٦٥",
+    "volume": "الكتاب الثالث",
+    "kind": "front_matter",
+    "heading": "",
+    "pdf_page": 165
+  },
+  {
+    "index": 16,
+    "printed_page": "١٦٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 166
+  },
+  {
+    "index": 17,
+    "printed_page": "١٦٧",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 167
+  },
+  {
+    "index": 18,
+    "printed_page": "١٦٨",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 168
+  },
+  {
+    "index": 19,
+    "printed_page": "١٦٩",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "١ - الْكَلَامُ عَلَى الْحَرْفِ",
+    "pdf_page": 169
+  },
+  {
+    "index": 20,
+    "printed_page": "١٧٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 170
+  },
+  {
+    "index": 21,
+    "printed_page": "١٧١",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 171
+  },
+  {
+    "index": 22,
+    "printed_page": "١٧٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 172
+  },
+  {
+    "index": 23,
+    "printed_page": "١٧٣",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٢ - الْكَلَامُ عَلَى الْفِعْلِ",
+    "pdf_page": 173
+  },
+  {
+    "index": 24,
+    "printed_page": "١٧٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 174
+  },
+  {
+    "index": 25,
+    "printed_page": "١٧٥",
+    "volume": "الكتاب الثالث",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 175
+  },
+  {
+    "index": 26,
+    "printed_page": "١٧٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "٢ - تَقْسِيمُ الْفِعْلِ إِلَى مُجَرَّدٍ وَمَزِيدٍ",
+    "pdf_page": 176
+  },
+  {
+    "index": 27,
+    "printed_page": "١٧٧",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 177
+  },
+  {
+    "index": 28,
+    "printed_page": "١٧٨",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 178
+  },
+  {
+    "index": 29,
+    "printed_page": "١٧٩",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٣ - تَقْسِيمُ الْفِعْلِ إِلَى جَامِدٍ وَمُتَصَرِّفٍ",
+    "pdf_page": 179
+  },
+  {
+    "index": 30,
+    "printed_page": "١٨٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "نِعْمَ وَبِئْسَ",
+    "pdf_page": 180
+  },
+  {
+    "index": 1,
+    "printed_page": "۱۸۱",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "(فِعْلَا التَّعَجُّبِ)",
+    "pdf_page": 181
+  },
+  {
+    "index": 2,
+    "printed_page": "۱۸۲",
+    "volume": "",
+    "kind": "content",
+    "heading": "(هَمْزَتَا الْوَصْلِ وَالْقَطْعِ)",
+    "pdf_page": 182
+  },
+  {
+    "index": 3,
+    "printed_page": "۱۸۳",
+    "volume": "الكتاب الثالث",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 183
+  },
+  {
+    "index": 4,
+    "printed_page": "۱۸۴",
+    "volume": "",
+    "kind": "content",
+    "heading": "٤ - تَقْسِيمُ الْفِعْلِ إِلَى : صَحِيحٍ وَمُعْتَلّ",
+    "pdf_page": 184
+  },
+  {
+    "index": 5,
+    "printed_page": "۱۸۵",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 185
+  },
+  {
+    "index": 6,
+    "printed_page": "۱۸۶",
+    "volume": "",
+    "kind": "content",
+    "heading": "٥ - تَقْسِيمُ الْفِعْلِ إِلَى لَازِمٍ وَمُتَعَدّ",
+    "pdf_page": 186
+  },
+  {
+    "index": 7,
+    "printed_page": "۱۸۷",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 187
+  },
+  {
+    "index": 8,
+    "printed_page": "۱۸۸",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 188
+  },
+  {
+    "index": 9,
+    "printed_page": "۱۸۹",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٦ - تَقْسِيمُ الْفِعْلِ إِلَى مَبْنِيّ لِلْمَعْلُومِ ، وَمَبْنِيّ لِلْمَجْهُولِ",
+    "pdf_page": 189
+  },
+  {
+    "index": 10,
+    "printed_page": "۱۹۰",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 190
+  },
+  {
+    "index": 11,
+    "printed_page": "۱۹۱",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٧ - تَقْسِيمُ الْفِعْلِ إِلَى مُؤَكَّدٍ وَغَيْرِ مُؤَكَّدٍ",
+    "pdf_page": 191
+  },
+  {
+    "index": 12,
+    "printed_page": "۱۹۲",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 192
+  },
+  {
+    "index": 13,
+    "printed_page": "۱۹۳",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٨ - إِعْرَابُ الْفِعْلِ وَبِنَاؤُهُ",
+    "pdf_page": 193
+  },
+  {
+    "index": 14,
+    "printed_page": "۱۹۴",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 194
+  },
+  {
+    "index": 15,
+    "printed_page": "۱۹۵",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "بَيَانُ الْمُعْرَبِ مِنَ الْأَفْعَالِ",
+    "pdf_page": 195
+  },
+  {
+    "index": 16,
+    "printed_page": "۱۹۶",
+    "volume": "",
+    "kind": "content",
+    "heading": "نَصْبُ الْفِعْلِ وَمَوَاضِعُهُ",
+    "pdf_page": 196
+  },
+  {
+    "index": 17,
+    "printed_page": "۱۹۷",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 197
+  },
+  {
+    "index": 18,
+    "printed_page": "۱۹۸",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 198
+  },
+  {
+    "index": 19,
+    "printed_page": "۱۹۹",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "جَزْمُ الْفِعْلِ وَمَوَاضِعُهُ",
+    "pdf_page": 199
+  },
+  {
+    "index": 20,
+    "printed_page": "۲۰۰",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 200
+  },
+  {
+    "index": 21,
+    "printed_page": "۲۰۱",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 201
+  },
+  {
+    "index": 22,
+    "printed_page": "۲۰۲",
+    "volume": "",
+    "kind": "content",
+    "heading": "رَفْعُ الْفِعْلِ وَمَوَاضِعُهُ",
+    "pdf_page": 202
+  },
+  {
+    "index": 23,
+    "printed_page": "۲۰۳",
+    "volume": "الكتاب الثالث",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 203
+  },
+  {
+    "index": 24,
+    "printed_page": "۲۰۴",
+    "volume": "",
+    "kind": "content",
+    "heading": "٣ - الْكَلَامُ عَلَى الْأَسْمِ",
+    "pdf_page": 204
+  },
+  {
+    "index": 25,
+    "printed_page": "۲۰۵",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "الْمَصْدَرُ",
+    "pdf_page": 205
+  },
+  {
+    "index": 26,
+    "printed_page": "۲۰۶",
+    "volume": "",
+    "kind": "content",
+    "heading": "ب - تَقْسِيمُ الْمُشْتَقِّ",
+    "pdf_page": 206
+  },
+  {
+    "index": 27,
+    "printed_page": "۲۰۷",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "١ - اسْمُ الْفَاعِلِ",
+    "pdf_page": 207
+  },
+  {
+    "index": 28,
+    "printed_page": "۲۰۸",
+    "volume": "",
+    "kind": "content",
+    "heading": "٢ - اسْمُ الْمَفْعُولِ",
+    "pdf_page": 208
+  },
+  {
+    "index": 29,
+    "printed_page": "۲۰۹",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٤ ، ٥ - اسْمَا الزَّمَانِ وَالْمَكَانِ",
+    "pdf_page": 209
+  },
+  {
+    "index": 30,
+    "printed_page": "۲۱۰",
+    "volume": "",
+    "kind": "content",
+    "heading": "٦ - اسْمُ الْآلَةِ",
+    "pdf_page": 210
+  },
+  {
+    "index": 1,
+    "printed_page": "٢١١",
+    "volume": "الكتاب الثالث",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 211
+  },
+  {
+    "index": 2,
+    "printed_page": "٢١٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "٢ - تَقْسِيمُ الْاسْمِ إِلَى مَقْصُورٍ وَمَنْقُوصٍ وَصَحِيحٍ",
+    "pdf_page": 212
+  },
+  {
+    "index": 3,
+    "printed_page": "٢١٣",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٣ - تَقْسِيمُ الْاسْمِ إِلَى مُفْرَدٍ وَمُثَنًّى وَجَمْعٍ",
+    "pdf_page": 213
+  },
+  {
+    "index": 4,
+    "printed_page": "٢١٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 214
+  },
+  {
+    "index": 5,
+    "printed_page": "٢١٥",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 215
+  },
+  {
+    "index": 6,
+    "printed_page": "٢١٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 216
+  },
+  {
+    "index": 7,
+    "printed_page": "٢١٧",
+    "volume": "الكتاب الثالث",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 217
+  },
+  {
+    "index": 8,
+    "printed_page": "٢١٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "٤- تَقْسِيمُ الْاسْمِ إِلَى مُذَكَّرٍ وَمُؤَنَّثٍ",
+    "pdf_page": 218
+  },
+  {
+    "index": 9,
+    "printed_page": "٢١٩",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 219
+  },
+  {
+    "index": 10,
+    "printed_page": "٢٢٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "٥- تَقْسِيمُ الْاسْمِ إِلَى نَكِرَةٍ وَمَعْرِفَةٍ",
+    "pdf_page": 220
+  },
+  {
+    "index": 11,
+    "printed_page": "٢٢١",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 221
+  },
+  {
+    "index": 12,
+    "printed_page": "٢٢٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 222
+  },
+  {
+    "index": 13,
+    "printed_page": "٢٢٣",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 223
+  },
+  {
+    "index": 14,
+    "printed_page": "٢٢٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "٢- الْعَلَمُ",
+    "pdf_page": 224
+  },
+  {
+    "index": 15,
+    "printed_page": "٢٢٥",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٤- الْمَوْصُولُ",
+    "pdf_page": 225
+  },
+  {
+    "index": 16,
+    "printed_page": "٢٢٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "٥- الْمُحَلَّى بِـ «أَلْ»",
+    "pdf_page": 226
+  },
+  {
+    "index": 17,
+    "printed_page": "٢٢٧",
+    "volume": "الكتاب الثالث",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 227
+  },
+  {
+    "index": 18,
+    "printed_page": "٢٢٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "٦- تَقْسِيمُ الْاسْمِ إِلَى مُنَوَّنٍ وَغَيْرِ مُنَوَّنٍ",
+    "pdf_page": 228
+  },
+  {
+    "index": 19,
+    "printed_page": "٢٢٩",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 229
+  },
+  {
+    "index": 20,
+    "printed_page": "٢٣٠",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 230
+  },
+  {
+    "index": 21,
+    "printed_page": "٢٣١",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "إِعْرَابُ الْاسْمِ وَبِنَاؤُهُ",
+    "pdf_page": 231
+  },
+  {
+    "index": 22,
+    "printed_page": "٢٣٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "بَيَانُ الْمُعْرَبِ مِنَ الْأَسْمَاءِ",
+    "pdf_page": 232
+  },
+  {
+    "index": 23,
+    "printed_page": "٢٣٣",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "رَفْعُ الْاسْمِ وَمَوَاضِعُهُ",
+    "pdf_page": 233
+  },
+  {
+    "index": 24,
+    "printed_page": "٢٣٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "١- الْفَاعِلُ",
+    "pdf_page": 234
+  },
+  {
+    "index": 25,
+    "printed_page": "٢٣٥",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٢- نَائِبُ الْفَاعِلِ",
+    "pdf_page": 235
+  },
+  {
+    "index": 26,
+    "printed_page": "٢٣٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "٥ - اسْمُ «كَانَ» وَأَخَوَاتِهَا",
+    "pdf_page": 236
+  },
+  {
+    "index": 27,
+    "printed_page": "٢٣٧",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٦- خَبَرُ «إِنَّ» وَأَخَوَاتِهَا",
+    "pdf_page": 237
+  },
+  {
+    "index": 28,
+    "printed_page": "٢٣٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 238
+  },
+  {
+    "index": 29,
+    "printed_page": "٢٣٩",
+    "volume": "الكتاب الثالث",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 239
+  },
+  {
+    "index": 30,
+    "printed_page": "٢٤٠",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "",
+    "pdf_page": 240
+  },
+  {
+    "index": 1,
+    "printed_page": "٢٤١",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "نَصْبُ الْاسْمِ وَمَوَاضِعُهُ",
+    "pdf_page": 241
+  },
+  {
+    "index": 2,
+    "printed_page": "٢٤٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "١- الْمَفْعُولُ بِهِ",
+    "pdf_page": 242
+  },
+  {
+    "index": 3,
+    "printed_page": "٢٤٣",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٢- الْمَفْعُولُ الْمُطْلَقُ",
+    "pdf_page": 243
+  },
+  {
+    "index": 4,
+    "printed_page": "٢٤٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "٣- الْمَفْعُولُ لِأَجْلِهِ",
+    "pdf_page": 244
+  },
+  {
+    "index": 5,
+    "printed_page": "٢٤٥",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٤- الْمَفْعُولُ فِيهِ",
+    "pdf_page": 245
+  },
+  {
+    "index": 6,
+    "printed_page": "٢٤٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "٥- الْمَفْعُولُ مَعَهُ",
+    "pdf_page": 246
+  },
+  {
+    "index": 7,
+    "printed_page": "٢٤٧",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٦- الْمُسْتَثْنَى بـ «إِلَّا»",
+    "pdf_page": 247
+  },
+  {
+    "index": 8,
+    "printed_page": "٢٤٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "٧- الْحَالُ",
+    "pdf_page": 248
+  },
+  {
+    "index": 9,
+    "printed_page": "٢٤٩",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٨- التَّمْيِيزُ",
+    "pdf_page": 249
+  },
+  {
+    "index": 10,
+    "printed_page": "٢٥٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 250
+  },
+  {
+    "index": 11,
+    "printed_page": "٢٥١",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٩- الْمُنَادَى",
+    "pdf_page": 251
+  },
+  {
+    "index": 12,
+    "printed_page": "٢٥٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "١٠، ١١- (خَبَرُ «كَانَ» وَأَخَوَاتِهَا ، وَاسْمُ «إِنَّ» وَأَخَوَاتِهَا)",
+    "pdf_page": 252
+  },
+  {
+    "index": 13,
+    "printed_page": "٢٥٣",
+    "volume": "الكتاب الثالث",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 253
+  },
+  {
+    "index": 14,
+    "printed_page": "٢٥٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "جَرُّ الْاسْمِ وَمَوَاضِعُهُ",
+    "pdf_page": 254
+  },
+  {
+    "index": 15,
+    "printed_page": "٢٥٥",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 255
+  },
+  {
+    "index": 16,
+    "printed_page": "٢٥٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "٢- الْمُضَافُ إِلَيْهِ",
+    "pdf_page": 256
+  },
+  {
+    "index": 17,
+    "printed_page": "٢٥٧",
+    "volume": "الكتاب الثالث",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 257
+  },
+  {
+    "index": 18,
+    "printed_page": "٢٥٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "التَّوَابِعُ",
+    "pdf_page": 258
+  },
+  {
+    "index": 19,
+    "printed_page": "٢٥٩",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 259
+  },
+  {
+    "index": 20,
+    "printed_page": "٢٦٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "٢- الْعَطْفُ",
+    "pdf_page": 260
+  },
+  {
+    "index": 21,
+    "printed_page": "٢٦١",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٣- التَّوْكِيدُ",
+    "pdf_page": 261
+  },
+  {
+    "index": 22,
+    "printed_page": "٢٦٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 262
+  },
+  {
+    "index": 23,
+    "printed_page": "٢٦٣",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "٤- الْبَدَلُ",
+    "pdf_page": 263
+  },
+  {
+    "index": 24,
+    "printed_page": "٢٦٤",
+    "volume": "",
+    "kind": "exercises",
+    "heading": "تَمْرِينٌ",
+    "pdf_page": 264
+  },
+  {
+    "index": 25,
+    "printed_page": "٢٦٥",
+    "volume": "الكتاب الثالث",
+    "kind": "content",
+    "heading": "نِهَايَةٌ",
+    "pdf_page": 265
+  },
+  {
+    "index": 26,
+    "printed_page": "٢٦٦",
+    "volume": "",
+    "kind": "index",
+    "heading": "فهرس الكتاب الثالث",
+    "pdf_page": 266
+  },
+  {
+    "index": 27,
+    "printed_page": "٢٦٧",
+    "volume": "الكتاب الثالث",
+    "kind": "index",
+    "heading": "",
+    "pdf_page": 267
+  },
+  {
+    "index": 28,
+    "printed_page": "٢٦٨",
+    "volume": "",
+    "kind": "index",
+    "heading": "",
+    "pdf_page": 268
+  },
+  {
+    "index": 29,
+    "printed_page": "٢٦٩",
+    "volume": "الكتاب الثالث",
+    "kind": "index",
+    "heading": "",
+    "pdf_page": 269
+  },
+  {
+    "index": 30,
+    "printed_page": "",
+    "volume": "",
+    "kind": "blank",
+    "heading": "",
+    "pdf_page": 270
+  },
+  {
+    "index": 1,
+    "printed_page": "",
+    "volume": "",
+    "kind": "volume_title",
+    "heading": "الدروس النحوية الكتاب الرابع",
+    "pdf_page": 271
+  },
+  {
+    "index": 2,
+    "printed_page": "",
+    "volume": "",
+    "kind": "blank",
+    "heading": "",
+    "pdf_page": 272
+  },
+  {
+    "index": 3,
+    "printed_page": "۲۷۳",
+    "volume": "الكتاب الرابع",
+    "kind": "front_matter",
+    "heading": "مُقَدِّمَةُ الْمُؤَلِّفِينَ",
+    "pdf_page": 273
+  },
+  {
+    "index": 4,
+    "printed_page": "٢٧٤",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "مَقَدِّمَةٌ",
+    "pdf_page": 274
+  },
+  {
+    "index": 5,
+    "printed_page": "٢٧٥",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "وَزْنُ الْكَلِمَاتِ",
+    "pdf_page": 275
+  },
+  {
+    "index": 6,
+    "printed_page": "٢٧٦",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 276
+  },
+  {
+    "index": 7,
+    "printed_page": "٢٧٧",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْكَلَامُ عَلَى الْفِعْلِ",
+    "pdf_page": 277
+  },
+  {
+    "index": 8,
+    "printed_page": "٢٧٨",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 278
+  },
+  {
+    "index": 9,
+    "printed_page": "٢٧٩",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "أَسْمَاءُ الْأَفْعَالِ",
+    "pdf_page": 279
+  },
+  {
+    "index": 10,
+    "printed_page": "٢٨٠",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "أَسْمَاءُ الْأَصْوَاتِ",
+    "pdf_page": 280
+  },
+  {
+    "index": 11,
+    "printed_page": "٢٨١",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْبَابُ الثَّانِي فِي الْمُجَرَّدِ وَالْمَزِيدِ",
+    "pdf_page": 281
+  },
+  {
+    "index": 12,
+    "printed_page": "٢٨٢",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 282
+  },
+  {
+    "index": 13,
+    "printed_page": "٢٨٣",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "تَنْبِيهَاتٌ",
+    "pdf_page": 283
+  },
+  {
+    "index": 14,
+    "printed_page": "٢٨٤",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 284
+  },
+  {
+    "index": 15,
+    "printed_page": "٢٨٥",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْبَابُ الثَّالِثُ فِي الْجَامِدِ وَالْمُتَصَرِّفِ",
+    "pdf_page": 285
+  },
+  {
+    "index": 16,
+    "printed_page": "٢٨٦",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "هَمْزَتَا الْوَصْلِ وَالْقَطْعِ",
+    "pdf_page": 286
+  },
+  {
+    "index": 17,
+    "printed_page": "٢٨٧",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْبَابُ الرَّابِعُ فِي الصَّحِيحِ وَالْمُعْتَلِّ",
+    "pdf_page": 287
+  },
+  {
+    "index": 18,
+    "printed_page": "٢٨٨",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 288
+  },
+  {
+    "index": 19,
+    "printed_page": "٢٨٩",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 289
+  },
+  {
+    "index": 20,
+    "printed_page": "٢٩٠",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 290
+  },
+  {
+    "index": 21,
+    "printed_page": "٢٩١",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْبَابُ الْخَامِسُ فِي التَّامِّ وَالنَّاقِصِ",
+    "pdf_page": 291
+  },
+  {
+    "index": 22,
+    "printed_page": "٢٩٢",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 292
+  },
+  {
+    "index": 23,
+    "printed_page": "٢٩٣",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 293
+  },
+  {
+    "index": 24,
+    "printed_page": "٢٩٤",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "الْبَابُ السَّادِسُ فِي اللَّازِمِ وَالْمُتَعَدِّي",
+    "pdf_page": 294
+  },
+  {
+    "index": 25,
+    "printed_page": "٢٩٥",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 295
+  },
+  {
+    "index": 26,
+    "printed_page": "٢٩٦",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 296
+  },
+  {
+    "index": 27,
+    "printed_page": "٢٩٧",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 297
+  },
+  {
+    "index": 28,
+    "printed_page": "٢٩٨",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "الْبَابُ السَّابِعُ فِي الْمَبْنِيِّ لِلْمَعْلُومِ، وَالْمَبْنِيِّ لِلْمَجْهُولِ",
+    "pdf_page": 298
+  },
+  {
+    "index": 29,
+    "printed_page": "٢٩٩",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْبَابُ الثَّامِنُ فِي الْمُؤَكَّدِ وَغَيْرِهِ",
+    "pdf_page": 299
+  },
+  {
+    "index": 30,
+    "printed_page": "٣٠٠",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 300
+  },
+  {
+    "index": 1,
+    "printed_page": "٣٠١",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْبَابُ التَّاسِعُ فِي الْمَبْنِيِّ وَالْمُعْرَبِ",
+    "pdf_page": 301
+  },
+  {
+    "index": 2,
+    "printed_page": "٣٠٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 302
+  },
+  {
+    "index": 3,
+    "printed_page": "٣٠٣",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "فَصْلٌ فِي الْمُعْرَبِ",
+    "pdf_page": 303
+  },
+  {
+    "index": 4,
+    "printed_page": "٣٠٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 304
+  },
+  {
+    "index": 5,
+    "printed_page": "٣٠٥",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 305
+  },
+  {
+    "index": 6,
+    "printed_page": "٣٠٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "جَزْمُ الْفِعْلِ وَمَوَاضِعُهُ",
+    "pdf_page": 306
+  },
+  {
+    "index": 7,
+    "printed_page": "٣٠٧",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 307
+  },
+  {
+    "index": 8,
+    "printed_page": "٣٠٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 308
+  },
+  {
+    "index": 9,
+    "printed_page": "٣٠٩",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 309
+  },
+  {
+    "index": 10,
+    "printed_page": "٣١٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "رَفْعُ الْفِعْلِ وَمَوَاضِعُهُ",
+    "pdf_page": 310
+  },
+  {
+    "index": 11,
+    "printed_page": "٣١١",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْكَلَامُ عَلَى الْأَسْمِ",
+    "pdf_page": 311
+  },
+  {
+    "index": 12,
+    "printed_page": "٣١٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 312
+  },
+  {
+    "index": 13,
+    "printed_page": "٣١٣",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 313
+  },
+  {
+    "index": 14,
+    "printed_page": "٣١٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْمَرَّةُ وَالْهَيْئَةُ",
+    "pdf_page": 314
+  },
+  {
+    "index": 15,
+    "printed_page": "٣١٥",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "عَمَلُ الْمَصْدَرِ",
+    "pdf_page": 315
+  },
+  {
+    "index": 16,
+    "printed_page": "٣١٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "اسْمُ الْمَصْدَرِ",
+    "pdf_page": 316
+  },
+  {
+    "index": 17,
+    "printed_page": "٣١٧",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "فَصْلٌ فِي الْمُشْتَقِّ",
+    "pdf_page": 317
+  },
+  {
+    "index": 18,
+    "printed_page": "٣١٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "عَمَلُ اسْمِ الْفَاعِلِ",
+    "pdf_page": 318
+  },
+  {
+    "index": 19,
+    "printed_page": "٣١٩",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "عَمَلُ اسْمِ الْمَفْعُولِ",
+    "pdf_page": 319
+  },
+  {
+    "index": 20,
+    "printed_page": "٣٢٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "عَمَلُ الصِّفَةِ الْمُشَبَّهَةِ",
+    "pdf_page": 320
+  },
+  {
+    "index": 21,
+    "printed_page": "٣٢١",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "٤- اسْمُ التَّفْضِيلِ",
+    "pdf_page": 321
+  },
+  {
+    "index": 22,
+    "printed_page": "٣٢٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "عَمَلُ اسْمِ التَّفْضِيلِ",
+    "pdf_page": 322
+  },
+  {
+    "index": 23,
+    "printed_page": "٣٢٣",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "٦- اسْمُ الْآلَةِ",
+    "pdf_page": 323
+  },
+  {
+    "index": 24,
+    "printed_page": "٣٢٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْبَابُ الثَّانِي فِي الْمُجَرَّدِ وَالْمَزِيدِ",
+    "pdf_page": 324
+  },
+  {
+    "index": 25,
+    "printed_page": "٣٢٥",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 325
+  },
+  {
+    "index": 26,
+    "printed_page": "٣٢٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْبَابُ الثَّالِثُ فِي الْمَقْصُورِ وَالْمَنْقُوصِ وَالصَّحِيحِ",
+    "pdf_page": 326
+  },
+  {
+    "index": 27,
+    "printed_page": "٣٢٧",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 327
+  },
+  {
+    "index": 28,
+    "printed_page": "٣٢٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْبَابُ الرَّابِعُ فِي الْمُفْرَدِ وَالْمُثَنَّى وَالْجَمْعِ",
+    "pdf_page": 328
+  },
+  {
+    "index": 29,
+    "printed_page": "٣٢٩",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 329
+  },
+  {
+    "index": 30,
+    "printed_page": "٣٣٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 330
+  },
+  {
+    "index": 1,
+    "printed_page": "٣٣١",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 331
+  },
+  {
+    "index": 2,
+    "printed_page": "٣٣٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 332
+  },
+  {
+    "index": 3,
+    "printed_page": "٣٣٣",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 333
+  },
+  {
+    "index": 4,
+    "printed_page": "٣٣٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 334
+  },
+  {
+    "index": 5,
+    "printed_page": "٣٣٥",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْبَابُ الْخَامِسُ فِي الْمُذَكَّرِ وَالْمُؤَنَّثِ",
+    "pdf_page": 335
+  },
+  {
+    "index": 6,
+    "printed_page": "٣٣٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 336
+  },
+  {
+    "index": 7,
+    "printed_page": "٣٣٧",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْبَابُ السَّادِسُ : فِي النَّكِرَةِ وَالْمَعْرِفَةِ",
+    "pdf_page": 337
+  },
+  {
+    "index": 8,
+    "printed_page": "٣٣٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 338
+  },
+  {
+    "index": 9,
+    "printed_page": "٣٣٩",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 339
+  },
+  {
+    "index": 10,
+    "printed_page": "٣٤٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْفَصْلُ الثَّانِي : فِي الْعَلَمِ",
+    "pdf_page": 340
+  },
+  {
+    "index": 11,
+    "printed_page": "٣٤١",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْفَصْلُ الثَّالِثُ : فِي اسْمِ الإِشَارَةِ",
+    "pdf_page": 341
+  },
+  {
+    "index": 12,
+    "printed_page": "٣٤٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْفَصْلُ الرَّابِعُ : فِي الْمَوْصُولِ",
+    "pdf_page": 342
+  },
+  {
+    "index": 13,
+    "printed_page": "٣٤٣",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْفَصْلُ الْخَامِسُ : فِي الْمُحَلَّى بِأَلْ",
+    "pdf_page": 343
+  },
+  {
+    "index": 14,
+    "printed_page": "٣٤٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْفَصْلُ السَّابِعُ : فِي الْمَعْرَفِ بِالنِّدَاءِ",
+    "pdf_page": 344
+  },
+  {
+    "index": 15,
+    "printed_page": "٣٤٥",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 345
+  },
+  {
+    "index": 16,
+    "printed_page": "٣٤٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْبَابُ الثَّامِنُ : فِي الْمَبْنِيِّ وَالْمُعْرَبِ",
+    "pdf_page": 346
+  },
+  {
+    "index": 17,
+    "printed_page": "٣٤٧",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "فَصْلٌ فِي الْمُعْرَبِ",
+    "pdf_page": 347
+  },
+  {
+    "index": 18,
+    "printed_page": "٣٤٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْمَبْحَثُ الأَوَّلُ : فِي الْفَاعِلِ",
+    "pdf_page": 348
+  },
+  {
+    "index": 19,
+    "printed_page": "٣٤٩",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 349
+  },
+  {
+    "index": 20,
+    "printed_page": "٣٥٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْمَبْحَثُ الثَّالِثُ : فِي الْمُبْتَدَإِ وَالْخَبَرِ",
+    "pdf_page": 350
+  },
+  {
+    "index": 21,
+    "printed_page": "٣٥١",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 351
+  },
+  {
+    "index": 22,
+    "printed_page": "٣٥٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 352
+  },
+  {
+    "index": 23,
+    "printed_page": "٣٥٣",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 353
+  },
+  {
+    "index": 24,
+    "printed_page": "٣٥٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْمَبْحَثُ الرَّابِعُ : فِي اسْمِ (« كَانَ » وَأَخَوَاتِهَا)",
+    "pdf_page": 354
+  },
+  {
+    "index": 25,
+    "printed_page": "٣٥٥",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْمَبْحَثُ الْخَامِسُ : فِي خَبَرِ إِنَّ وَأَخَوَاتِهَا",
+    "pdf_page": 355
+  },
+  {
+    "index": 26,
+    "printed_page": "٣٥٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 356
+  },
+  {
+    "index": 27,
+    "printed_page": "٣٥٧",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 357
+  },
+  {
+    "index": 28,
+    "printed_page": "٣٥٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْمُطَلَبُ الثَّانِي : فِي نَصْبِ الاسْمِ وَمَوَاضِعِهِ",
+    "pdf_page": 358
+  },
+  {
+    "index": 29,
+    "printed_page": "٣٥٩",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْمَبْحَثُ الثَّانِي : فِي الْمَفْعُولِ الْمُطْلَقِ",
+    "pdf_page": 359
+  },
+  {
+    "index": 30,
+    "printed_page": "٣٦٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْمَبْحَثُ الثَّالِثُ : فِي الْمَفْعُولِ لَأَجْلِهِ",
+    "pdf_page": 360
+  },
+  {
+    "index": 1,
+    "printed_page": "٣٦١",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْمَبْحَثُ الرَّابِعُ : فِي الْمَفْعُولِ فِيهِ",
+    "pdf_page": 361
+  },
+  {
+    "index": 2,
+    "printed_page": "٣٦٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْمَبْحَثُ الْخَامِسُ : فِي الْمَفْعُولِ مَعَهُ",
+    "pdf_page": 362
+  },
+  {
+    "index": 3,
+    "printed_page": "٣٦٣",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْمَبْحَثُ السَّادِسُ : فِي الْمُسْتَثْنَى بِإِلَّا",
+    "pdf_page": 363
+  },
+  {
+    "index": 4,
+    "printed_page": "٣٦٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْمَبْحَثُ السَّابِعُ : فِي الْحَالِ",
+    "pdf_page": 364
+  },
+  {
+    "index": 5,
+    "printed_page": "٣٦٥",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 365
+  },
+  {
+    "index": 6,
+    "printed_page": "٣٦٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْمَبْحَثُ الثَّامِنُ : فِي التَّمْيِيزِ",
+    "pdf_page": 366
+  },
+  {
+    "index": 7,
+    "printed_page": "٣٦٧",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْعَدَدُ",
+    "pdf_page": 367
+  },
+  {
+    "index": 8,
+    "printed_page": "٣٦٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "كِنَايَاتُ الْعَدَدِ",
+    "pdf_page": 368
+  },
+  {
+    "index": 9,
+    "printed_page": "٣٦٩",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "تَابِعُ الْمُنَادَى",
+    "pdf_page": 369
+  },
+  {
+    "index": 10,
+    "printed_page": "٣٧٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْمَبْحَثُ الْعَاشِرُ : فِي خَبَرِ كَانَ وَأَخَوَاتِهَا ، وَاسْمِ إِنَّ وَأَخَوَاتِهَا",
+    "pdf_page": 370
+  },
+  {
+    "index": 11,
+    "printed_page": "٣٧١",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "لَا سِيَّمَا",
+    "pdf_page": 371
+  },
+  {
+    "index": 12,
+    "printed_page": "٣٧٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْمَطْلَبُ الثَّالِثُ : فِي جَرِّ الِاسْمِ وَمَوَاضِعِهِ",
+    "pdf_page": 372
+  },
+  {
+    "index": 13,
+    "printed_page": "٣٧٣",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 373
+  },
+  {
+    "index": 14,
+    "printed_page": "٣٧٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْمَبْحَثُ الثَّانِي : فِي الْمُضَافِ إِلَيْهِ",
+    "pdf_page": 374
+  },
+  {
+    "index": 15,
+    "printed_page": "٣٧٥",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْمُضَافُ لِيَاءِ الْمُتَكَلِّمِ",
+    "pdf_page": 375
+  },
+  {
+    "index": 16,
+    "printed_page": "٣٧٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "تَذْيِيلٌ فِي التَّوَابِعِ",
+    "pdf_page": 376
+  },
+  {
+    "index": 17,
+    "printed_page": "٣٧٧",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "٢- الْعَطْفُ",
+    "pdf_page": 377
+  },
+  {
+    "index": 18,
+    "printed_page": "٣٧٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 378
+  },
+  {
+    "index": 19,
+    "printed_page": "٣٧٩",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "٣- التَّوْكِيدُ",
+    "pdf_page": 379
+  },
+  {
+    "index": 20,
+    "printed_page": "٣٨٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "٥- عَطْفُ الْبَيَانِ",
+    "pdf_page": 380
+  },
+  {
+    "index": 21,
+    "printed_page": "٣٨١",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "التَّعَجُّبُ",
+    "pdf_page": 381
+  },
+  {
+    "index": 22,
+    "printed_page": "٣٨٢",
+    "volume": "",
+    "kind": "content",
+    "heading": "نِعْمَ وَبِئْسَ",
+    "pdf_page": 382
+  },
+  {
+    "index": 23,
+    "printed_page": "٣٨٣",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْبَابُ التَّاسِعُ : فِي الْمُكَبَّرِ وَالْمُصَغَّرِ",
+    "pdf_page": 383
+  },
+  {
+    "index": 24,
+    "printed_page": "٣٨٤",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 384
+  },
+  {
+    "index": 25,
+    "printed_page": "٣٨٥",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "تَنْبِيهَانِ",
+    "pdf_page": 385
+  },
+  {
+    "index": 26,
+    "printed_page": "٣٨٦",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْبَابُ الْعَاشِرُ : فِي الْمَنْسُوبِ وَغَيْرِ الْمَنْسُوبِ",
+    "pdf_page": 386
+  },
+  {
+    "index": 27,
+    "printed_page": "٣٨٧",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 387
+  },
+  {
+    "index": 28,
+    "printed_page": "٣٨٨",
+    "volume": "",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 388
+  },
+  {
+    "index": 29,
+    "printed_page": "٣٨٩",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْإِغْرَاءُ وَالتَّحْذِيرُ",
+    "pdf_page": 389
+  },
+  {
+    "index": 30,
+    "printed_page": "٣٩٠",
+    "volume": "",
+    "kind": "content",
+    "heading": "الْأَخْتِصَاصُ",
+    "pdf_page": 390
+  },
+  {
+    "index": 1,
+    "printed_page": "۳۹۱",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الاسْتِغَاثَةُ",
+    "pdf_page": 391
+  },
+  {
+    "index": 2,
+    "printed_page": "۳۹۲",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "النَّدْبَةُ",
+    "pdf_page": 392
+  },
+  {
+    "index": 3,
+    "printed_page": "۳۹۳",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "خَاتِمَةٌ فِي الْإِبْدَالِ وَالْإِعْلَالِ وَالْوَقْفِ",
+    "pdf_page": 393
+  },
+  {
+    "index": 4,
+    "printed_page": "۳۹۴",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 394
+  },
+  {
+    "index": 5,
+    "printed_page": "۳۹۵",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْإِعْلَالُ",
+    "pdf_page": 395
+  },
+  {
+    "index": 6,
+    "printed_page": "۳۹۶",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 396
+  },
+  {
+    "index": 7,
+    "printed_page": "۳۹۷",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "الْكَلَامُ عَلَى الْحَرْفِ",
+    "pdf_page": 397
+  },
+  {
+    "index": 8,
+    "printed_page": "۳۹۸",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 398
+  },
+  {
+    "index": 9,
+    "printed_page": "۳۹۹",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 399
+  },
+  {
+    "index": 10,
+    "printed_page": "۴۰۰",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 400
+  },
+  {
+    "index": 11,
+    "printed_page": "۴۰۱",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 401
+  },
+  {
+    "index": 12,
+    "printed_page": "۴۰۲",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 402
+  },
+  {
+    "index": 13,
+    "printed_page": "۴۰۳",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 403
+  },
+  {
+    "index": 14,
+    "printed_page": "۴۰۴",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 404
+  },
+  {
+    "index": 15,
+    "printed_page": "۴۰۵",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 405
+  },
+  {
+    "index": 16,
+    "printed_page": "۴۰۶",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 406
+  },
+  {
+    "index": 17,
+    "printed_page": "۴۰۷",
+    "volume": "الكتاب الرابع",
+    "kind": "content",
+    "heading": "طَوَائِفُ الْحُرُوفِ",
+    "pdf_page": 407
+  },
+  {
+    "index": 18,
+    "printed_page": "۴۰۸",
+    "volume": "الدروس النحوية",
+    "kind": "content",
+    "heading": "",
+    "pdf_page": 408
+  },
+  {
+    "index": 19,
+    "printed_page": "۴۰۹",
+    "volume": "الكتاب الرابع",
+    "kind": "index",
+    "heading": "فهرس الكتاب الرابع",
+    "pdf_page": 409
+  },
+  {
+    "index": 20,
+    "printed_page": "۴۱۰",
+    "volume": "الدروس النحوية",
+    "kind": "index",
+    "heading": "",
+    "pdf_page": 410
+  },
+  {
+    "index": 21,
+    "printed_page": "۴۱۱",
+    "volume": "الكتاب الرابع",
+    "kind": "index",
+    "heading": "",
+    "pdf_page": 411
+  },
+  {
+    "index": 22,
+    "printed_page": "۴۱۲",
+    "volume": "الدروس النحوية",
+    "kind": "index",
+    "heading": "",
+    "pdf_page": 412
+  },
+  {
+    "index": 23,
+    "printed_page": "۴۱۳",
+    "volume": "الكتاب الرابع",
+    "kind": "index",
+    "heading": "",
+    "pdf_page": 413
+  },
+  {
+    "index": 24,
+    "printed_page": "۴۱۴",
+    "volume": "الدروس النحوية",
+    "kind": "index",
+    "heading": "",
+    "pdf_page": 414
+  },
+  {
+    "index": 25,
+    "printed_page": "",
+    "volume": "",
+    "kind": "cover",
+    "heading": "",
+    "pdf_page": 415
+  }
+]

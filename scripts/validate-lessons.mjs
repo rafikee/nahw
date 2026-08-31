@@ -197,9 +197,11 @@ function checkLesson(file, doc, seenIds) {
   }
 
   const words = sort.words ?? [];
-  if (words.length < 10 || words.length > 15) {
+  // Deliberately small. A long sort stops testing the rule and starts testing
+  // patience — the learner has already demonstrated it by the fourth or fifth.
+  if (words.length < 5 || words.length > 8) {
     add(file, "exercises.word_sort.words", "warn", "sort-count",
-      `${words.length} words; the guide calls for 10-15`);
+      `${words.length} entries; the guide calls for 5-8`);
   }
   const seenWords = new Set();
   const perCategory = new Map();
