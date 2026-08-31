@@ -1,13 +1,30 @@
 ---
 name: lesson
-description: Author the next lesson(s) for the nahw Arabic grammar app — pick the next slice of the source book, draft the lesson JSON, validate it mechanically, get it reviewed by Gemini, QA it in a real browser, and publish. Use when the user types /lesson, or says things like "add the next lesson", "do the next few lessons", "keep going through the book", "build lesson 5". Defaults to a batch of three.
+description: Author the next lesson(s) for the nahw Arabic grammar app — pick the next slice of the source book, draft the lesson JSON, validate it mechanically, get it reviewed by Gemini, QA it in a real browser, and publish. Use when the user types /lesson, or says things like "add the next lesson", "do the next few lessons", "keep going through the book", "build lesson 5". Batches of two or three, and the user reads and approves every batch before it is pushed.
 ---
 
 # lesson — the next slice of the book becomes a lesson
 
 One pass produces a finished, reviewed, QA'd lesson and leaves the repo in a
-publishable state. The default batch is **three lessons**; the user says when to
-run the next batch.
+publishable state. Work in batches of **two or three**.
+
+**The user is the gate. Nothing ships until they have read it and said so.**
+Author the batch, run every check below, then stop and hand it over. They give
+content feedback, you iterate, they call it good, and only then does it get
+pushed. This is not ceremony — the checks are genuinely unable to close the loop:
+
+- Both reviewers are non-deterministic. Lesson 9's false claim that «هَاتَانِ» is
+  مبني passed `publish` on the authoring run and was caught days later by the
+  identical command. Every lesson in the first sweep had already passed once.
+- The flow reviewer's `register_too_hard` catches real density on a first pass and
+  then drifts into taste. Re-running it on a settled lesson mostly produces
+  suggestions worth declining.
+- Nothing mechanical can weigh continuity across screens, and that is what the
+  user noticed first: a definition that reads harder in isolation was the better
+  line, because it picked up a phrase from the intro screen.
+
+So run the checks to find what a machine can find, bring your own judgement to
+what they report, and let the user settle the rest.
 
 `data/AUTHORING.md` is the content contract — schema, exercise conversion rules,
 tashkeel rules, content guidelines. Read it before drafting. This file is the
@@ -167,8 +184,9 @@ existing lesson alongside the new one rather than judging the number cold.
 
 ## Publishing
 
-`git push` to `main` **is** the production deploy to https://nahw.barada.dev.
-Commit the batch, then push once, at the end — not per lesson.
+**Only after the user has approved the batch.** `git push` to `main` **is** the
+production deploy to https://nahw.barada.dev. Commit as you go, push once, at
+the end — not per lesson, and not before sign-off.
 
 After pushing:
 
@@ -182,6 +200,10 @@ Do not stop at a 200 — see `CLAUDE.md` for why both of those lie on a redeploy
 ## Reporting back
 
 Per lesson, tell the user: which source section it came from and why that slice,
-what was cut and why, what Gemini flagged and what you did about it, and
+what was cut and why, what the reviewers flagged and what you did about it, and
 anything you want a human eye on. Keep it short. Lead with anything you are
 unsure about rather than burying it.
+
+Then say plainly that it is ready for them to read, and wait. Where you changed
+existing wording, show the before and after — that is what makes a judgement
+call cheap for them to make.
