@@ -1,5 +1,9 @@
 @AGENTS.md
 
+**Starting fresh on this project?** Read the "Picking this up" section at the top of
+[`README.md`](./README.md) first. It says what exists, what comes next, and which
+decisions have already been settled.
+
 # nahw — deployment
 
 Nahw is public at **https://nahw.barada.dev**, running on the baradapi Pi (`ssh baradapi`)
