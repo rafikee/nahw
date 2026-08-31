@@ -11,6 +11,12 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # QEMU-emulated arm64 builds crash intermittently ("uncaught target signal 4")
+    # and buildkit then hangs on the dead process rather than failing. One such
+    # hang ran the full 6h GitHub limit before anyone noticed, and a hang means no
+    # image, no Coolify call, and a silently un-deployed commit. Successful builds
+    # take 3-6 minutes, so anything past 20 is that hang. Just re-run it.
+    timeout-minutes: 20
     permissions:
       contents: read
       packages: write
