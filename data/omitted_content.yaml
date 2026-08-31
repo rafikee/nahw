@@ -113,3 +113,14 @@
         on the term. The flow reviewer flagged it as major once it could see the
         screen correctly. The app has no post-concept note step, which is where
         this belongs; restore it if one is ever added.
+
+    - title: "Review question on what words are composed of"
+      source: "data/lesson_1.json (previous) → exercises.review_quiz[0]"
+      content: |
+        مَا الَّذِي يَتَرَكَّبُ مِنَ الْحُرُوفِ الْهِجَائِيَّةِ؟ (What is composed of the
+        letters of the alphabet?)
+      reason: >
+        It tested the word-formation prose that was itself cut from this lesson
+        as front-loaded and dry, so the question outlived its content and asked
+        about something no screen taught. Replaced with a question on الحرف,
+        which the lesson does teach and which the review quiz otherwise skipped.
