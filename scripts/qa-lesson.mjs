@@ -146,6 +146,104 @@ for (const lesson of targets) {
     for (const c of clipped) note("clipped-text", `${label}: “${c}…”`);
   };
 
+  /**
+   * Is a real finger able to hit this control?
+   *
+   * Playwright's click() targets an element directly and scrolls it into view,
+   * so it clicks straight through anything painted on top. That is how a sticky
+   * panel covering the word-sort chips passed QA for nine lessons: nothing was
+   * clipped and nothing overflowed, so every other check was happy. Hit-testing
+   * the centre point is what a tap actually does.
+   */
+  const obstructedBy = async (locator) => {
+    // Deliberately does NOT scroll first. The question is whether the screen
+    // works as presented: a control sitting in view with something painted on
+    // top of it reads as dead, and nothing tells the learner to scroll. Only
+    // obstructions inside <main> count — the fixed footer is page chrome that
+    // scrolling always clears.
+    const box = await locator.boundingBox().catch(() => null);
+    if (!box) return null;
+    const view = await page.locator("main").boundingBox().catch(() => null);
+    if (!view) return null;
+    const x = box.x + box.width / 2;
+    const y = box.y + box.height / 2;
+    // Outside main's visible box means it needs scrolling, not that it is covered.
+    if (y < view.y || y > view.y + view.height) return null;
+    return locator.evaluate(
+      (el, pt) => {
+        const top = document.elementFromPoint(pt.x, pt.y);
+        if (!top) return null;
+        if (el === top || el.contains(top) || top.contains(el)) return null;
+        if (!top.closest("main")) return null;
+        const cls = (top.getAttribute("class") ?? "").split(" ").slice(0, 2).join(".");
+        return `<${top.tagName.toLowerCase()}${cls ? " ." + cls : ""}>`;
+      },
+      { x, y }
+    );
+  };
+
+  const reEscape = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+  /**
+   * Sort every word, by tapping coordinates rather than elements.
+   *
+   * Two things matter here and both were learned the hard way. Playwright's
+   * click() scrolls its target into view first, which shifts the page out from
+   * under an overlay and hides exactly the bug this exists to catch — a finger
+   * does no such thing. And the failure only appears from the second placement
+   * onward, because a bucket grows when a word lands in it, so tapping once and
+   * moving on sees nothing. The real assertion is the outcome: if every tap
+   * landed where it looked like it landed, the sort finishes.
+   */
+  const walkWordSort = async (sort, label) => {
+    await page.evaluate(() => document.querySelector("main")?.scrollTo(0, 0));
+    await page.waitForTimeout(150);
+
+    // Covered-where-it-sits is a bug; below-the-fold is just scrolling. So the
+    // obstruction check runs first, unscrolled, and only for a control whose
+    // centre is inside main's visible box. Then we scroll and tap coordinates.
+    const tapCentre = async (locator, what) => {
+      if ((await locator.count()) === 0) {
+        note("unreachable", `${label}: ${what} is not on screen`);
+        return false;
+      }
+      const blocked = await obstructedBy(locator);
+      if (blocked) {
+        note("unreachable", `${label}: ${what} is covered by ${blocked}`);
+        return false;
+      }
+      await locator.scrollIntoViewIfNeeded().catch(() => {});
+      const box = await locator.boundingBox().catch(() => null);
+      if (!box) {
+        note("unreachable", `${label}: ${what} has no box after scrolling`);
+        return false;
+      }
+      await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+      await page.waitForTimeout(150);
+      return true;
+    };
+
+    for (const entry of sort.words) {
+      const chip = page
+        .locator("main button")
+        .filter({ hasText: new RegExp(`^${reEscape(entry.word)}$`) })
+        .first();
+      if (!(await tapCentre(chip, `chip «${entry.word}»`))) return;
+
+      const cat = sort.categories.find((c) => c.key === entry.category);
+      const bucket = page.locator("main button").filter({ hasText: cat.label }).first();
+      if (!(await tapCentre(bucket, `bucket «${cat.label}»`))) return;
+    }
+
+    const done = await page
+      .getByText("تَمَّ تَصْنِيفُ جَمِيعِ الْكَلِمَاتِ")
+      .isVisible()
+      .catch(() => false);
+    if (!done) {
+      note("sort-stuck", `${label}: tapped all ${sort.words.length} words and the sort never completed`);
+    }
+  };
+
   let step = 0;
   const MAX_STEPS = 60;
   while (step < MAX_STEPS) {
@@ -162,12 +260,32 @@ for (const lesson of targets) {
     await shot(step, label);
 
     // If this step offers choices, answer it so the feedback state renders.
-    const choices = page.locator("main button");
-    const count = await choices.count();
-    if (count > 0) {
-      await choices.first().click();
-      await page.waitForTimeout(400);
+    // Identify the sort by its instruction text, which only that step renders.
+    // Not by `heading` — locator("h1").first() returns the header's step chip
+    // («تَصْنِيفٌ»), not the step body. And not by a category label, because a
+    // review option like «السُّكُونُ وَالضَّمُّ وَالْفَتْحُ» contains all of them.
+    const sort = lesson.exercises?.word_sort;
+    const onSort =
+      !!sort &&
+      (await page
+        .locator("main")
+        .getByText(sort.instruction.trim(), { exact: true })
+        .count()) > 0;
+
+    if (onSort) {
+      await walkWordSort(sort, label);
+      await page.waitForTimeout(300);
       await shot(step, `${label}-answered`);
+    } else {
+      const choices = page.locator("main button");
+      if ((await choices.count()) > 0) {
+        const first = choices.first();
+        const blocked = await obstructedBy(first);
+        if (blocked) note("unreachable", `${label}: first choice is covered by ${blocked}`);
+        await first.click();
+        await page.waitForTimeout(400);
+        await shot(step, `${label}-answered`);
+      }
     }
 
     const next = page.getByRole("button", { name: /التَّالِي|إِنْهَاءُ الدَّرْسِ/ });

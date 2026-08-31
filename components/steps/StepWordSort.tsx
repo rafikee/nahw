@@ -76,13 +76,16 @@ export function StepWordSort({ data }: { data: WordSortExercise }) {
       </div>
 
       {/*
-        Pinned to the bottom of the scrolling area so the drop targets stay
-        reachable however tall the chips are. Entries can be whole sentences
-        (lesson 5 sorts فعلية/اسمية), which made the buckets tall enough to push
-        off screen — you would select a chip and have nothing visible to tap.
-        Capped and internally scrollable so a full bucket cannot take the screen.
+        Normal flow, deliberately. These buckets were once pinned to the bottom
+        of the scroll area so they stayed reachable, but a bucket grows when a
+        word lands in it, so the pinned panel expanded upward and covered the
+        word chips. From the second tap onward the learner was tapping the panel
+        instead of a chip, and the exercise looked frozen. Nothing was clipped or
+        overflowing, so the validator and the QA driver both passed it — and
+        Playwright's click() targets an element directly rather than hit-testing
+        coordinates, so it clicked straight through the overlay a finger cannot.
+        `main` scrolls, empty buckets are compact, so nothing needs pinning.
       */}
-      <div className="sticky -bottom-10 -mx-6 -mb-10 px-6 pt-3 pb-10 bg-page/95 backdrop-blur-sm border-t border-divider/60 max-h-[50vh] overflow-y-auto">
       <div className="grid gap-3">
         {data.categories.map((cat) => {
           const wordsInBucket = placed.filter((p) => p.categoryKey === cat.key);
@@ -131,7 +134,6 @@ export function StepWordSort({ data }: { data: WordSortExercise }) {
             </button>
           );
         })}
-      </div>
       </div>
 
       {isComplete && (
