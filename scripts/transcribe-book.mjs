@@ -17,6 +17,14 @@
  *   node scripts/transcribe-book.mjs 14-40 --volume "الكتاب الأول"
  *
  * Page numbers are PDF page numbers (1-based), not the book's printed numbers.
+ * source-content/page-map.json says what is on every page. Never send more than
+ * 30 pages in one call.
+ *
+ * A transcription is not usable until two more things happen:
+ *   node scripts/lint-transcription.mjs <the new file> --fix
+ *   add the file to the `sources` list in data/coverage.json
+ * Until it is in `sources`, coverage.mjs skips it and its sections are never
+ * proposed as the next lesson.
  */
 
 import { PDFDocument } from "pdf-lib";

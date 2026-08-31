@@ -8,60 +8,33 @@ For the product thesis, audience, and roadmap, see [`INVESTMENT.md`](./INVESTMEN
 
 ## Picking this up
 
-Last worked on 2026-08-30. Everything is committed, pushed, and live at v0.9.0.
+```bash
+node scripts/coverage.mjs    # which book sections are lessons, and what comes next
+```
 
-**What exists:** six lessons, all from الكتاب الأول. The whole four-volume book is
-a scanned PDF at `source-content/nahw-full-book.pdf` (not committed — it is large
-and easy to download again). Pages 9–38 of it have been turned into text at
-`source-content/vol1-009-038.md`. The rest of the book has not been transcribed
-yet.
+That reads the repo, so it is the one place that cannot be wrong. Then run the
+`/lesson` skill — it walks the whole job: pick the slice, draft, validate, get
+both reviewers to sign off, QA in a browser, record the decision.
+[`data/AUTHORING.md`](./data/AUTHORING.md) is the standard it authors against,
+and [`.claude/skills/lesson/SKILL.md`](./.claude/skills/lesson/SKILL.md) is the
+process, including every check a lesson has to pass.
 
-**To write the next lesson:** run the `/lesson` skill. It walks the whole job.
-Start by running `node scripts/coverage.mjs`, which reads a record of which parts
-of the book have already been used and tells you what comes next. Right now that
-is أَنْوَاعُ الْبِنَاءِ.
+To get more of the book into text, use `scripts/transcribe-book.mjs`. Its header
+comment carries the usage, the page limit, and the two steps that have to follow
+a transcription before `coverage.mjs` will see it.
 
-**To get more of the book into text:** `node scripts/transcribe-book.mjs 39-68
---volume "الكتاب الأول" --out source-content/vol1-039-068.md`, then run
-`node scripts/lint-transcription.mjs <that file> --fix`, then add the new file to
-the `sources` list in `data/coverage.json`. Never send more than 30 pages at once.
-`source-content/page-map.json` says what is on every page of the PDF.
+**Deliberately not in this file:** how many lessons exist, which one is next,
+what passes. Every one of those is printed by a command, and a second copy in
+prose is the copy that goes stale. Cut, don't restore, if it creeps back.
 
-**Five checks a lesson has to pass.** Run all of them; they catch different things
-and none of them replaces another.
+Two things no command tracks:
 
-| Command | What it looks for |
-|---|---|
-| `npm run validate` | schema, broken references, missing vowel marks |
-| `node scripts/check-source-anchor.mjs` | writing that did not come from the book |
-| `node scripts/gemini-review.mjs <lesson>` | wrong Arabic, wrong answer keys |
-| `node scripts/review-flow.mjs <lesson>` | repetition, terms used before they are explained, overcrowded screens |
-| `npm run qa:lesson -- <module_id>` | how it actually looks in a browser |
+- The home screen is a single long list of lessons, on purpose. Revisit once all
+  of الكتاب الأول is done and the real lesson count is known.
+- The live database of subscribers, ratings, and events has no backup.
 
-All six lessons currently pass all of them. `npm run build` runs the first check
-on its own, so a lesson with broken data cannot reach the live site.
-
-**Decisions already made, so they do not get re-litigated:**
-
-- The home screen is a single long list of lessons. That is deliberate for now.
-  Revisit it once all of الكتاب الأول is done and we know the real lesson count.
-- Sorting exercises hold 5–8 items, not more.
-- Lesson writing must use the book's own wording. The book opens almost every
-  section with its own one-line summary; use that rather than composing one. This
-  is the mistake that has come up most often.
-- Ask before inventing a new kind of exercise. The app has three today.
-- Gemini runs on the cheaper Flash models by default. Pro works and is one
-  environment variable away when something needs a second opinion.
-
-**Known and not fixed:**
-
-- Lesson 4's explanation of the dual used to mention grammatical cases before any
-  lesson taught them, so those references were removed. Lesson 6 shows that a
-  word's ending changes but never names رفع/نصب/جر; the lesson that names them is
-  أَنْوَاعُ الْإِعْرَابِ, four sections further on. Restore the explanation once that
-  one exists, not before.
-- `middleware.ts` was deleted; nothing replaced it because nothing needed to.
-- The live database of subscribers and ratings still has no backup.
+Content already cut from a lesson, and what it would take to restore it, lives in
+[`data/omitted_content.yaml`](./data/omitted_content.yaml) — not here.
 
 ---
 

@@ -103,6 +103,18 @@
 - lesson: "04 — الْمُفْرَدُ وَالْمُثَنَّى وَالْجَمْعُ"
   items:
 
+    - title: "Case names in the مثنى quick check explanation"
+      source: "data/lesson_4.json (previous) → concepts[1].quick_check.explanation"
+      content: |
+        الْمُثَنَّى يُصَاغُ بِزِيَادَةِ أَلِفٍ وَنُونٍ (فِي حَالَةِ الرَّفْعِ) أَوْ يَاءٍ وَنُونٍ
+        (فِي حَالَةِ النَّصْبِ وَالْجَرِّ) فِي آخِرِ الْمُفْرَدِ.
+      reason: >
+        الرفع and النصب والجر are case names no lesson had taught, and the book's
+        own definition of المثنى gives both forms without them. Restore once
+        أَنْوَاعُ الْإِعْرَابِ is a lesson — that is the section that names the cases.
+        Lesson 6 (الْمَبْنِيُّ وَالْمُعْرَبُ) is not enough: it shows that a word's ending
+        changes but never names what it changes to.
+
     - title: "The collective name جَمْعُ التَّصْحِيحِ"
       source: "data/lesson_4.json (previous) → intro_bonus"
       content: |

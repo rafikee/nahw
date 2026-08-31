@@ -369,6 +369,11 @@ Lesson authoring is JSON-only and does not require color or font-size decisions.
 
 ### Introduction hook
 - One sentence. States the core idea of the lesson.
+- **Take it from the book, do not compose it.** The book opens 20 of its 21 teaching
+  sections with its own boxed one-line rule, set off as a `>` blockquote in the
+  transcription. That line is the hook. Composing a new one is the mistake that has
+  come up most often in this project, and `scripts/check-source-anchor.mjs` exists
+  because of it — it scores this string against the section it claims.
 - Example: "كُلُّ كَلِمَةٍ فِي الْعَرَبِيَّةِ تَنْتَمِي إِلَى نَوْعٍ وَاحِدٍ مِنْ **ثَلَاثَةِ أَنْوَاعٍ** فَقَطْ"
 - Do NOT include "in this lesson we'll learn..." -- that's implied by opening the lesson.
 
