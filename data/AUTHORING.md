@@ -245,12 +245,11 @@ The classification exercise at the end of the lesson.
 | `words` | **5-8 entries.** Each `category` must match a `key` from `categories`. Aim for roughly equal distribution across categories. All entries with full tashkeel. |
 | `instruction` | Full tashkeel. Usually a variation of "classify these words by type." |
 
-**At most three categories.** The bucket row is pinned to the bottom of the scroll
-area so it stays reachable, and a fourth bucket makes that panel tall enough to sit
-on top of the word chips — the learner is asked to sort words they cannot read. No
-validator or QA check catches it, because nothing is clipped or overflowing; it only
-shows up in a screenshot. If a lesson teaches four categories, sort three of them and
-let the fourth be carried by its quick check.
+**Four categories is fine.** There was briefly a three-category cap here, because
+the bucket row was pinned to the bottom of the scroll area and a fourth bucket made
+that panel tall enough to cover the word chips. The buckets are in normal flow now,
+so the cap was removed along with its cause. `qa:lesson` sorts every word and fails
+if a tap cannot land, which is the real check.
 
 **Keep it short.** Four or five taps is enough to show the learner has the rule;
 past that the exercise tests patience rather than understanding. If the textbook
@@ -383,6 +382,30 @@ Lesson authoring is JSON-only and does not require color or font-size decisions.
   because of it — it scores this string against the section it claims.
 - Example: "كُلُّ كَلِمَةٍ فِي الْعَرَبِيَّةِ تَنْتَمِي إِلَى نَوْعٍ وَاحِدٍ مِنْ **ثَلَاثَةِ أَنْوَاعٍ** فَقَطْ"
 - Do NOT include "in this lesson we'll learn..." -- that's implied by opening the lesson.
+
+### Who this is written for
+
+An adult who can read the script and may speak some Arabic at home, but never
+studied grammar and often thinks in another language. The source book was written
+in 1920s Egypt for children who were already fluent and being taught in Arabic —
+its register is not automatically theirs.
+
+So separate two things the "use the book's wording" rule used to run together:
+
+- **What the lesson claims** comes from the book. Rules, examples, sequence,
+  terminology. That is not negotiable and `check-source-anchor.mjs` guards it.
+- **How plainly it is said** is a choice, and the book's register is not the
+  ceiling. `أَفْوَاهِ الْعَارِفِينَ` is beautiful and costs this reader the sentence.
+
+**The book usually says the important things twice** — once as a terse rule, once
+in plainer prose a page later. Take the plainer telling. Lesson 7 originally used
+«الْمَدَارُ فِي ذَلِكَ عَلَى النَّقْلِ … وَأَفْوَاهِ الْعَارِفِينَ» when the same section also
+says «مَعْرِفَةَ ذَلِكَ لَا تَكُونُ بِقَوَاعِدَ نَتَعَلَّمُهَا، وَإِنَّمَا تَكُونُ بِالسَّمَاعِ». Same claim,
+same book, far easier to read. Search the whole section before settling on a
+sentence.
+
+When the book only has the hard version, simplify the connective prose and keep
+every technical term. `review-flow.mjs` checks this as `register_too_hard`.
 
 ### Definitions
 - Prefer the إيضاح (explanation) text over the terse rule. The explanation is more learner-friendly.

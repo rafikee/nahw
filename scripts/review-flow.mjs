@@ -142,6 +142,7 @@ const SCHEMA = {
               "sequence_wrong",
               "exercise_mismatch",
               "weak_payoff",
+              "register_too_hard",
             ],
           },
           problem: { type: "string" },
@@ -178,6 +179,20 @@ re-read easily. Judge only these:
    thing the preceding screen taught, or that is longer than it needs to be to
    prove the learner has the rule.
 7. weak_payoff — a screen that costs a tap but teaches nothing new.
+8. register_too_hard — prose this reader will struggle to *read*, as opposed to
+   struggle to understand. Classical literary idiom, rare vocabulary and dense
+   verbal-noun constructions each cost them the sentence. The grammar terms are
+   the lesson and always stay; it is the connective prose around them that has to
+   be plain. Quote the sentence and offer a plainer wording making the same claim.
+
+<reader>
+An adult who can read the Arabic script and may speak some Arabic at home, but
+has never studied grammar formally and often thinks in another language. Heritage
+speakers, converts, madrasah students, second-generation diaspora. They are
+motivated and not stupid; they are simply not fluent readers of literary Arabic.
+The source book was written in 1920s Egypt for children already fluent and taught
+in Arabic. Its register is not automatically theirs.
+</reader>
 
 Be specific and be sparing. A clean lesson should return few or no findings.
 Set verdict to "ship" only if there are no major findings.
