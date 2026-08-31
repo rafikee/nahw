@@ -8,6 +8,9 @@ import lesson3Data from "./lesson_3.json";
 import lesson4Data from "./lesson_4.json";
 import lesson5Data from "./lesson_5.json";
 import lesson6Data from "./lesson_6.json";
+import lesson7Data from "./lesson_7.json";
+import lesson8Data from "./lesson_8.json";
+import lesson9Data from "./lesson_9.json";
 
 export const LESSONS = [
   lesson1Data, // 01_anwaa_al_kalimat
@@ -16,4 +19,7 @@ export const LESSONS = [
   lesson4Data, // 04_al_mufrad_wal_muthanna_wal_jam
   lesson5Data, // 05_al_kalaam
   lesson6Data, // 06_al_mabni_wal_murab
+  lesson7Data, // 07_anwaa_al_binaa
+  lesson8Data, // 08_al_mabni_min_al_huruf_wal_afaal
+  lesson9Data, // 09_al_asmaa_al_mabniyya
 ] as unknown as Lesson[];

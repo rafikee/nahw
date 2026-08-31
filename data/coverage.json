@@ -60,6 +60,24 @@
       "heading": "الْمَبْنِيُّ وَالْمُعْرَبُ",
       "lesson": "06_al_mabni_wal_murab",
       "note": "Kept on its own rather than merged with أنواع البناء; that section adds four more concepts and would push the lesson past five."
+    },
+    {
+      "file": "source-content/vol1-009-038.md",
+      "heading": "أَنْوَاعُ الْبِنَاءِ",
+      "lesson": "07_anwaa_al_binaa",
+      "note": "Four concepts, one per state. The book gives only three examples each for الضم/الفتح/الكسر — that is the whole closed class, not a shortfall."
+    },
+    {
+      "file": "source-content/vol1-009-038.md",
+      "heading": "أَصْنَافُ الْمَبْنِيَّاتِ",
+      "lesson": "08_al_mabni_min_al_huruf_wal_afaal",
+      "note": "Split across lessons 8 and 9 at the book's own seam: whole word-types (حروف, أفعال) in 8, the closed list of nouns in 9. One 723-word section would have been six concepts. The حرف letter-count taxonomy and the pronoun conjugation tables were cut — see omitted_content.yaml."
+    },
+    {
+      "file": "source-content/vol1-009-038.md",
+      "heading": "أَصْنَافُ الْمَبْنِيَّاتِ",
+      "lesson": "09_al_asmaa_al_mabniyya",
+      "note": "Second half of the split; see the lesson 8 claim."
     }
   ]
 }

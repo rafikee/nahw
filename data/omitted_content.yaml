@@ -160,3 +160,58 @@
         screens verbatim with the answer visible; the two per-concept quick
         checks already test the same thing by application. Exercises 1, 3 and 4
         did convert, and are the review quiz.
+
+- lesson: "07 — أَنْوَاعُ الْبِنَاءِ"
+  items:
+
+    - title: "The imagined dialogue about how one knows لَمْ is built on sukun"
+      source: "source-content/vol1-009-038.md → أَنْوَاعُ الْبِنَاءِ, closing paragraphs"
+      content: |
+        فَإِذَا قَالَ لَكَ قَائِلٌ : بِمَاذَا عَرَفْتَ أَنَّ بِنَاءَ « لَمْ » عَلَى السُّكُونِ ... مع بيت
+        الشاعر : لَمْ أُخْنُ عَهْدًا وَلَمْ أُخْلِفْ وُعُودَا
+      reason: >
+        Two pages of Socratic prose making one point, which the lesson keeps as a
+        single line on the intro screen: these are known by transmission, not by
+        rule. The dialogue form does not survive conversion to screens.
+
+- lesson: "08 — الْمَبْنِيُّ مِنَ الْحُرُوفِ وَالْأَفْعَالِ"
+  items:
+
+    - title: "The five-way classification of حروف by letter count"
+      source: "source-content/vol1-009-038.md → أَصْنَافُ الْمَبْنِيَّاتِ"
+      content: |
+        أَحَادِيَّةٌ، ثُنَائِيَّةٌ، ثُلَاثِيَّةٌ، رُبَاعِيَّةٌ، خُمَاسِيَّةٌ — each with a list of
+        particles and a sentence per particle.
+      reason: >
+        Word-length trivia, the same category cut from lesson 1. It has no bearing
+        on the point the section is making, which is that every حرف is مبني
+        regardless of length. The particles themselves are kept as examples.
+
+    - title: "نون التوكيد and نون الإناث as exceptions to المضارع being معرب"
+      source: "source-content/vol1-009-038.md → أَصْنَافُ الْمَبْنِيَّاتِ"
+      content: |
+        وَالْمُضَارِعُ مُعْرَبٌ إِلَّا إِذَا اتَّصَلَتْ بِهِ نُونُ التَّأْكِيدِ ، أَوْ نُونُ الْإِنَاثِ .
+      reason: >
+        An exception stated in terms of two suffixes no lesson has taught. Teaching
+        it here would put two new terms on a screen whose job is the plain rule.
+        Restore when the مضارع gets a lesson of its own.
+
+- lesson: "09 — الْأَسْمَاءُ الْمَبْنِيَّةُ"
+  items:
+
+    - title: "The الضمائر المتصلة conjugation tables"
+      source: "source-content/vol1-009-038.md → أَصْنَافُ الْمَبْنِيَّاتِ"
+      content: |
+        كَتَبْتُ ، كَتَبْنَا ، كَتَبْتَ … (13 forms) and عَلَّمَنِي كِتَابِي ، عَلَّمَنَا كِتَابُنَا …
+        (12 forms), named الضَّمَائِرُ الْمُتَّصِلَةُ.
+      reason: >
+        Two full paradigm tables. The lesson teaches that pronouns are مبني, which
+        the منفصلة set demonstrates in six examples; the attached set is a
+        conjugation drill and needs a step type the app does not have.
+
+    - title: "Exercise 4 — classify the pronouns in this passage"
+      source: "source-content/vol1-009-038.md → أَصْنَافُ الْمَبْنِيَّاتِ, تَمْرِينٌ"
+      reason: >
+        The "classify what you find in this passage" pattern, already logged as
+        dropped for earlier lessons — it needs a step type that marks up running
+        text. Three of its words were lifted into review questions instead.

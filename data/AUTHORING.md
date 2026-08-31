@@ -245,6 +245,13 @@ The classification exercise at the end of the lesson.
 | `words` | **5-8 entries.** Each `category` must match a `key` from `categories`. Aim for roughly equal distribution across categories. All entries with full tashkeel. |
 | `instruction` | Full tashkeel. Usually a variation of "classify these words by type." |
 
+**At most three categories.** The bucket row is pinned to the bottom of the scroll
+area so it stays reachable, and a fourth bucket makes that panel tall enough to sit
+on top of the word chips — the learner is asked to sort words they cannot read. No
+validator or QA check catches it, because nothing is clipped or overflowing; it only
+shows up in a screenshot. If a lesson teaches four categories, sort three of them and
+let the fourth be carried by its quick check.
+
 **Keep it short.** Four or five taps is enough to show the learner has the rule;
 past that the exercise tests patience rather than understanding. If the textbook
 exercise offers fifteen items, pick the clearest five or six and vary them — a
