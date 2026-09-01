@@ -416,6 +416,17 @@ every technical term. `review-flow.mjs` checks this as `register_too_hard`.
 - For verb examples, include different patterns (3-letter, 4-letter roots) and different tenses if relevant.
 - For noun examples, mix people, animals, plants, objects.
 
+### Content cut because it depends on a later lesson
+
+Log it, then leave it. When a later lesson arrives and teaches the missing piece,
+that is not a debt to repay by editing the earlier lesson — it is the curriculum
+finding its shape. Retrofitting makes an early lesson depend on a late one, which
+is the wrong direction for someone walking the course in order.
+
+Lesson 4 lost «فِي حَالَةِ الرَّفْعِ» from its dual explanation, and lesson 11 now
+teaches exactly that. Lesson 4 stays as it is: it teaches what the dual looks
+like, lesson 11 teaches when each form is used.
+
 ### What to omit
 - Verbose preamble text ("as we learned before...", "you already know that...")
 - Word-length trivia (how many letters in a word)

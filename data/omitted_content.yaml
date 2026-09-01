@@ -110,10 +110,13 @@
         (فِي حَالَةِ النَّصْبِ وَالْجَرِّ) فِي آخِرِ الْمُفْرَدِ.
       reason: >
         الرفع and النصب والجر are case names no lesson had taught, and the book's
-        own definition of المثنى gives both forms without them. Restore once
-        أَنْوَاعُ الْإِعْرَابِ is a lesson — that is the section that names the cases.
-        Lesson 6 (الْمَبْنِيُّ وَالْمُعْرَبُ) is not enough: it shows that a word's ending
-        changes but never names what it changes to.
+        own definition of المثنى gives both forms without them.
+
+        **Not to be restored.** Lesson 11 (إِعْرَابُ الْمُثَنَّى وَالْجَمْعِ السَّالِمِ) now
+        teaches exactly when each form is used. Putting the cases back into lesson
+        4 would make the fourth lesson a learner meets depend on the eleventh. The
+        split is the right one: lesson 4 teaches what the dual looks like, lesson
+        11 teaches when you use which.
 
     - title: "The collective name جَمْعُ التَّصْحِيحِ"
       source: "data/lesson_4.json (previous) → intro_bonus"
@@ -227,8 +230,11 @@
         lists them under those categories without flagging the exception at this
         point, and a quick-check explanation here stated outright that they were
         مبني, which was simply wrong and shipped that way. Caught by
-        gemini-review. Restore them together with the exception once إعرابُ
-        المثنى is taught, which is إِعْرَابُ الْمُثَنَّى وَالْجَمْعِ السَّالِمِ.
+        gemini-review.
+
+        **Not to be restored.** Lesson 9's job is the closed list of indeclinable
+        nouns; the exception muddies it. Lesson 11 teaches how المثنى declines and
+        is the place for these forms if they are ever wanted.
 
 - lesson: "10 — أَنْوَاعُ الْإِعْرَابِ"
   items:
