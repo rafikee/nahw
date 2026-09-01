@@ -72,12 +72,14 @@ function renderSteps(l) {
   let n = 1;
   for (const c of l.concepts) {
     n++;
-    const pairs = c.example_pairs?.length
+    // StepConcept renders pairs *instead of* the flat list, never both. Printing
+    // both here shows the reviewer a screen the learner never sees, and it duly
+    // reported one as overloaded for carrying two lists of the same verbs.
+    const shown = c.example_pairs?.length
       ? `\nPAIRS: ${c.example_pairs.map((p) => `${p.from} → ${p.to}`).join(" ، ")}`
-      : "";
+      : `\nEXAMPLES: ${c.examples.join(" ، ")}`;
     steps.push(
-      `SCREEN ${n} (concept)\nNAME: ${c.type}\nDEFINITION: ${c.definition}` +
-        `\nEXAMPLES: ${c.examples.join(" ، ")}${pairs}`
+      `SCREEN ${n} (concept)\nNAME: ${c.type}\nDEFINITION: ${c.definition}${shown}`
     );
     n++;
     steps.push(

@@ -2,17 +2,13 @@
 
 import Image from "next/image";
 import { LEVELS, getLesson } from "@/data/course";
+import { lessonOrdinal } from "@/lib/ordinals";
 import { EmailCapture } from "@/components/ui/EmailCapture";
 
 interface HomeScreenProps {
   onSelectLesson: (levelId: string, lessonId: string) => void;
   onOpenSettings: () => void;
 }
-
-const ARABIC_ORDINALS = [
-  "الْأَوَّلُ", "الثَّانِي", "الثَّالِثُ", "الرَّابِعُ", "الْخَامِسُ",
-  "السَّادِسُ", "السَّابِعُ", "الثَّامِنُ", "التَّاسِعُ", "الْعَاشِرُ",
-];
 
 const LEVEL_ORDINALS = [
   "الْأَوَّلُ", "الثَّانِي", "الثَّالِثُ", "الرَّابِعُ",
@@ -76,7 +72,7 @@ export function HomeScreen({ onSelectLesson, onOpenSettings }: HomeScreenProps) 
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="type-body text-muted font-semibold">
-                        الدَّرْسُ {ARABIC_ORDINALS[lessonIdx] ?? lessonIdx + 1}
+                        الدَّرْسُ {lessonOrdinal(lessonIdx + 1)}
                       </p>
                       <p className="type-body-lg font-bold text-heading truncate">
                         {lesson.title}

@@ -229,3 +229,42 @@
         مبني, which was simply wrong and shipped that way. Caught by
         gemini-review. Restore them together with the exception once إعرابُ
         المثنى is taught, which is إِعْرَابُ الْمُثَنَّى وَالْجَمْعِ السَّالِمِ.
+
+- lesson: "10 — أَنْوَاعُ الْإِعْرَابِ"
+  items:
+
+    - title: "The term «عَلَامَاتُ الْإِعْرَابِ الْأَصْلِيَّةُ»"
+      source: "source-content/vol1-009-038.md → أَنْوَاعُ الْإِعْرَابِ"
+      reason: >
+        The book names the four harakat collectively. A review question tested the
+        term and the flow reviewer flagged it as never taught, which was right —
+        adding it to the intro screen would have meant naming a fifth thing on a
+        screen already previewing four concepts. Lesson 11 gets by with the
+        concrete «تَنُوبُ عَنِ الضَّمَّةِ وَالْفَتْحَةِ وَالْكَسْرَةِ» instead. Restore if a
+        later lesson needs the term as a contrast to «فَرْعِيَّة».
+
+- lesson: "12 — إِعْرَابُ الْفِعْلِ الْمُعْتَلِّ"
+  items:
+
+    - title: "رفع and نصب of the معتل, and the تقدير that governs them"
+      source: "source-content/vol1-009-038.md → إِعْرَابُ الْفِعْلِ الْمُعْتَلِّ"
+      content: |
+        أَمَّا نَصْبُهُ وَرَفْعُهُ فَبِالْعَلَامَتَيْنِ الْأَصْلِيَّتَيْنِ … إِلَّا أَنَّ الْفَتْحَةَ تُقَدَّرُ عَلَى
+        الْأَلِفِ لِتَعَذُّرِ تَحْرِيكِهَا … وَالضَّمَّةُ تُقَدَّرُ … عَلَى الْوَاوِ وَالْيَاءِ لِلثِّقَلِ.
+      reason: >
+        An estimated vowel you cannot see is a harder idea than everything else in
+        this lesson, and it rests on تعذر and ثقل, neither of which has been
+        taught. The jazm rule is visible on the page — the letter is simply gone —
+        so the lesson keeps that and stops. Restore when there is a lesson that can
+        carry تقدير properly.
+
+    - title: "Two suspected OCR errors in the source, avoided rather than reproduced"
+      source: "source-content/vol1-009-038.md → إِعْرَابُ الْفِعْلِ الْمُعْتَلِّ"
+      content: |
+        «يَشْمُو» in the list of واو-final verbs is almost certainly «يَسْمُو», and
+        «وَلَمْ يَزْمُ» in the jazm list does not correspond to any verb in the
+        preceding list — probably «وَلَمْ يَرْمِ», which already appears.
+      reason: >
+        Flagged rather than silently corrected, per the authoring rule. Neither
+        word is used in the lesson; the examples come from the unambiguous verbs
+        in the same lists.

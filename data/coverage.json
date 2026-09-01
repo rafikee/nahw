@@ -78,6 +78,23 @@
       "heading": "أَصْنَافُ الْمَبْنِيَّاتِ",
       "lesson": "09_al_asmaa_al_mabniyya",
       "note": "Second half of the split; see the lesson 8 claim."
+    },
+    {
+      "file": "source-content/vol1-009-038.md",
+      "heading": "أَنْوَاعُ الْإِعْرَابِ",
+      "lesson": "10_anwaa_al_irab",
+      "note": "Four concepts, one per type. Examples reuse lesson 6's «السماء» in its three states, which showed the endings changing before anything named them."
+    },
+    {
+      "file": "source-content/vol1-009-038.md",
+      "heading": "إِعْرَابُ الْمُثَنَّى وَالْجَمْعِ السَّالِمِ",
+      "lesson": "11_irab_al_muthanna_wal_jam"
+    },
+    {
+      "file": "source-content/vol1-009-038.md",
+      "heading": "إِعْرَابُ الْفِعْلِ الْمُعْتَلِّ",
+      "lesson": "12_irab_al_fil_al_mutall",
+      "note": "The تقدير discussion (رفع and نصب estimated on the weak letter لتعذر/للثقل) was cut — see omitted_content.yaml. Two OCR errors in the section were avoided rather than reproduced."
     }
   ]
 }

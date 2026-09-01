@@ -21,6 +21,9 @@ export const LEVELS: LevelMeta[] = [
       "07_anwaa_al_binaa",
       "08_al_mabni_min_al_huruf_wal_afaal",
       "09_al_asmaa_al_mabniyya",
+      "10_anwaa_al_irab",
+      "11_irab_al_muthanna_wal_jam",
+      "12_irab_al_fil_al_mutall",
     ],
   },
 ];

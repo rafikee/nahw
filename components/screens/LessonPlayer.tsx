@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect, useCallback } from "react";
 import type { Lesson } from "@/types/lesson";
+import { lessonOrdinal } from "@/lib/ordinals";
 import { StepLessonIntro } from "@/components/steps/StepLessonIntro";
 import { StepConcept } from "@/components/steps/StepConcept";
 import { StepQuickCheck } from "@/components/steps/StepQuickCheck";
@@ -37,11 +38,6 @@ function getStepLabel(view: StepView, lesson: Lesson): string {
   if (view.type === "lesson_review_quiz") return "مُرَاجَعَةٌ";
   return "تَصْنِيفٌ";
 }
-
-const ARABIC_ORDINALS = [
-  "الْأَوَّلُ", "الثَّانِي", "الثَّالِثُ", "الرَّابِعُ", "الْخَامِسُ",
-  "السَّادِسُ", "السَّابِعُ", "الثَّامِنُ", "التَّاسِعُ", "الْعَاشِرُ",
-];
 
 interface LessonPlayerProps {
   lesson: Lesson;
@@ -118,7 +114,7 @@ export function LessonPlayer({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [goNext, goPrev]);
 
-  const lessonLabel = `الدَّرْسُ ${ARABIC_ORDINALS[lessonNumber - 1] ?? lessonNumber}`;
+  const lessonLabel = `الدَّرْسُ ${lessonOrdinal(lessonNumber)}`;
   const stepLabel = getStepLabel(current, lesson);
 
   return (
