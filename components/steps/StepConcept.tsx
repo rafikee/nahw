@@ -71,11 +71,13 @@ function PairedExamples({
   pairs,
   fromLabel,
   toLabel,
+  relation,
   theme,
 }: {
   pairs: ExamplePair[];
   fromLabel?: string;
   toLabel?: string;
+  relation?: Concept["pair_relation"];
   theme: Theme;
 }) {
   const showHeaders = !!fromLabel || !!toLabel;
@@ -98,7 +100,11 @@ function PairedExamples({
       {pairs.map((pair, i) => (
         <div key={i} className={rowClass}>
           <span className={chipClass}>{pair.from}</span>
-          <span aria-hidden="true" className="type-body-lg text-faint">←</span>
+          {relation === "states" ? (
+            <span aria-hidden="true" className="w-4" />
+          ) : (
+            <span aria-hidden="true" className="type-body-lg text-faint">←</span>
+          )}
           <span className={chipClass}>{pair.to}</span>
         </div>
       ))}
@@ -138,6 +144,7 @@ export function StepConcept({ concept, conceptIndex }: { concept: Concept; conce
             pairs={concept.example_pairs!}
             fromLabel={concept.pair_from_label}
             toLabel={toLabel}
+            relation={concept.pair_relation}
             theme={theme}
           />
         ) : (

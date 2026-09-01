@@ -24,6 +24,15 @@ export interface Concept {
   example_pairs?: ExamplePair[];
   pair_from_label?: string;
   pair_to_label?: string;
+  /**
+   * What the two columns are to each other.
+   *
+   * `derivation` (the default) draws an arrow: one form is made from the other,
+   * as مؤنث from مذكر or a jazm'd verb from its مضارع. `states` draws no arrow —
+   * the same word wearing two cases, like رَجُلَانِ and رَجُلَيْنِ, where neither
+   * comes from the other and an arrow invents a direction that is not there.
+   */
+  pair_relation?: "derivation" | "states";
   group?: string;
   group_title?: string;
   spot_the_word?: SpotTheWord;

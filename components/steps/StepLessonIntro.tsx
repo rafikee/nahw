@@ -12,18 +12,18 @@ function ConceptCard({
 }) {
   return (
     <div
-      className={`rounded-2xl border border-divider border-t-4 border-t-primary bg-surface flex flex-col items-center justify-center gap-1 px-3 ${
-        small ? "py-3" : "py-5"
+      className={`rounded-2xl border border-divider border-r-4 border-r-primary bg-surface flex items-baseline justify-between gap-3 px-4 ${
+        small ? "py-2.5" : "py-3.5"
       }`}
       style={{ boxShadow: "0 2px 8px var(--theme-primary-soft)" }}
     >
       <span
-        className={`${small ? "type-body-lg" : "type-title"} font-bold text-heading text-center`}
+        className={`${small ? "type-body-lg" : "type-title"} font-bold text-heading`}
       >
         {label}
       </span>
       {hint && (
-        <span className="type-body text-muted text-center leading-snug">
+        <span className="type-body text-muted leading-snug text-left shrink-0">
           {hint}
         </span>
       )}
@@ -103,12 +103,7 @@ export function StepLessonIntro({ lesson }: { lesson: Lesson }) {
       */}
       {!lesson.intro_detail && (hasGroups ? (
         <div className="space-y-4">
-          <div
-            className={`grid gap-3`}
-            style={{
-              gridTemplateColumns: `repeat(${topLevelItems.length}, minmax(0, 1fr))`,
-            }}
-          >
+          <div className="grid gap-2.5">
             {topLevelItems.map((item) => (
               <ConceptCard key={item.label} label={item.label} hint={item.hint} />
             ))}
@@ -116,14 +111,11 @@ export function StepLessonIntro({ lesson }: { lesson: Lesson }) {
 
         </div>
       ) : (
-        <div
-          className="grid gap-3"
-          style={{
-            // Fit the column count to the lesson, so a two-concept lesson does
-            // not render a phantom third column.
-            gridTemplateColumns: `repeat(${Math.min(lesson.concepts.length, 3)}, minmax(0, 1fr))`,
-          }}
-        >
+        // One card per row. Side by side, every card was forced to the height of
+        // the tallest, and a name like «جَمْعُ الْمُؤَنَّثِ السَّالِمُ» broke one word per
+        // line while «الْمُثَنَّى» sat on one — a very tall row of mostly whitespace.
+        // A full-width row fits any concept name on a single line.
+        <div className="grid gap-2.5">
           {lesson.concepts.map((concept) => (
             <ConceptCard
               key={concept.type}

@@ -216,19 +216,33 @@ export function LessonPlayer({
             <p className="type-body font-medium text-label max-h-32 overflow-y-auto">
               <RichText text={verdict.explanation} />
             </p>
-            <button
-              onClick={goNext}
-              className={`w-full flex items-center justify-center gap-2 rounded-lg py-2 type-compact font-bold text-on-primary active:scale-[0.98] transition-all duration-150 shadow-sm ${
-                verdict.correct
-                  ? "bg-success-strong hover:bg-success-strong-hover"
-                  : "bg-danger-strong hover:bg-danger-strong-hover"
-              }`}
-            >
-              {isLast ? "إِنْهَاءُ الدَّرْسِ" : "التَّالِي"}
-              {!isLast && (
-                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-              )}
-            </button>
+            {/* Answering used to replace the whole footer with a single forward
+                button, so the way back vanished the moment you committed to an
+                answer. The verdict is kept when you return — re-answering a
+                question you already got wrong teaches nothing. */}
+            <div className="flex items-stretch gap-2">
+              <button
+                onClick={goPrev}
+                disabled={!canGoBack}
+                className="shrink-0 flex items-center gap-1.5 rounded-lg border border-divider-strong bg-surface/70 px-3 py-2 type-compact font-semibold text-muted hover:bg-surface-hover transition-all disabled:opacity-20 disabled:pointer-events-none"
+              >
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                السَّابِقُ
+              </button>
+              <button
+                onClick={goNext}
+                className={`flex-1 flex items-center justify-center gap-2 rounded-lg py-2 type-compact font-bold text-on-primary active:scale-[0.98] transition-all duration-150 shadow-sm ${
+                  verdict.correct
+                    ? "bg-success-strong hover:bg-success-strong-hover"
+                    : "bg-danger-strong hover:bg-danger-strong-hover"
+                }`}
+              >
+                {isLast ? "إِنْهَاءُ الدَّرْسِ" : "التَّالِي"}
+                {!isLast && (
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                )}
+              </button>
+            </div>
           </div>
         ) : (
         <div className="flex items-stretch gap-2">
