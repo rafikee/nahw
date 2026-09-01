@@ -1,6 +1,6 @@
 ---
 name: lesson
-description: Author the next lesson(s) for the nahw Arabic grammar app — pick the next slice of the source book, draft the lesson JSON, validate it mechanically, get it reviewed by Gemini, QA it in a real browser, and publish. Use when the user types /lesson, or says things like "add the next lesson", "do the next few lessons", "keep going through the book", "build lesson 5". Batches of two or three, and the user reads and approves every batch before it is pushed.
+description: Author the next lesson(s) for the nahw Arabic grammar app — pick the next slice of the source book, draft the lesson JSON, validate it mechanically, get it reviewed by Gemini, QA it in a real browser, and publish. Use when the user types /lesson, or says things like "add the next lesson", "do the next few lessons", "keep going through the book", "build lesson 5". Batches of two or three, pushed as soon as the checks pass so the user can read them live, then iterated on their feedback.
 ---
 
 # lesson — the next slice of the book becomes a lesson
@@ -8,10 +8,12 @@ description: Author the next lesson(s) for the nahw Arabic grammar app — pick 
 One pass produces a finished, reviewed, QA'd lesson and leaves the repo in a
 publishable state. Work in batches of **two or three**.
 
-**The user is the gate. Nothing ships until they have read it and said so.**
-Author the batch, run every check below, then stop and hand it over. They give
-content feedback, you iterate, they call it good, and only then does it get
-pushed. This is not ceremony — the checks are genuinely unable to close the loop:
+**Push the batch, then hand it to the user to read.** Deploying is how they
+review — they read it on a phone, and the live site is the only place that
+exists. Their "looks good" ends the iteration; it is not a precondition for
+deploying. Keep iterating on their feedback until they call it done.
+
+The review itself is not ceremony. The checks genuinely cannot close the loop:
 
 - Both reviewers are non-deterministic. Lesson 9's false claim that «هَاتَانِ» is
   مبني passed `publish` on the authoring run and was caught days later by the
@@ -184,9 +186,9 @@ existing lesson alongside the new one rather than judging the number cold.
 
 ## Publishing
 
-**Only after the user has approved the batch.** `git push` to `main` **is** the
-production deploy to https://nahw.barada.dev. Commit as you go, push once, at
-the end — not per lesson, and not before sign-off.
+`git push` to `main` **is** the production deploy to https://nahw.barada.dev.
+Commit as you go, push once at the end of the batch, not per lesson. Push as
+soon as the checks pass — the user cannot review what is not deployed.
 
 After pushing:
 
@@ -204,6 +206,6 @@ what was cut and why, what the reviewers flagged and what you did about it, and
 anything you want a human eye on. Keep it short. Lead with anything you are
 unsure about rather than burying it.
 
-Then say plainly that it is ready for them to read, and wait. Where you changed
+Then tell them it is live and what to look at, and wait. Where you changed
 existing wording, show the before and after — that is what makes a judgement
 call cheap for them to make.
